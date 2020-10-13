@@ -1,3 +1,4 @@
+/* Dit is de roze balk bovenaan de pagina */
 ul {
     list-style-type: none;
     margin: 0;
@@ -6,10 +7,12 @@ ul {
     background-color: crimson;
 }
 
+/* Dit is de menubalk */
 li {
     float: right;
 }
 
+/* Dit zijn de list items(menu items) uit de menubalk */
 li a {
     display: block;
     color: white;
@@ -18,10 +21,12 @@ li a {
     text-decoration: none;
 }
 
+/* Dit is de opmaak van de list items(menu items) als je eroverheen hovert */
 li a:hover {
     background-color: orange;
 }
 
+/* Dit is het gele blok in het midden waar de tekst gaat komen */
 article {
     float: right;
     padding: 90px;
@@ -30,6 +35,7 @@ article {
     height: 500px;
 }
 
+/* Dit is het grijze balkje helemaal onderaan met de copyright */
 footer {
     background-color: #777;
     padding: 10px;
