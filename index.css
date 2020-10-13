@@ -21,3 +21,18 @@ li a {
 li a:hover {
     background-color: orange;
 }
+
+article {
+    float: right;
+    padding: 55px;
+    width: 80%;
+    background-color: lemonchiffon;
+    height: 620px;
+}
+
+footer {
+    background-color: #777;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
