@@ -24,10 +24,10 @@ li a:hover {
 
 article {
     float: right;
-    padding: 55px;
-    width: 80%;
+    padding: 90px;
+    width: 75%;
     background-color: lemonchiffon;
-    height: 620px;
+    height: 500px;
 }
 
 footer {
