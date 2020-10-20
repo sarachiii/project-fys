@@ -97,8 +97,9 @@ ul{
      font-family: 'Sansita Swashed', cursive;
  }
 
+ /* Strand plaatje */
 .backdrop{
-    width: 100%
+    width: 100%;
 }
 
 .signup{
