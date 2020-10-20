@@ -1,0 +1,16 @@
+.profiel_container{
+    display: flex;
+}
+.profielfoto{
+    width: 20%;
+    margin: 5%;
+}
+
+.profielvak{
+    border-style: outset;
+    flex-grow: 1;
+}
+
+.button{
+    margin-bottom: 0;
+}

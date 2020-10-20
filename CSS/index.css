@@ -1,10 +1,9 @@
-
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.topnav {
+.topnav{
     background-color: #ff5768;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -58,7 +57,7 @@ ul{
     font-weight: bold;
 }
 
-/*The four images in the middle of the page.*/
+/* Vier plaatjes midden op de pagina.*/
 .destinations{
     margin-left: 300px;
 }
@@ -107,4 +106,15 @@ ul{
     height: 300px;
     margin-top: 500px;
     background-color: black;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    width: 100%;
+    background-color: #ff5768;
+    color: white;
+    text-align: center;
 }
