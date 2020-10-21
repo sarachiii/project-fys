@@ -1,9 +1,11 @@
+
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    overflow-y: hidden;
 }
 
-.topnav{
+.topnav {
     background-color: #ff5768;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -57,7 +59,7 @@ ul{
     font-weight: bold;
 }
 
-/* Vier plaatjes midden op de pagina.*/
+/*The four images in the middle of the page.*/
 .destinations{
     margin-left: 300px;
 }
@@ -90,25 +92,24 @@ ul{
     right: 0;
     height: 290px;
     transform: skewY(356deg);
-}a
-
- .tounscew{
-     color: deeppink;
-     font-family: 'Sansita Swashed', cursive;
- }
-
-.backdrop{
-    width: 100%
 }
 
+.tounscew{
+    width: 100%;
+}
+
+.suntext{
+    color: #f0415f;
+    font-family: 'Sansita Swashed', cursive;
+    margin-left: 20px;
+}
+
+
+
 .signup{
-    width: 300px;
-    height: 300px;
-    margin-top: 500px;
-    background-color: black;
     position: absolute;
     right: 100px;
-    top: 490px;
+    top: 460px;
     width: 500px;
     height: 450px;
     background-color: rgba(255,255,255,0.75);
@@ -116,6 +117,7 @@ ul{
     border: 5px solid white;
     text-align: center;
     font-size: 30px;
+
 }
 
 .register{
@@ -124,7 +126,7 @@ ul{
     bottom: 40px;
     background-color: #ff6269;
     color: white;
-    border: 5px lightcoral;
+    border: 5px solid lightcoral;
     padding: 20px 20px;
     text-align: center;
     display: inline-block;
@@ -133,7 +135,6 @@ ul{
     width: 300px;
     border-radius: 20px;
     transition-duration: 0.4s;
-    -webkit-appearance: none;
 }
 
 .register:hover{
@@ -151,7 +152,7 @@ ul{
 }
 
 .footer{
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     height: 40px;
