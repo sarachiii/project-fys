@@ -97,10 +97,16 @@ ul{
     width: 100%;
 }
 
+<<<<<<< HEAD
 .suntext{
     color: #f0415f;
     font-family: 'Sansita Swashed', cursive;
     margin-left: 20px;
+=======
+ /* Strand plaatje */
+.backdrop{
+    width: 100%;
+>>>>>>> 4459419f19bff5000602d27386c7ea1df032d8fc
 }
 
 
