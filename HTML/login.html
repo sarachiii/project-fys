@@ -6,7 +6,7 @@
     <link href="../CSS/index.css" rel="stylesheet">
     <link href="../CSS/login.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap" rel="stylesheet">
-
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -19,17 +19,35 @@
         <li><em class="koptekst">Match. Chat. Travel.</em></li>
     </ul>
     <ul class="navlist">
-        <li><a href="profiel.html">Profiel</a></li>
-        <li><a href="match.html">Matching</a></li>
-        <li><a href="over.html">Over</a></li>
-        <li><a class="active" href="index.html">Log uit</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="over_simpel.html">Over</a></li>
+        <li><a class="active" href="login.html">Login</a></li>
     </ul>
-
 </nav>
 
-<div class="footer">
-    <p> <a href="faq.html">FAQ</a> * <a href="contact.html">Contact</a> * Copyright &copy; 2020 ATOS. All Rights Reserved.</p>
-</div>
+<form>
+    <div class="form-group">
+        <div class="col-2">
+        <label for="exampleInputEmail1">Gebruikersnaam</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Voor gebruikersnaam in">
 
+
+
+        <label for="exampleInputPassword1">Wachtwoord</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Voer wachtwoord in">
+        </div>
+        </div>
+    </div>
+    <div class="col-1">
+        <a href="match.html" class="btn btn-info" role="button">Log in</a>
+    </div>
+
+
+
+</form>
+
+<div class="footer">
+    <p> <a href="faq_simpel.html">FAQ</a> * <a href="contact.html">Contact</a> * Copyright &copy; 2020 ATOS. All Rights Reserved.</p>
+</div>
 </body>
 </html>
