@@ -1,16 +1,9 @@
-.profiel_container{
-    display: flex;
-}
-.profielfoto{
-    width: 20%;
-    margin: 5%;
+#About{
+    margin-top: 50px;
 }
 
-.profielvak{
-    border-style: outset;
-    flex-grow: 1;
-}
-
-.button{
-    margin-bottom: 0;
+.button_wijzig{
+    margin-left:30px;
+    margin-top: 10px;
+    margin-bottom: 40px;
 }
