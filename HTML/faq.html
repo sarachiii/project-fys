@@ -6,10 +6,11 @@
     <link href="../CSS/index.css" rel="stylesheet">
     <link href="../CSS/faq.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </head>
 <body>
-
 <nav class="topnav">
 
     <ul>
@@ -24,11 +25,88 @@
         <li><a href="over.html">Over</a></li>
         <li><a href="index.html">Log uit</a></li>
     </ul>
-
 </nav>
-<h1>FAQ</h1>
-<div class="footer">
-    <p> <a href="faq.html">FAQ</a> * <a href="contact.html">Contact</a> * Copyright &copy; 2020 ATOS. All Rights Reserved.</p>
+<!-- FAQ blok -->
+<h1>Frequently Asked Questions</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Hoe wordt ik met iemand gematcht?
+                            </button>
+                        </h2>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            Er wordt gekeken naar je gemeenschappelijke interesses en naar je reisbestemming.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Mag ik zelf kiezen met wie ik gematch wil worden?
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            Wij gaan voor jou een top 10 aan matches laten zien, maar mocht daar niemand tussen zitten waarmee je op reis zou willen dan kan je ook zelf filteren.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Hoe kom ik met iemand in contact?
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="card-body">
+                            Als je op het profiel van de desbetreffende persoon klikt moet je op de knop "Match mij!" klikken, zodra de andere jouw match accepteerd krijg je van ons een mailtje waarin de contact gegevens van de persoon staan.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+
+        </div>
+    </div>
 </div>
+
+<!-- Footer -->
+<footer>
+    <div class="container-fluid padding">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <H4><a href="faq_simpel.html">FAQ</a></H4>
+                <hr class="light">
+                <p>Copyright &copy; 2020 ATOS. All Rights Reserved.</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Contact</h4>
+                <hr class="light">
+                <p>020-346856264</p>
+                <p>budgetbuddy@corendon.nl</p>
+            </div>
+            <div class="col-md-4">
+                <h4>Adres</h4>
+                <hr class="light">
+                <p>Amsterdam, Noord-Holland, 1066XX</p>
+                <p>Amsterdamsesteeg 110</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
 </body>
 </html>
