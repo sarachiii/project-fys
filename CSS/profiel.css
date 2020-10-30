@@ -1,9 +1,13 @@
 #About{
-    margin-top: 50px;
+    margin-top: 0px;
 }
 
 .button_wijzig{
     margin-left:30px;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-bottom: 40px;
+}
+
+.media{
+    margin-top: 50px;
 }
