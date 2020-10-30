@@ -27,23 +27,130 @@
                 <a href="index.html"><img src="../Plaatjes/logo.png" alt="Logo" class="logo" style="width:100px; height:50px;"></a>
             </ul>
         </nav>
+        <br>
     </header>
+
 </div>
 <div id="wrapper">
-    <div id="reclame" style="display: inline-block">
-        <a href="https://corendon.nl"><img src="../Plaatjes/reclame.png" alt="Corendon-reclamebanner" width="199px"></a>
+    <!-- div id="reclame" style="display: inline-block">
+        <a href="https://corendon.nl"><img src="../Plaatjes/reclame.png" alt="Corendon-reclamebanner"></a>
     </div>
-    <div id="form" style="display: inline-block">
-        <form action="##.html" method="POST">
-            <label>
-                <input class="" type="submit" value="Registreer">
+    <div id="form" style="display: inline-block" -->
+        <!-- form action nog invoegen -->
+    <h3>Personalia</h3>
+    <form action="#" method="POST">
+            <div class="form-group">
+                <label for="firstName">Voornaam</label>
+                <input type="text" class="form-control" id="firstName" placeholder="Voornaam" required>
+            <!-- div class="invalid-feedback" nog invoegen -->
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="lastName">Achternaam</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Achternaam" required>
+            <!-- div class="invalid-feedback" nog invoegen -->
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="profielfoto">Upload hier uw profielfoto</label>
+                <input type="file" class="form-control" id="profielfoto" name="profielfoto" accept="image/png, image/jpeg">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="man">Selecteer uw gender:</label>
+                <br>
+                <div class="man">
+                <input type="radio" id="man" class="input" name="gender" value="man">
+                    <label for="man">Man</label>
+                </div>
+                <div class="vrouw">
+                    <input type="radio" id="vrouw" name="gender" value="vrouw">
+                    <label for="vrouw">Vrouw</label>
+                </div>
+                <div class="anders">
+                    <input type="radio" id="anders" name="gender" value="anders">
+                    <label for="anders">Anders</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="geboortedatum">Geboortedatum</label>
+                <br>
+                <input type="date" id="geboortedatum" name="geboortedatum" value="2002-12-31" min="1900-01-01" max="2002-12-31" required>
+            </div>
+            <div class="form-group">
+                <label for="woonplaats">Woonplaats</label>
+                <br>
+                <select id="woonplaats" name="woonplaats">
+                    <option value="blankwoonplaats"> </option>
+                    <option value="drenthe">Drenthe</option>
+                    <option value="flevoland">Flevoland</option>
+                    <option value="friesland">Friesland</option>
+                    <option value="gelderland">Gelderland</option>
+                    <option value="groningen">Groningen</option>
+                    <option value="limburg">Limburg</option>
+                    <option value="noordbrabant">Noord-Brabant</option>
+                    <option value="noordholland">Noord-Holland</option>
+                    <option value="overijssel">Overijssel</option>
+                    <option value="utrecht">Utrecht</option>
+                    <option value="zeeland">Zeeland</option>
+                    <option value="zuidholland">Zuid-Holland</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <!-- Hier nog iets over hobby's??? -->
+            </div>
+            <br>
+            <h3>Reis</h3>
+            <div class="form-group">
+                <label for="budget">Reisbudget</label>
+                <br>
+                <input type="number" id="budget" name="budget" step="50" placeholder="€">
+            </div>
+            <div class="form-group">
+                <label for="reisbestemming">Reisbestemming</label>
+                <br>
+                <select id="reisbestemming" name="reisbestemming">
+                    <option value="blankreisbestemming"> </option>
+                    <option value="nederland">Nederland</option>
+                    <option value="bonaire">Bonaire</option>
+                    <option value="bulgarije">Bulgarije</option>
+                    <option value="curacao">Curaçao</option>
+                    <option value="egypte">Egypte</option>
+                    <option value="gambia">Gambia</option>
+                    <option value="griekenland">Griekenland</option>
+                    <option value="indonesie">Indonesië</option>
+                    <option value="italie">Italië</option>
+                    <option value="kaapverdie">Kaapverdië</option>
+                    <option value="macedonie">Macedonië</option>
+                    <option value="portugal">Portugal</option>
+                    <option value="spanje">Spanje</option>
+                    <option value="turkije">Turkije</option>
+                </select>
+            </div>
+            <br>
+            <h3>Profiel aanmaken</h3>
+            <label for="email">E-mailadres</label>
+            <input type="email" class="email" id="email" name="email" placeholder="E-mailadres" required>
+            <!-- div class="invalid-feedback" nog invoegen -->
+            <br>
+            <label for="user-password">Password</label>
+            <input type="password" id="user-password" name="user-password" placeholder="Password" required>
+            <br>
+            <br>
+            <label for="registreren">
+                <!--input id="profielaanmaken" type="submit" value="Registreer"-->
+                <button class="btn btn-primary btn-lg btn-block" id="registreren" type="submit">Registreer</button>
             </label>
         </form>
     </div>
-    <div>
-    </div>
-</div>
 <hr>
 </body>
-<footer>Copyright ATOS @2020</footer>
+<footer>
+    <h3>&copy; 2020 ATOS</h3>
+    <ul class="list-inline">
+        <li class="list-inline-item"><a href="#">Privacy</a></li>
+        <li class="list-inline-item"><a href="#">Terms</a></li>
+        <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+</footer>
 </html>
