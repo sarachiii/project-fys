@@ -5,85 +5,97 @@
     <title>Budget Buddy</title>
     <link href="assets/CSS/index.css" rel="stylesheet">
     <link href="assets/CSS/profiel.css" rel="stylesheet">
+    <!-- Font styling -->
     <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap" rel="stylesheet">
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <!-- FYS Cloud -->
     <script src="https://cdn.fys.cloud/fyscloud/0.0.3/fyscloud.bundle.min.js"></script>
 </head>
 
 <body>
-<nav class="topnav">
-    <ul>
-        <li><img class="logo" src="assets/Plaatjes/logo.png" alt="Budget Buddy Logo"></li>
-    </ul>
-    <ul class="nav-title">
-        <li><em class="koptekst">Match. Chat. Travel.</em></li>
-    </ul>
-    <ul class="navlist">
-        <li><a class="active" href="profiel.html">Profiel</a></li>
-        <li><a href="match.html">Matching</a></li>
-        <li><a href="over.html">Over</a></li>
-        <li><a href="index.html">Log uit</a></li>
-    </ul>
-</nav>
+<!-- Navigatie balk -->
+<nav class="navbar navbar-dark navbar-expand-md">
+    <a href="index.html" class="navbar-brand"><img src="assets/Plaatjes/logo.png" width="100" height="50" alt="Budgetbuddy logo"></a>
+    <span class="navbar-text">Match. Chat. Travel.</span>
 
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+        <span class="navbar-toggler-icon ml-auto"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMenu">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="over_simpel.html" class="nav-link">Over</a>
+            </li>
+            <li class="nav-item">
+                <a href="login.html" class="nav-link">Log in</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <div id="About">
     <div class="containter">
         <div class="row">
             <div class="col">
-                    <div class="media">
-                        <img src="assets/Plaatjes/profielfoto.jfif" width="250" height="250" class="img-fluid rounded-top rounded-bottom mx-5 d-none d-lg-block">
-                        <div class="media-body">
-                            <div class="container">
-                                <table class="table table-responsive ml-4">
-                                    <tr>
-                                        <td class="text-muted">Naam</td>
-                                        <td>:</td>
-                                        <td>Lisa Post</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-muted">Leeftijd</td>
-                                        <td>:</td>
-                                        <td>30 jaar</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-muted">Geslacht</td>
-                                        <td>:</td>
-                                        <td>Vrouw</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-muted">Woonplaats</td>
-                                        <td>:</td>
-                                        <td>Amsterdam</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-muted">Email</td>
-                                        <td>:</td>
-                                        <td>lisa.post@hva.nl</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-muted">Reisbestemming</td>
-                                        <td>:</td>
-                                        <td>Italië, Spanje of Turkije</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-muted">Budget</td>
-                                        <td>:</td>
-                                        <td>€1000 - €1500</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-muted">Over mezelf</td>
-                                        <td>:</td>
-                                        <td>"Ik hou van nieuwe plekken ontdekken en ik ben heel avontuurlijk. Het liefste zoek ik de natuur op en ga ik bergen beklimmen."</td>
-                                    </tr>
-                                </table>
-                                <div class="button_wijzig">
-                                    <button type="button" class="btn btn-secondary position-absolute">Wijzig gegevens</button>
-                                </div>
+                <div class="media">
+                    <img src="assets/Plaatjes/profielfoto.jfif" width="250" height="250" class="img-fluid rounded-top rounded-bottom mx-5 d-none d-lg-block">
+                    <div class="media-body">
+                        <div class="container">
+                            <table class="table table-responsive ml-4">
+                                <tr>
+                                    <td class="text-muted">Naam</td>
+                                    <td>:</td>
+                                    <td>Lisa Post</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted">Leeftijd</td>
+                                    <td>:</td>
+                                    <td>30 jaar</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted">Geslacht</td>
+                                    <td>:</td>
+                                    <td>Vrouw</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted">Woonplaats</td>
+                                    <td>:</td>
+                                    <td>Amsterdam</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted">Email</td>
+                                    <td>:</td>
+                                    <td>lisa.post@hva.nl</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted">Reisbestemming</td>
+                                    <td>:</td>
+                                    <td>Italië, Spanje of Turkije</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted">Budget</td>
+                                    <td>:</td>
+                                    <td>€1000 - €1500</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted">Over mezelf</td>
+                                    <td>:</td>
+                                    <td>"Ik hou van nieuwe plekken ontdekken en ik ben heel avontuurlijk. Het liefste zoek ik de natuur op en ga ik bergen beklimmen."</td>
+                                </tr>
+                            </table>
+                            <div class="button_wijzig">
+                                <button type="button" class="btn btn-secondary position-absolute">Wijzig gegevens</button>
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
     </div>

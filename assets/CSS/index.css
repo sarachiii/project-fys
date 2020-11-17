@@ -3,62 +3,56 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.topnav{
-    background-color: #ff5768;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    padding: 0 40px;
+/* Navigatie balk */
+.navbar{
+    background-color: #ff5768 !important;
+}
+.navbar-collapse{
+    color: white;
 }
 
-.navlist{
-    display: flex;
-    justify-self: flex-end;
-}
-
-ul{
-    list-style: none;
-    padding: 0;
-}
-
-.topnav a{
-    float: right;
-    color: #f2f2f2;
+.navbar-text{
+    color: white !important;
+    left: 40%;
+    position: absolute;
+    font-family: "Calibri Light", sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
     text-align: center;
-    padding: 20px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    margin-top: 0;
 }
 
-.topnav a:hover{
-    background-color: #ddd;
-    color: #ff5768;
+.navbar-toggler {
+    border-color: white !important;
 }
 
-.topnav a.active{
+.nav-link{
+    color: white !important;
+}
+
+.navbar-collapse a:hover{
+    background-color: white;
+    color: #ff5768 !important;
+}
+
+.navbar-collapse a.active{
     background-color: #fdfff2;
     color: #ff5768;
 }
-
-.nav-title{
-    justify-self: center;
+.nav-item{
+    text-align: right;
 }
 
-.logo{
-    width: 140px;
-    height: 70px;
+/* 4 plaatjes */
+.plaatjes img {
+    width: 200px;
+    height: 200px;
 }
 
-.koptekst{
-    color: white;
-    text-align: center;
-    font-family: "Calibri Light", sans-serif;
-    font-size: 50px;
-    margin: 0;
-    font-weight: bold;
+.plaatjes p {
+    margin-bottom: 50px;
 }
 
-/*The four images in the middle of the page.*/
 .destinations{
     margin-left: 300px;
 }
@@ -84,7 +78,7 @@ ul{
     width: 100%
 }
 
-.toscew{
+.strandplaatje{
     background-color: white;
     position: relative;
     top: 10px;
@@ -94,17 +88,14 @@ ul{
     transform: skewY(356deg);
 }
 
-.tounscew{
-    width: 100%;
-}
-
 .suntext {
+    margin-top: 50px;
     color: #f0415f;
     font-family: 'Sansita Swashed', cursive;
     margin-left: 20px;
 }
 
- /* Strand plaatje */
+/* Strand plaatje */
 .backdrop{
     width: 100%;
 }
@@ -158,10 +149,12 @@ ul{
     font-family: "Sansita Swashed", "Calibri Light", serif;
     color: white;
     position: absolute;
-    top: 600px;
-    left: 100px;
+    top: 100px;
+    left: 20px;
     font-size: 25px;
 }
+
+
 footer{
     background-color: rgba(255, 255, 255, 0.75);
     color: rgba(255, 87, 104, 1);
@@ -171,14 +164,16 @@ footer{
     width: 100%;
 }
 
-/* horizontale streep in footer */
+
+
+/* horizontale streep in footer
 hr.light {
     border-top: 1px solid;
     width: 75%;
     margin-top: .8rem;
     margin-bottom: 1rem;
 }
-/*
+
 .footer{
 
 
