@@ -1,14 +1,7 @@
 
 body {
     margin: 0;
-    font-family: Avenir Next, AppleSystemUIFont, Helvetica, Arial, sans-serif;
-}
-
-.topnav {
-    background-color: #ff5768;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    padding: 0 40px;
+    font-family: Avenir Next, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
 }
 
 .navlist {
@@ -74,14 +67,36 @@ ul {
 
 }
 
-button, input, optgroup, select, textarea {
+button {
+    background: #ff5768 !important;
+    border-color: #ff5768 !important;
+    font-family: Avenir Next, AppleSystemUIFont, Helvetica, Arial, sans-serif
+}
+
+input[type="text"],input[type="file"] {
+    width: 250px;
+}
+
+input[type="date"] {
+    width: 250px;
+    font-family: Avenir Next, AppleSystemUIFont, Helvetica, Arial, sans-serif;
+}
+
+input[type="date"] {
+    width: 250px;
+}
+
+input, optgroup, select, textarea {
     color: inherit;
-    font: inherit;
-    margin: 0;
+    font-family: Avenir Next, AppleSystemUIFont, Helvetica, Arial, sans-serif;
+    margin: 10px;
+    position: relative;
 }
 
 form {
     color: inherit;
-    font: inherit;
-    margin: 0;
+    font-family: Avenir Next, AppleSystemUIFont, Helvetica, Arial, sans-serif;
+    margin: 10px;
+    position: relative;
 }
+

@@ -6,16 +6,22 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="stylesheet" href="assets/CSS/registreer.css">
     <link rel="stylesheet" href="assets/CSS/index.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous"></script>
     <script src="https://cdn.fys.cloud/fyscloud/0.0.3/fyscloud.bundle.min.js"></script>
     <title>Budget Buddy</title>
 </head>
 <body>
 <!-- Navigatie balk -->
 <nav class="navbar navbar-dark navbar-expand-md">
-    <a href="index.html" class="navbar-brand"><img src="assets/Plaatjes/logo.png" width="100" height="50" alt="Budgetbuddy logo"></a>
+    <a href="index.html" class="navbar-brand"><img src="assets/Plaatjes/logo.png" width="100" height="50"
+                                                   alt="Budgetbuddy logo"></a>
     <span class="navbar-text">Match. Chat. Travel.</span>
 
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
@@ -36,118 +42,146 @@
         </ul>
     </div>
 </nav>
+
 <div id="wrapper">
+
+    <!-- Reclame -->
     <!-- div id="reclame" style="display: inline-block">
         <a href="https://corendon.nl"><img src="../Plaatjes/reclame.png" alt="Corendon-reclamebanner"></a>
     </div>
     <div id="form" style="display: inline-block" -->
-        <!-- form action nog invoegen -->
+    <!-- form action nog invoegen -->
+
     <h3>Personalia</h3>
     <form action="#" method="POST">
-            <div class="form-group">
-                <label for="firstName">Voornaam</label>
-                <input type="text" class="form-control" id="firstName" placeholder="Voornaam" required>
+
+        <!-- Voornaam -->
+        <div class="form-group">
+            <label for="firstName">Voornaam</label>
+            <input type="text" class="form-control" id="firstName" maxlength="25"
+                   placeholder="Voornaam" required autofocus>
             <!-- div class="invalid-feedback" nog invoegen -->
-            </div>
-            <br>
-            <div class="form-group">
-                <label for="lastName">Achternaam</label>
-                <input type="text" class="form-control" id="lastName" placeholder="Achternaam" required>
+        </div>
+
+        <!-- Achternaam -->
+        <br>
+        <div class="form-group">
+            <label for="lastName">Achternaam</label>
+            <input type="text" class="form-control" id="lastName" maxlength="25"
+                   placeholder="Achternaam" required>
             <!-- div class="invalid-feedback" nog invoegen -->
-            </div>
+        </div>
+
+        <!-- Profielfoto -->
+        <br>
+        <div class="form-group">
+            <label for="profielfoto">Upload hier uw profielfoto</label>
+            <input type="file" class="form-control" id="profielfoto" name="profielfoto" accept="image/png, image/jpeg">
+        </div>
+
+        <!-- Gender -->
+        <br>
+        <div class="form-group">
+            <label for="man">Selecteer uw gender:</label>
             <br>
-            <div class="form-group">
-                <label for="profielfoto">Upload hier uw profielfoto</label>
-                <input type="file" class="form-control" id="profielfoto" name="profielfoto" accept="image/png, image/jpeg">
-            </div>
-            <br>
-            <div class="form-group">
-                <label for="man">Selecteer uw gender:</label>
-                <br>
-                <div class="man">
+            <div class="man">
                 <input type="radio" id="man" class="input" name="gender" value="man">
-                    <label for="man">Man</label>
-                </div>
-                <div class="vrouw">
-                    <input type="radio" id="vrouw" name="gender" value="vrouw">
-                    <label for="vrouw">Vrouw</label>
-                </div>
-                <div class="anders">
-                    <input type="radio" id="anders" name="gender" value="anders">
-                    <label for="anders">Anders</label>
-                </div>
+                <label for="man">Man</label>
             </div>
-            <div class="form-group">
-                <label for="geboortedatum">Geboortedatum</label>
-                <br>
-                <input type="date" id="geboortedatum" name="geboortedatum" value="2002-12-31" min="1900-01-01" max="2002-12-31" required>
+            <div class="vrouw">
+                <input type="radio" id="vrouw" name="gender" value="vrouw">
+                <label for="vrouw">Vrouw</label>
             </div>
-            <div class="form-group">
-                <label for="woonplaats">Woonplaats</label>
-                <br>
-                <select id="woonplaats" name="woonplaats">
-                    <option value="blankwoonplaats"> </option>
-                    <option value="drenthe">Drenthe</option>
-                    <option value="flevoland">Flevoland</option>
-                    <option value="friesland">Friesland</option>
-                    <option value="gelderland">Gelderland</option>
-                    <option value="groningen">Groningen</option>
-                    <option value="limburg">Limburg</option>
-                    <option value="noordbrabant">Noord-Brabant</option>
-                    <option value="noordholland">Noord-Holland</option>
-                    <option value="overijssel">Overijssel</option>
-                    <option value="utrecht">Utrecht</option>
-                    <option value="zeeland">Zeeland</option>
-                    <option value="zuidholland">Zuid-Holland</option>
-                </select>
+            <div class="anders">
+                <input type="radio" id="anders" name="gender" value="anders">
+                <label for="anders">Anders</label>
             </div>
-            <div class="form-group">
-                <!-- Hier nog iets over hobby's??? -->
-            </div>
+        </div>
+
+        <!--- Geboortedatum -->
+        <div class="form-group">
+            <label for="geboortedatum">Geboortedatum</label>
             <br>
-            <h3>Reis</h3>
-            <div class="form-group">
-                <label for="budget">Reisbudget</label>
-                <br>
-                <input type="number" id="budget" name="budget" step="50" placeholder="€">
-            </div>
-            <div class="form-group">
-                <label for="reisbestemming">Reisbestemming</label>
-                <br>
-                <select id="reisbestemming" name="reisbestemming">
-                    <option value="blankreisbestemming"> </option>
-                    <option value="nederland">Nederland</option>
-                    <option value="bonaire">Bonaire</option>
-                    <option value="bulgarije">Bulgarije</option>
-                    <option value="curacao">Curaçao</option>
-                    <option value="egypte">Egypte</option>
-                    <option value="gambia">Gambia</option>
-                    <option value="griekenland">Griekenland</option>
-                    <option value="indonesie">Indonesië</option>
-                    <option value="italie">Italië</option>
-                    <option value="kaapverdie">Kaapverdië</option>
-                    <option value="macedonie">Macedonië</option>
-                    <option value="portugal">Portugal</option>
-                    <option value="spanje">Spanje</option>
-                    <option value="turkije">Turkije</option>
-                </select>
-            </div>
+            <input type="date" id="geboortedatum" name="geboortedatum" value="2002-12-31" min="1900-01-01"
+                   max="2002-12-31" required>
+        </div>
+
+        <!-- Woonplaats -->
+        <div class="form-group">
+            <label for="woonplaats">Woonplaats</label>
             <br>
-            <h3>Profiel aanmaken</h3>
-            <label for="email">E-mailadres</label>
-            <input type="email" class="email" id="email" name="email" placeholder="E-mailadres" required>
-            <!-- div class="invalid-feedback" nog invoegen -->
+            <select id="woonplaats" name="woonplaats">
+                <option value="blankwoonplaats"></option>
+                <option value="drenthe">Drenthe</option>
+                <option value="flevoland">Flevoland</option>
+                <option value="friesland">Friesland</option>
+                <option value="gelderland">Gelderland</option>
+                <option value="groningen">Groningen</option>
+                <option value="limburg">Limburg</option>
+                <option value="noordbrabant">Noord-Brabant</option>
+                <option value="noordholland">Noord-Holland</option>
+                <option value="overijssel">Overijssel</option>
+                <option value="utrecht">Utrecht</option>
+                <option value="zeeland">Zeeland</option>
+                <option value="zuidholland">Zuid-Holland</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <!-- label for="hobby">Hobby's</label -->
+
+            <!-- Hier nog iets over hobby's??? -->
+        </div>
+        <br>
+        <h3>Reis</h3>
+        <div class="form-group">
+            <label for="budget">Reisbudget</label>
             <br>
-            <label for="user-password">Password</label>
-            <input type="password" id="user-password" name="user-password" placeholder="Password" required>
+            <input type="number" id="budget" name="budget" step="50" placeholder="€">
+        </div>
+        <div class="form-group">
+            <label for="reisbestemming">Reisbestemming</label>
             <br>
+            <select id="reisbestemming" name="reisbestemming">
+                <option value="blankreisbestemming"></option>
+                <option value="nederland">Nederland</option>
+                <option value="bonaire">Bonaire</option>
+                <option value="bulgarije">Bulgarije</option>
+                <option value="curacao">Curaçao</option>
+                <option value="egypte">Egypte</option>
+                <option value="gambia">Gambia</option>
+                <option value="griekenland">Griekenland</option>
+                <option value="indonesie">Indonesië</option>
+                <option value="italie">Italië</option>
+                <option value="kaapverdie">Kaapverdië</option>
+                <option value="macedonie">Macedonië</option>
+                <option value="portugal">Portugal</option>
+                <option value="spanje">Spanje</option>
+                <option value="turkije">Turkije</option>
+            </select>
+        </div>
+        <br>
+        <h3>Profiel aanmaken</h3>
+        <label for="email">E-mailadres</label>
+        <input type="email" class="email" id="email" name="email" placeholder="E-mailadres" required>
+        <!-- div class="invalid-feedback" nog invoegen -->
+        <br>
+        <label for="user-password">Password</label>
+        <input type="password" id="user-password" name="user-password" placeholder="Password" required>
+        <br>
+        <br>
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me" required>
+                Ik ga akkoord met de <a href="privacyverklaring.html">privacyverklaring</a>!
+            </label>
             <br>
             <label for="registreren">
                 <!--input id="profielaanmaken" type="submit" value="Registreer"-->
                 <button class="btn btn-primary btn-lg btn-block" id="registreren" type="submit">Registreer</button>
             </label>
-        </form>
-    </div>
+        </div>
+    </form>
+</div>
 <hr>
 </body>
 <!-- Footer optie 2
