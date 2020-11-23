@@ -14,6 +14,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <!-- FYS Cloud -->
     <script src="https://cdn.fys.cloud/fyscloud/0.0.3/fyscloud.bundle.min.js"></script>
+    <script src="assets/js/config.js"></script>
+    <script type="text/javascript" src="assets/js/index.js"></script>
+    <script type="text/javascript" src="assets/js/pages/profiel.js"></script>
+
 </head>
 
 <body>
@@ -44,59 +48,71 @@
     </div>
 </nav>
 
-<div id="About">
-    <div class="containter">
+<div id="About" class="container profielopmaak">
         <div class="row">
-            <div class="col">
-                <div class="media">
-                    <img src="assets/Plaatjes/profielfoto.jfif" width="250" height="250" class="img-fluid rounded-top rounded-bottom mx-5 d-none d-lg-block">
-                    <div class="media-body">
-                        <div class="container">
-                            <table class="table table-responsive ml-4">
-                                <tr>
-                                    <td class="text-muted">Naam</td>
-                                    <td>:</td>
-                                    <td>Lisa Post</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-muted">Leeftijd</td>
-                                    <td>:</td>
-                                    <td>30 jaar</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-muted">Geslacht</td>
-                                    <td>:</td>
-                                    <td>Vrouw</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-muted">Woonplaats</td>
-                                    <td>:</td>
-                                    <td>Amsterdam</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-muted">Email</td>
-                                    <td>:</td>
-                                    <td>lisa.post@hva.nl</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-muted">Reisbestemming</td>
-                                    <td>:</td>
-                                    <td>Italië, Spanje of Turkije</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-muted">Budget</td>
-                                    <td>:</td>
-                                    <td>€1000 - €1500</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-muted">Over mezelf</td>
-                                    <td>:</td>
-                                    <td>"Ik hou van nieuwe plekken ontdekken en ik ben heel avontuurlijk. Het liefste zoek ik de natuur op en ga ik bergen beklimmen."</td>
-                                </tr>
-                            </table>
-                            <div class="button_wijzig">
-                                <button onclick="uploadFunctie" type="button" class="btn btn-secondary position-absolute">Wijzig gegevens</button>
-                            </div>
+            <div class="col-md-4">
+                <div class="imagePreview">
+                    <!-- Profielfoto -->
+                    <div class="form">
+                        <div class="form-group">
+                            <input type="file" id="profilePicture" />
+                        </div>
+                        <div class="form-group">
+                            <img src="assets/Plaatjes/anoniem.png" id="profilePreview" class="rounded-top rounded-bottom" alt="Voorbeeld" style="width: 250px; height: 250px"/>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" id="fileUploadButton">Uploaden</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="media-body">
+                    <div class="container">
+                        <table class="table table-responsive ml-4">
+                            <tr>
+                                <td class="text-muted">Naam</td>
+                                <td>:</td>
+                                <td id="profielnaam"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">Leeftijd</td>
+                                <td>:</td>
+                                <td id="leeftijd"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">Geslacht</td>
+                                <td>:</td>
+                                <td id="geslacht"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">Woonplaats</td>
+                                <td>:</td>
+                                <td id="woonplaats"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">Email</td>
+                                <td>:</td>
+                                <td id="email"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">Reisbestemming</td>
+                                <td>:</td>
+                                <td id="reisbestemming"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">Budget</td>
+                                <td>:</td>
+                                <td id="budget"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-muted">Over mezelf</td>
+                                <td>:</td>
+                                <td id="bio"></td>
+                            </tr>
+                        </table>
+                        <div class="button_wijzig">
+                            <button type="button" class="btn btn-secondary position-absolute">Wijzig gegevens</button>
                         </div>
                     </div>
                 </div>

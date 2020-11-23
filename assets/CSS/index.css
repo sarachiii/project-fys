@@ -13,7 +13,7 @@ body{
 
 .navbar-text{
     color: white !important;
-    left: 40%;
+    left: 43%;
     position: absolute;
     font-family: "Calibri Light", sans-serif;
     font-size: 25px;
@@ -100,6 +100,7 @@ body{
     width: 100%;
 }
 
+/* Registreer knop */
 .signup{
     position: absolute;
     right: 100px;
@@ -154,7 +155,6 @@ body{
     font-size: 25px;
 }
 
-
 footer{
     background-color: rgba(255, 255, 255, 0.75);
     color: rgba(255, 87, 104, 1);
@@ -163,8 +163,6 @@ footer{
     bottom: 0;
     width: 100%;
 }
-
-
 
 /* horizontale streep in footer
 hr.light {
@@ -175,8 +173,6 @@ hr.light {
 }
 
 .footer{
-
-
     position: absolute;
     bottom: 0;
     left: 0;
