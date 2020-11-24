@@ -2,9 +2,10 @@
 FYSCloud.API.queryDatabase(
     "SELECT * FROM profiel"
 ).done(function(data) {
-    $("#profielnaam").append(data[0]["naam"]);
+    $("#voornaam").append(data[0]["voornaam"]);
+    $("#achternaam").append(data[0]["achternaam"]);
     $("#leeftijd").append(data[0]["geboortedatum"]);
-    $("#geslacht").append(data[0]["geslacht"]);
+    $("#geslacht").append(data[0]["gender"]);
     $("#woonplaats").append(data[0]["woonplaats"]);
     $("#email").append(data[0]["email"]);
     $("#reisbestemming").append(data[0]["reisbestemming"]);
@@ -48,4 +49,5 @@ $(function() {
                 console.log(reason);
             });
     });
+
 });
