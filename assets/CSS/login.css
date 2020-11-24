@@ -16,10 +16,24 @@ button {
 
 input[type="password"],input[type="file"], input[type="email"] {
     width: 250px;
-    position: relative;
-    alignment: center;
 }
 
-form-signin {
+.my-row {
+    height: 200px;
+}
 
+.h3 {
+    font-size:2.5vw;
+}
+
+.h4 {
+    font-size:1.5vw;
+}
+
+p {
+    font-size: 1.1vw;
+}
+
+.checkbox-text {
+    margin-left: auto;
 }
