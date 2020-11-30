@@ -78,16 +78,6 @@ body{
     width: 100%
 }
 
-.strandplaatje{
-    background-color: white;
-    position: relative;
-    top: 10px;
-    left: 0;
-    right: 0;
-    height: 290px;
-    transform: skewY(356deg);
-}
-
 .suntext {
     margin-top: 50px;
     color: #f0415f;
@@ -98,6 +88,16 @@ body{
 /* Strand plaatje */
 .backdrop{
     width: 100%;
+}
+
+.strandplaatje{
+    background-color: white;
+    position: relative;
+    top: 10px;
+    left: 0;
+    right: 0;
+    height: 290px;
+    transform: skewY(356deg);
 }
 
 /* Registreer knop */
