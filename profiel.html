@@ -48,20 +48,14 @@
     </div>
 </nav>
 
-<div id="About" class="container profielopmaak">
+<div class="container" id="profiel">
         <div class="row">
             <div class="col-md-4">
                 <div class="imagePreview">
                     <!-- Profielfoto -->
                     <div class="form">
                         <div class="form-group">
-                            <input type="file" id="profilePicture" />
-                        </div>
-                        <div class="form-group">
-                            <img src="assets/Plaatjes/anoniem.png" id="profilePreview" class="rounded-top rounded-bottom" alt="Voorbeeld" style="width: 250px; height: 250px"/>
-                        </div>
-                        <div class="form-group">
-                            <button class="btn btn-primary" id="fileUploadButton">Uploaden</button>
+                            <img id="profielplaatje" src="" alt="Profielfoto" height="300px" width="250px">
                         </div>
                     </div>
                 </div>
@@ -81,12 +75,17 @@
                                 <td id="achternaam"></td>
                             </tr>
                             <tr>
+                                <td class="text-muted">Geboortedatum</td>
+                                <td>:</td>
+                                <td id="geboortedatum"></td>
+                            </tr>
+                            <tr>
                                 <td class="text-muted">Leeftijd</td>
                                 <td>:</td>
                                 <td id="leeftijd"></td>
                             </tr>
                             <tr>
-                                <td class="text-muted">Geslacht</td>
+                                <td class="text-muted">Gender</td>
                                 <td>:</td>
                                 <td id="geslacht"></td>
                             </tr>
@@ -108,7 +107,7 @@
                             <tr>
                                 <td class="text-muted">Budget</td>
                                 <td>:</td>
-                                <td id="budget"></td>
+                                <td id="budget">€</td>
                             </tr>
                             <tr>
                                 <td class="text-muted">Over mezelf</td>
@@ -117,7 +116,7 @@
                             </tr>
                         </table>
                         <div class="button_wijzig">
-                            <button onclick="window.location.href='profiel_wijzigen.html'" type="button" class="btn btn-secondary position-absolute">Wijzig gegevens</button>
+                            <button onclick="window.location.href='profiel_wijzigen.html'" type="button" class="btn btn-secondary position-absolute">Wijzig profiel</button>
                         </div>
                     </div>
                 </div>

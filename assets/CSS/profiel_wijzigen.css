@@ -15,13 +15,11 @@ body{
 .btn-primary {
     background-color: #26a514 !important;
     border-color: #26a514 !important;
-    margin-left: 10px !important;
     color: #ffffff !important;
 }
 
 /* Wijzig gegevens knop */
 .button_wijzig{
-    margin-left:30px;
     margin-top: 5px;
     margin-bottom: 40px;
 }

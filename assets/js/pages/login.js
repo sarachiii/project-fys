@@ -10,18 +10,19 @@ document.addEventListener('DOMContentLoaded', function (event){
         let wachtwoord = document.getElementById("inputPassword").value;
 
         FYSCloud.API.queryDatabase(
-            "SELECT * FROM login WHERE gebruikersnaam = ? AND wachtwoord = ?", [gebruikersnaam, wachtwoord]
+            "SELECT * FROM profiel WHERE gebruikersnaam = ? AND wachtwoord = ?", [gebruikersnaam, wachtwoord]
         ).done(function(data) {
 
             if(data.length > 0) {
                 alert("GELUKT! U bent nu ingelogd.")
+                FYSCloud.Session.set("username", gebruikersnaam);
                 window.location.href = 'match.html';
             } else {
                 alert("Email of wachtwoord is fout!")
             }
             console.log(data);
         }).fail(function(reason) {
-            console.log("Er is iets fout gegaan!");
+            console.log(reason);
         });
     }
 });
