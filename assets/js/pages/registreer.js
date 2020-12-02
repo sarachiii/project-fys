@@ -1,10 +1,23 @@
 $(document).ready(function () {
+    $('#multiple-checkboxes').multiselect({
+        includeSelectAllOption: true,
+    });
     $("#registreren").on("click", function () {
         let firstName = document.getElementById("firstName").value;
         let insertId = 0
         let lastName = document.getElementById("lastName").value;
+        let gender = document.getElementById("gender").value;
+        let woonplaats = document.getElementById("woonplaats").value;
+        let budget = document.getElementById("budget").value;
+        let reisbestemming = document.getElementById("reisbestemming").value;
+        let gebruikersnaam = document.getElementById("email").value;
+        let wachtwoord = document.getElementById("user-password").value;
+        let geboortedatum = $("#geboortedatum").date({ dateFormat: 'dd,MM,yyyy' }).value;
+        let bio = document.getElementById("bio").value;
         FYSCloud.API.queryDatabase(
-            "INSERT INTO profiel(voornaam,achternaam) values(?,?)", [firstName, lastName]
+            "INSERT INTO profiel(voornaam,achternaam,gender,geboortedatum,woonplaats,budget,reisbestemming,gebruikersnaam,wachtwoord,bio)" +
+            "values(?,?,?,?,?,?,?,?,?)",
+            [firstName, lastName, gender, geboortedatum, woonplaats, budget, reisbestemming, gebruikersnaam,wachtwoord, bio]
         ).done(function (data) {
             insertId = data["insertId"];
             FYSCloud.Utils
