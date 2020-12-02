@@ -1,7 +1,7 @@
 $( document ).ready(function() {
     let profielfoto = 0;
     FYSCloud.API.queryDatabase(
-        "SELECT * FROM profiel"
+        "SELECT * FROM profiel WHERE id = ?", [FYSCloud.Session.get("userid")]
     ).done(function(data) {
 
         document.getElementById("profielFoto").src = data[0].profielfoto;
@@ -140,7 +140,7 @@ $( document ).ready(function() {
             "budget = ?, " +
             "gebruikersnaam = ?, " +
             "wachtwoord = ? " +
-            "WHERE id = 1", [firstName, lastName, woonplaats, bestemming, budget, email, wachtwoord]
+            "WHERE id = ?", [firstName, lastName, woonplaats, bestemming, budget, email, wachtwoord, FYSCloud.Session.get("userid")]
         ).done(function (data) {
             insertId = data["insertId"];
             console.log(data);
@@ -168,24 +168,23 @@ $( document ).ready(function() {
         /* Profielfoto uploaden */
 
         $("#fileUploadButton").on("click", function () {
-            let insertId = 0
+            let userid =  FYSCloud.Session.get("userid");
                 FYSCloud.Utils
                 .getDataUrl($("#profilePicture"))
                 .done(function (data) {
                     insertId = data["insertId"];
                     console.log(data["extension"]);
-                    console.log(insertId);
+                    console.log(userid);
                     FYSCloud.API.uploadFile(
-                        insertId + 'profielfoto.' + data["extension"],
+                        userid + 'profielfoto.' + data["extension"],
                         data.url,
                         true
                     ).done(function (data) {
                         console.log(data);
                         FYSCloud.API.queryDatabase(
-                            "UPDATE profiel SET profielfoto = ? where id = ?", [data, insertId]
+                            "UPDATE profiel SET profielfoto = ? WHERE id = ?", [data, userid]
                         ).done(function (data) {
                             alert("Je nieuwe profielfoto is ingesteld!");
-                            let insertId = data["insertId"];
                         }).fail(function (data) {
                             console.log(data);
                         });
@@ -201,9 +200,8 @@ $( document ).ready(function() {
 
         $("#verwijder").on("click", function () {
 
-            /* Id moet nog aangepast worden*/
         FYSCloud.API.queryDatabase(
-            "DELETE FROM profiel WHERE id = 2"
+            "DELETE FROM profiel WHERE id = ?", [FYSCloud.Session.get("userid")]
         ).done(function(data) {
             console.log(data);
             alert("account is succesvol verwijderd.")
