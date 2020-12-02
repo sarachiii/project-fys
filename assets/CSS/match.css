@@ -9,9 +9,10 @@ html, body{
 .navbar-collapse{
     color: white;
 }
+
 .navbar-text{
     color: white !important;
-    left: 40%;
+    left: 43%;
     position: absolute;
     font-family: "Calibri Light", sans-serif;
     font-size: 25px;
@@ -19,30 +20,20 @@ html, body{
     margin: 0;
     text-align: center;
 }
+
 .navbar-toggler {
-    border-color: white;
+    border-color: white !important;
 }
-.navbar a {
-    color: white;
-}
-.navbar a:hover {
-    background: transparent;
-    color: white;
-}
-.navbar-collapse a:hover {
-    background: transparent;
-}
+
 .nav-link{
-    color: white;
+    color: white !important;
 }
-.nav-link-active{
-    background-color: white;
-    color: #ff5768;
-}
+
 .navbar-collapse a:hover{
     background-color: white;
-    color: #ff5768;
+    color: #ff5768 !important;
 }
+
 .navbar-collapse a.active{
     background-color: #fdfff2;
     color: #ff5768;
@@ -50,6 +41,7 @@ html, body{
 .nav-item{
     text-align: right;
 }
+
 /*Sidebar Navigation*/
 .sidebar{
     width: 20%;
@@ -129,8 +121,8 @@ html, body{
     margin-bottom: 1rem;
 }
 .profile-picture{
-    height: 5%;
-    width: 80%;
+    height: 130px;
+    width: 130px;
     border-radius: 50%;
     margin-top: 8px;
 }
