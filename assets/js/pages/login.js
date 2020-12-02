@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function (event){
 
             if(data.length > 0) {
                 alert("GELUKT! U bent nu ingelogd.")
-                FYSCloud.Session.set("username", gebruikersnaam);
+                FYSCloud.Session.set("userid", data[0]["id"]);
                 window.location.href = 'match.html';
             } else {
                 alert("Email of wachtwoord is fout!")

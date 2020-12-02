@@ -2,7 +2,7 @@ $( document ).ready(function() {
 
     /* Profiel gegevens van de database halen */
     FYSCloud.API.queryDatabase(
-        "SELECT * FROM profiel"
+        "SELECT * FROM profiel WHERE id = ?", [FYSCloud.Session.get("userid")]
     ).done(function (data) {
 
         document.getElementById("profielplaatje").src = data[0].profielfoto;
