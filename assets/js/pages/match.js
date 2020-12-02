@@ -80,9 +80,7 @@ $(function () {
                 newContentChild.append(filteredElement);
             });
             contentElement.append(newContentChild);
-
             console.log(filteredAgeElements);
-
 
         })
     })

@@ -129,8 +129,8 @@ html, body{
     margin-bottom: 1rem;
 }
 .profile-picture{
-    height: 130px;
-    width: 130px;
+    height: 5%;
+    width: 80%;
     border-radius: 50%;
     margin-top: 8px;
 }
