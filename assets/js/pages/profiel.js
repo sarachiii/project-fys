@@ -17,7 +17,7 @@ $( document ).ready(function() {
         $("#leeftijd").append(age);
         $("#geslacht").append(data[0]["gender"]);
         $("#woonplaats").append(data[0]["woonplaats"]);
-        $("#email").append(data[0]["email"]);
+        $("#email").append(data[0]["gebruikersnaam"]);
         $("#reisbestemming").append(data[0]["reisbestemming"]);
         $("#budget").append(data[0]["budget"]);
         $("#bio").append(data[0]["bio"]);
