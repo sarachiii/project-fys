@@ -4,20 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+    <!-- Paginaspecifieke CSS -->
     <link rel="stylesheet" href="assets/CSS/registreer.css">
     <link rel="stylesheet" href="assets/CSS/index.css">
+
+    <!-- FYS Cloud JS -->
     <script src="https://cdn.fys.cloud/fyscloud/0.0.3/fyscloud.bundle.min.js"></script>
+
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
             crossorigin="anonymous"></script>
+
+    <!-- Hobby's multiselect >
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" -->
+
+    <!-- Paginaspecifieke JS -->
     <script src="assets/js/config.js"></script>
     <script src="assets/js/pages/registreer.js"></script>
     <title>Budget Buddy</title>
 </head>
+
 <body>
-<!-- Navigatie balk -->
+<!-- Navigatiebalk -->
 <nav class="navbar navbar-dark navbar-expand-md">
     <a href="index.html" class="navbar-brand"><img src="assets/Plaatjes/logo.png" width="100" height="50"
                                                    alt="Budgetbuddy logo"></a>
@@ -41,6 +56,8 @@
         </ul>
     </div>
 </nav>
+
+<!-- Main content: registratieformulier -->
 <div class="container">
         <div class="row my-row justify-content-center align-items-end">
             <div class="col-5">
@@ -53,25 +70,26 @@
                 <h4 class="h4 mb-4">Personalia</h4>
             </div>
         </div>
+
         <!-- Voornaam -->
         <div class="row my-row justify-content-center">
             <div class="col-3">
                 <label for="firstName" class="sr-only">Voornaam</label>
                 <input type="text" class="form-control" id="firstName" maxlength="25"
                        placeholder="Voornaam" required autofocus>
-                <!-- "invalid-feedback" nog invoegen -->
             </div>
         </div>
+
         <!-- Achternaam -->
         <div class="row my-row justify-content-center">
             <div class="col-3">
                 <label for="lastName" class="sr-only">Achternaam</label>
                 <input type="text" class="form-control" id="lastName" maxlength="26"
                        placeholder="Achternaam" required>
-                <!-- div class="invalid-feedback" nog invoegen -->
             </div>
         </div>
         <br>
+
         <!-- Profielfoto -->
         <div class="row my-row justify-content-center">
             <div class="col-3">
@@ -81,21 +99,14 @@
             </div>
         </div>
         <br>
+
         <!-- Gender -->
         <div class="row my-row justify-content-center">
             <div class="col-3 dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Selecteer uw gender
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Man</a>
-                    <a class="dropdown-item" href="#">Vrouw</a>
-                    <a class="dropdown-item" href="#">Anders</a>
-                </div>
                 <label for="gender" class="sr-only">Selecteer uw gender</label>
                 <br>
-                <select class="selectpicker" id="gender" name="gender">
-                    <option value="empty"></option>
+                <select class="form-control colorful-select dropdown-primary" id="gender" name="gender">
+                    <option value="" disabled selected>Selecteer uw gender</option>
                     <option value="man">Man</option>
                     <option value="vrouw">Vrouw</option>
                     <option value="anders">Anders</option>
@@ -103,23 +114,25 @@
             </div>
         </div>
         <br>
+
         <!--- Geboortedatum -->
         <div class="row my-row justify-content-center">
             <div class="col-3">
                 <label for="geboortedatum">Selecteer uw geboortedatum</label>
                 <br>
-                <input type="date" id="geboortedatum" name="geboortedatum" value="2002-12-31" min="1900-01-01"
-                       max="2002-12-31" required>
+                <input type="date" class="form-control dropdown-primary" id="geboortedatum" name="geboortedatum" value=""
+                       min="1900-01-01" max="2002-12-31" required>
             </div>
         </div>
         <br>
+
         <!-- Woonplaats -->
         <div class="row my-row justify-content-center">
-            <div class="col-3">
-                <label for="woonplaats">Selecteer uw woonplaats</label>
+            <div class="col-3 select-outline">
+                <label class="mdb-main-label sr-only" for="woonplaats">Selecteer uw woonplaats</label>
                 <br>
-                <select id="woonplaats" name="woonplaats">
-                    <option value="blankwoonplaats"></option>
+                <select class="colorful-select dropdown-primary form-control" id="woonplaats" name="woonplaats">
+                    <option value="" disabled selected>Selecteer uw woonplaats</option>
                     <option value="drenthe">Drenthe</option>
                     <option value="flevoland">Flevoland</option>
                     <option value="friesland">Friesland</option>
@@ -135,21 +148,62 @@
                 </select>
             </div>
         </div>
-        <!-- label for="hobby">Hobby's</label -->
-
-        <!-- Hier nog iets over hobby's??? -->
         <br>
-        <h3>Reis</h3>
-        <div class="form-group">
-            <label for="budget">Reisbudget</label>
-            <br>
-            <input type="number" id="budget" name="budget" step="50" placeholder="€">
+        <!-- Hobby's -->
+        <div class="row my-row justify-content-center">
+            <div class="col-3">
+                <!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" -->
+                <label for="multiple-checkboxes">Selecteer uw hobby's</label>
+                <select id="multiple-checkboxes" class="form-control" multiple="multiple" placeholder="Selecteer uw hobby's">
+                    <option value="" disabled>Muziek</option>
+                    <option value="concertbezoeken">Concertbezoeken</option>
+                    <option value="dansen">Dansen</option>
+                    <option value="harmonieorkest">Harmonieorkest</option>
+                    <option value="instrument">Instrument bespelen</option>
+                    <option value="zingen">Zingen</option>
+                    <option value="" disabled>Sport</option>
+                    <option value="atletiek">Atletiek</option>
+                    <option value="balsport">Balsport</option>
+                    <option value="krachtsport">Krachtsport</option>
+                    <option value="wintersport">Wintersport</option>
+                    <option value="" disabled>Verzamelen</option>
+                    <option value="antiek">Antiek</option>
+                    <option value="boeken">Boeken</option>
+                    <option value="kunst">Kunst</option>
+                    <option value="munten">Munten</option>
+                    <option value="" disabled>Diversen</option>
+                    <option value="bierbrouwen">Bierbrouwen</option>
+                    <option value="gamen">Gamen</option>
+                    <option value="goochelen">Goochelen</option>
+                    <option value="vogelen">Vogelen</option>
+                    </select>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="reisbestemming">Reisbestemming</label>
-            <br>
-            <select id="reisbestemming" name="reisbestemming">
-                <option value="blankreisbestemming"></option>
+        <br>
+
+<!-- Reis -->
+        <div class="row my-row justify-content-center">
+            <div class="col-1.5">
+            <h4 class="h4 mb-4">Reis</h4>
+            </div>
+        </div>
+
+        <!-- Reisbudget -->
+        <div class="row my-row justify-content-center">
+            <div class="col-3">
+                <label for="budget">Reisbudget</label>
+                <br>
+                <input type="number" class="form-control" id="budget" name="budget" step="50" placeholder="€">
+            </div>
+        </div>
+
+        <!-- Reisbestemming -->
+        <div class="row my-row justify-content-center">
+            <div class="col-3">
+                <label class="mdb-main-label sr-only" for="reisbestemming">Reisbestemming</label>
+                <br>
+                <select class="mdb-select md-form colorful-select dropdown-primary form-control" id="reisbestemming" name="reisbestemming">
+                <option value="" disabled selected>Kies uw reisbestemming</option>
                 <option value="nederland">Nederland</option>
                 <option value="bonaire">Bonaire</option>
                 <option value="bulgarije">Bulgarije</option>
@@ -164,34 +218,71 @@
                 <option value="portugal">Portugal</option>
                 <option value="spanje">Spanje</option>
                 <option value="turkije">Turkije</option>
-            </select>
+                </select>
+            </div>
         </div>
         <br>
-        <h3>Profiel aanmaken</h3>
-        <label for="email">E-mailadres</label>
-        <input type="email" class="email" id="email" name="email" placeholder="E-mailadres" required>
-        <!-- div class="invalid-feedback" nog invoegen -->
+
+<!-- Profiel -->
+        <div class="row my-row justify-content-center">
+            <div class="col-1.5">
+                <h4 class="h4 mb-4">Profiel</h4>
+            </div>
+        </div>
+
+        <!-- E-mailadres -->
+        <div class="row my-row justify-content-center">
+            <div class="col-3">
+                <label class="sr-only" for="email">E-mailadres</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="E-mailadres" required>
+            </div>
+        </div>
         <br>
-        <label for="user-password">Password</label>
-        <input type="password" id="user-password" name="user-password" placeholder="Password" required>
+
+        <!-- Wachtwoord -->
+        <div class="row my-row justify-content-center">
+            <div class="col-3">
+                <label class="sr-only" for="user-password">Password</label>
+                <input type="password" class="form-control" id="user-password" name="user-password" placeholder="Password" required>
+            </div>
+        </div>
         <br>
+
+        <!-- Bio -->
+         <div class="row my-row justify-content-center">
+             <div class="col-3">
+                 <label class="sr-only" for="bio">Biografie (max. 140 tekens)</label>
+                 <input type="text" class="form-control bio" id="bio" name="bio" placeholder="Biografie (max. 140 tekens)"
+                 maxlength="140" required>
+             </div>
+         </div>
         <br>
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" value="remember-me" required>
-                Ik ga akkoord met de <a href="privacyverklaring.html">privacyverklaring</a>!
-            </label>
-            <br>
-            <label for="registreren">
-                <!--input id="profielaanmaken" type="submit" value="Registreer"-->
-                <button class="btn btn-primary btn-lg btn-block" id="registreren" type="submit">Registreer</button>
-            </label>
+
+        <!-- Einde formulier: privacyverklaring en registratieknop -->
+        <div class="row my-row justify-content-center">
+            <div class="col-4">
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" value="remember-me" required>
+                        Ik ga akkoord met de <a href="privacyverklaring.html">privacyverklaring</a>!
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row my-row justify-content-center">
+            <div class="col-3">
+                    <label for="registreren">
+                        <!--input id="profielaanmaken" type="submit" value="Registreer"-->
+                        <button class="btn btn-primary btn-lg btn-block" id="registreren" type="submit">Registreer</button>
+                    </label>
+                </div>
+            </div>
         </div>
 </div>
-</div>
-<hr>
 </body>
-<!--footer>
+
+<!-- Footer -->
+<footer>
     <div class="container-fluid padding">
         <div class="row text-center">
             <div class="col-md-4">
@@ -213,5 +304,5 @@
             </div>
         </div>
     </div>
-</--footer -->
+</footer>
 </html>

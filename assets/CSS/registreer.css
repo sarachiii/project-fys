@@ -1,6 +1,7 @@
 body {
     margin: 0;
-    font-family: Avenir Next, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
+    font-family: Montserrat, Avenir Next, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
+    padding-bottom: 200px;
 }
 
 h3 {
@@ -14,16 +15,16 @@ button {
     font-family: Avenir Next, AppleSystemUIFont, Helvetica, Arial, sans-serif
 }
 
-input[type="password"],input[type="file"], input[type="email"] {
+input[type="password"], input[type="file"], input[type="email"], input[type="password"], input[type="date"] {
     width: 250px;
 }
 
 .h3 {
-    font-size:2.5vw;
+    font-size: 2.5vw;
 }
 
 .h4 {
-    font-size:1.5vw;
+    font-size: 1.5vw;
 }
 
 p {
@@ -34,23 +35,9 @@ p {
     margin-left: auto;
 }
 
-button {
-    background: #ff5768 !important;
-    border-color: #ff5768 !important;
-    font-family: Avenir Next, AppleSystemUIFont, Helvetica, Arial, sans-serif
-}
-
-input[type="text"],input[type="file"] {
-    width: 250px;
-}
-
-input[type="date"] {
+input[type="password"], input[type="file"], input[type="email"], input[type="text"], input[type="date"]{
     width: 250px;
     font-family: Avenir Next, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
-}
-
-input[type="date"] {
-    width: 250px;
 }
 
 input, optgroup, select, textarea {
@@ -60,9 +47,15 @@ input, optgroup, select, textarea {
     position: relative;
 }
 
-form {
-    color: inherit;
-    font-family: Avenir Next, AppleSystemUIFont, Helvetica, Arial, sans-serif;
+.dropdown-primary {
+    background-color: #ff5768 !important;
+    color: #ffffff !important;
+}
+
+.multiple-checkboxes {
+    color: white !important;
+    font-weight: bold !important;
+    width: 250px;
 }
 
 body {
@@ -80,20 +73,14 @@ button {
     font-family: Avenir Next, AppleSystemUIFont, Helvetica, Arial, sans-serif
 }
 
-input[type="password"],input[type="file"], input[type="email"] {
-    width: 250px;
+/* dropdown button */
+.dropdown-primary {
+    background-color: #ff5768;
+    color: #ffffff;
+    border-color: #ff5768 !important;
+    padding: 5px;
 }
 
-
-
-.h3 {
-    font-size:2.5vw;
-}
-
-.h4 {
-    font-size:1.5vw;
-}
-
-p {
-    font-size: 1.1vw;
+.bio {
+    height: 100px !important;
 }
