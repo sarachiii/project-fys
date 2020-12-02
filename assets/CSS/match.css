@@ -1,236 +1,136 @@
-html{
+html, body{
     height: 100%;
+    width: 100%;
 }
-body {
+/*Top Navigation*/
+.navbar{
+    background-color: #ff5768 !important;
+}
+.navbar-collapse{
+    color: white;
+}
+.navbar-text{
+    color: white !important;
+    left: 40%;
+    position: absolute;
+    font-family: "Calibri Light", sans-serif;
+    font-size: 25px;
+    font-weight: bold;
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    height: 100%;
-}
-
-.topnav {
-    background-color: #ff5768;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    padding: 0 40px;
-}
-.navlist{
-    display: flex;
-    justify-self: flex-end;
-}
-
-ul{
-    list-style: none;
-    padding: 0;
-}
-
-.topnav a {
-    float: right;
-    color: #f2f2f2;
     text-align: center;
-    padding: 20px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    margin-top: 0;
 }
-
-.topnav a:hover {
-    background-color: #ddd;
+.navbar-toggler {
+    border-color: white;
+}
+.navbar a {
+    color: white;
+}
+.navbar a:hover {
+    background: transparent;
+    color: white;
+}
+.navbar-collapse a:hover {
+    background: transparent;
+}
+.nav-link{
+    color: white;
+}
+.nav-link-active{
+    background-color: white;
     color: #ff5768;
 }
-
-.topnav a.active {
+.navbar-collapse a:hover{
+    background-color: white;
+    color: #ff5768;
+}
+.navbar-collapse a.active{
     background-color: #fdfff2;
     color: #ff5768;
 }
-
-.nav-title {
-    justify-self: center;
+.nav-item{
+    text-align: right;
 }
-
-.logo{
-    width: 140px;
-    height: 70px;
-}
-
-.koptekst{
-    color: white;
-    text-align: center;
-    font-family: "Calibri Light", sans-serif;
-    font-size: 50px;
-    margin: 0;
-    font-weight: bold;
-}
-
+/*Sidebar Navigation*/
 .sidebar{
+    width: 20%;
     height: 100%;
-    width: 15%;
-    background-color: #c34e5e;
-    position: relative;
-    left: 0;
-    bottom: 0;
-    top: 0;
-    margin: 0;
+    background: #c34e5e;
 }
-h3 {
-    padding: 10px 50px;
-    margin: 0;
-    color: #f2f2f2;
-    position: relative;
-    top: 5%;
-}
-h3:hover{
+.active-mymatches-button{
     background-color: #f2f2f2;
     color: #c34e5e;
+    padding: 5px 15px 5px 15px;
+    margin-top: 5px;
 }
-.active{
+.chat-button{
+    color:  #f2f2f2;
+    padding: 5px 15px 5px 15px;
+}
+.chat-button:hover{
     background-color: #f2f2f2;
     color: #c34e5e;
-}
-.sidebarline{
-    width: 80%;
-    background-color: white;
-    position: absolute;
-    top: 20%;
-    left: 8%;
-}
-.filter{
-    color: #f2f2f2;
-    position: absolute;
-    top: 20%;
-    padding: 10px;
-}
-.rangeslider{
-    position: absolute;
-    top: 30%;
-    margin-left: 10px;
-    width: 300px;
-}
-.searchbar{
-    position: absolute;
-    top: 20%;
-    left: 20%;
-    width: 40%;
-    height: 30px;
-    border-radius: 50px;
-    border: 2px solid #ff5768;
-}
-.line{
-    width: 80%;
-    text-align: left;
-    margin-right: 30px;
-    position: absolute;
-    top: 25%;
-    right: 0;
-    background-color: black;
-}
-.topmatchestext{
-    position: absolute;
-    top: 25%;
-    left: 20%;
-    font-size: 30px;
-}
-.profile{
-    height: 250px;
-    width: 250px;
-    background-color: #f2f2f2;
-    position: absolute;
-    left: 20%;
-    top: 35%;
-    box-shadow: 10px 10px 5px grey;
-    border-radius: 10%;
-    display: inline;
-    border: 3px solid #ff5768;
-}
-.profile2{
-    height: 250px;
-    width: 250px;
-    background-color: #f2f2f2;
-    position: absolute;
-    left: 38%;
-    top: 35%;
-    box-shadow: 10px 10px 5px grey;
-    border-radius: 10%;
-    display: inline;
-    border: 3px solid #ff5768;
-}
-.profile3{
-    height: 250px;
-    width: 250px;
-    background-color: #f2f2f2;
-    position: absolute;
-    left: 56%;
-    top: 35%;
-    box-shadow: 10px 10px 5px grey;
-    border-radius: 10%;
-    display: inline;
-    border: 3px solid #ff5768;
-}
-.profile4{
-    height: 250px;
-    width: 250px;
-    background-color: #f2f2f2;
-    position: absolute;
-    left: 74%;
-    top: 35%;
-    box-shadow: 10px 10px 5px grey;
-    border-radius: 10%;
-    display: inline;
-    border: 3px solid #ff5768;
-}
-
-.profile:hover, .profile2:hover, .profile3:hover, .profile4:hover{
-    position: absolute;
-    top: 34%;
-    transition-duration: 0.4s;
+    padding: 5px 15px 5px 15px;
     cursor: pointer;
 }
-.pname {
-    position: absolute;
-    bottom: 25%;
-    top: auto;
-    color: #ff5768;
-}
-.pplace{
-    position: absolute;
-    bottom: 10%;
-    top: auto;
-    padding-left: 10px;
-    color: #ff5768;
-}
+.lineBreak{
 
-.ppicture{
+}
+.sidebarline{
+    background-color: white;
+}
+.filter-text{
+    color:  #f2f2f2;
+    position: absolute;
+    left: 1%;
+}
+.max-budget-slider{
+    position: absolute;
+    top: 35%;
+    left: 1%;
+    color:  #f2f2f2;
+}
+.max-age-slider{
+    position: absolute;
+    top: 45%;
+    left: 1%;
+    color:  #f2f2f2;
+}
+.apply-changes-button{
+    position: absolute;
+    top: 80%;
+    left: 1%;
+}
+/*Content*/
+.content{
+    width: 80%;
+    height: 100%;
+    padding: 2rem;
+}
+/*Cards*/
+.card{
+    margin: 0 30px 0 30px;
+    background-color: #f2f2f2;
+    box-shadow: 10px 10px 5px grey;
+    border-radius: 10%;
+    border: 3px solid #ff5768;
+}
+.card:hover{
+    position: absolute;
+    top: -4%;
+    cursor: pointer;
+}
+.card-title{
+    color: #ff5768;
+}
+.card-destination{
+    margin-bottom: 0;
+}
+.card-budget{
+    margin-bottom: 1rem;
+}
+.profile-picture{
     height: 130px;
     width: 130px;
-    position: relative;
-    left: 25%;
-    top: 5%;
     border-radius: 50%;
-}
-.pmatchbar{
-    height: 20px;
-    width: 230px;
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    top: auto;
-    right: auto;
-    margin: 0;
-    padding: 0;
-    background-color: lightgrey;
-    border-radius: 20px;
-}
-.percentagebar{
-    height: 20px;
-    width: 200px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    top: auto;
-    right: auto;
-    margin: 0;
-    padding: 0;
-    background-color: green;
-    border-radius: 20px;
-    text-align: center;
-    color: #f2f2f2;
+    margin-top: 8px;
 }
