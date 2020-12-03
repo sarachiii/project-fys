@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Budget Buddy</title>
     <link href="assets/CSS/index.css" rel="stylesheet">
-    <link href="assets/CSS/profiel.css" rel="stylesheet">
+    <link href="assets/CSS/profiel_wijzigen.css" rel="stylesheet">
     <!-- Font styling -->
     <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap" rel="stylesheet">
     <!-- Bootstrap -->
@@ -15,8 +15,9 @@
     <!-- FYS Cloud -->
     <script src="https://cdn.fys.cloud/fyscloud/0.0.3/fyscloud.bundle.min.js"></script>
     <script src="assets/js/config.js"></script>
-    <script type="text/javascript" src="assets/js/index.js"></script>
     <script type="text/javascript" src="assets/js/pages/profiel_wijzigen.js"></script>
+    <script type="text/javascript" src="assets/js/checklogin.js"></script>
+    <script type="text/javascript" src="assets/js/loguit.js"></script>
 
 </head>
 
@@ -48,53 +49,42 @@
     </div>
 </nav>
 
-<div id="About" class="container profielopmaak">
+<div class="container" id="profiel">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-5">
             <div class="imagePreview">
-                <!-- Profielfoto -->
+<!------------------------------------ Profielfoto --------------------------------------------------->
                 <div class="form">
                     <div class="form-group">
-                        <input type="file" id="profilePicture" />
+                        <img src="" id="profielFoto" class="rounded-top rounded-bottom" alt="Voorbeeld profielfoto" style="width: 250px; height: 250px"/>
+                    </div>
+                    <p>Kies een nieuwe profielfoto:</p>
+                    <div class="form-group">
+                        <input type="file" id="profilePicture"/>
                     </div>
                     <div class="form-group">
-                        <img src="assets/Plaatjes/anoniem.png" id="profilePreview" class="rounded-top rounded-bottom" alt="Voorbeeld" style="width: 250px; height: 250px"/>
-                    </div>
-                    <div class="form-group">
-                        <button class="btn btn-primary" id="fileUploadButton">Uploaden</button>
+                        <button class="btn btn-primary" id="fileUploadButton">Foto uploaden</button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-7">
 
             <div id="wrapper">
 
-                <!-- Reclame -->
-                <!-- div id="reclame" style="display: inline-block">
-                    <a href="https://corendon.nl"><img src="../Plaatjes/reclame.png" alt="Corendon-reclamebanner"></a>
-                </div>
-                <div id="form" style="display: inline-block" -->
-                <!-- form action nog invoegen -->
-
-                <h3>Personalia</h3>
-                <form action="#" method="POST">
-
+                <h3>Wijzig hier uw gegevens</h3>
+                <hr>
                     <!-- Voornaam -->
                     <div class="form-group">
-                        <label for="firstName">Voornaam</label>
-                        <input type="text" class="form-control" id="" maxlength="25" required autofocus>
-                        <p id="firstName"></p>
-                        <!-- div class="invalid-feedback" nog invoegen -->
+                        <label >Voornaam</label>
+                        <input type="text" class="form-control" id="firstName" maxlength="25" required autofocus>
                     </div>
 
                     <!-- Achternaam -->
                     <br>
                     <div class="form-group">
-                        <label for="lastName">Achternaam</label>
-                        <input type="text" class="form-control" id="lastName" maxlength="25"
-                               placeholder="Achternaam" required>
-                        <!-- div class="invalid-feedback" nog invoegen -->
+                        <label>Achternaam</label>
+                        <input type="text" class="form-control" id="lastName" maxlength="25" required>
                     </div>
 
                     <!-- Gender -->
@@ -103,15 +93,15 @@
                         <label for="man">Selecteer uw gender:</label>
                         <br>
                         <div class="man">
-                            <input type="radio" id="man" class="input" name="gender" value="man">
+                            <input type="radio" id="man" class="radioButton" name="gender" value="Man">
                             <label for="man">Man</label>
                         </div>
                         <div class="vrouw">
-                            <input type="radio" id="vrouw" name="gender" value="vrouw">
+                            <input type="radio" id="vrouw" class="radioButton" name="gender" value="Vrouw">
                             <label for="vrouw">Vrouw</label>
                         </div>
                         <div class="anders">
-                            <input type="radio" id="anders" name="gender" value="anders">
+                            <input type="radio" id="anders" class="radioButton" name="gender" value="anders">
                             <label for="anders">Anders</label>
                         </div>
                     </div>
@@ -154,7 +144,7 @@
                     <div class="form-group">
                         <label for="budget">Reisbudget</label>
                         <br>
-                        <input type="number" id="budget" name="budget" step="50" placeholder="€">
+                        <p>€ <input type="number" id="budget" name="budget" step="50" ></p>
                     </div>
                     <div class="form-group">
                         <label for="reisbestemming">Reisbestemming</label>
@@ -178,29 +168,30 @@
                         </select>
                     </div>
                     <br>
-                    <h3>Wachtwoord/gebruikersnaam wijzigen</h3>
-                    <label for="email">E-mailadres</label>
-                    <input type="email" class="email" id="email" name="email" placeholder="E-mailadres" required>
-                    <!-- div class="invalid-feedback" nog invoegen -->
+                    <h3>Email/Wachtwoord wijzigen</h3>
+                    <p id="email">Huidig e-mailadres:&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    <label for="nieuw_email">Nieuw e-mailadres:</label>
+                    <input type="email" class="email" id="nieuw_email" name="email" required style="margin-left: 18px">
                     <br>
-                    <label for="user-password">Password</label>
-                    <input type="password" id="user-password" name="user-password" placeholder="Password" required>
+                    <label for="nieuw_wachtwoord">Nieuw wachtwoord:</label>
+                    <input type="password" id="nieuw_wachtwoord" name="user-password" required style="margin-left: 14px" >
+                    <br>
+                    <label for="bevestig_wachtwoord">Bevestig wachtwoord:</label>
+                    <input type="password" id="bevestig_wachtwoord" name="user-password" required >
                     <br>
                     <br>
                     <div class="checkbox mb-3">
-                                           <br>
-                        <label for="registreren">
-                            <!--input id="profielaanmaken" type="submit" value="Registreer"-->
-                            <button class="btn btn-primary btn-lg btn-block" id="registreren" type="submit">Opslaan</button>
-                        </label>
+                        <div>
+                            <button onclick="window.location.href='profiel.html'" type="button" id="annuleren" class="btn btn-secondary position-absolute" >Annuleren</button>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" id="opslaan" type="submit" style="margin-left: 100px">Opslaan</button>
+                           <button class="btn btn-danger" id="verwijder" type="submit" style="margin-right: 10px" >Verwijder account</button>
+                        </div>
+                        <br>
+                        <br>
                     </div>
-                </form>
             </div>
-            <!--
-                    <div class="button_wijzig">
-                        <button onclick="window.location.href='profiel.html'" type="submit" class="btn btn-primary btn-lg btn-block position-absolute">Opslaan</button>
-                    </div>
-            -->
         </div>
     </div>
 </div>

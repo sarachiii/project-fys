@@ -13,10 +13,10 @@ body{
 
 .navbar-text{
     color: white !important;
-    left: 43%;
+    left: 42%;
     position: absolute;
     font-family: "Calibri Light", sans-serif;
-    font-size: 25px;
+    font-size: 37px;
     font-weight: bold;
     margin: 0;
     text-align: center;
@@ -28,6 +28,7 @@ body{
 
 .nav-link{
     color: white !important;
+    font-size: 22px;
 }
 
 .navbar-collapse a:hover{

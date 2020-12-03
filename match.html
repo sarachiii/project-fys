@@ -3,24 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Budget Buddy</title>
-    <link href="assets/CSS/match.css" rel="stylesheet">
-    <link href="assets/CSS/index.css" rel="stylesheet">
-    <!-- Font styling -->
     <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap" rel="stylesheet">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-    <!-- FYS Cloud -->
-    <script src="https://cdn.fys.cloud/fyscloud/0.0.3/fyscloud.bundle.min.js"></script>
-    <script src="assets/js/config.js"></script>
-
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href="assets/CSS/match.css" rel="stylesheet">
 </head>
 <body>
-
-<!-- Navigatie balk -->
+<!-----------------------------------------------NAVBAR TOP------------------------------------------------->
 <nav class="navbar navbar-dark navbar-expand-md">
     <a class="navbar-brand"><img src="assets/Plaatjes/logo.png" width="100" height="50" alt="Budgetbuddy logo"></a>
     <span class="navbar-text">Match. Chat. Travel.</span>
@@ -41,73 +30,137 @@
                 <a href="over.html" class="nav-link">Over</a>
             </li>
             <li class="nav-item">
-                <a href="index.html" class="nav-link">Log uit</a>
+                <a href="index.html" id="loguit" class="nav-link">Log uit</a>
             </li>
         </ul>
     </div>
 </nav>
 
-<div class="sidebar">
-    <h3 class="active">Mijn matches</h3>
-    <h3>Chat verzoeken</h3>
-    <hr class="sidebarline">
-    <h2 class="filter">Filteren</h2>
-    <div class="rangeslider">
-        <input type="range" min="100" max="2500" value="50">
+<!----------------------------------------------------SIDEBAR------------------------------------------------->
+<div class="d-flex h-100">
+    <div class="sidebar">
+        <h3 class="active-mymatches-button">Mijn Matches</h3>
+        <h3 class="chat-button">Chat verzoeken</h3>
+        <div class="lineBreak">
+            <hr class="sidebarline">
+        </div>
+        <h3 class="filter-text">Filters:</h3>
+        <div class="max-budget-slider">
+            <h4>Maximum budget</h4>
+            <div class="budgetSlider">
+                <input id="budget-slider" type="range" min="100" max="2500" value="2500">
+            </div>
+        </div>
+        <div class="max-age-slider">
+            <h4>Maximum leeftijd</h4>
+            <div class="ageSlider">
+                <input id="age-slider" type="range" min="18" max="100" value="100">
+            </div>
+        </div>
+        <button type="button" id="apply-changes" class="btn btn-primary mt-5 apply-changes-button">Veranderingen toepassen</button>
+
     </div>
-</div>
-<input class="searchbar" type="text" placeholder="Zoek hier uw match op naam">
-<hr class="line">
-<h2 class="topmatchestext">Top Matches</h2>
 
-<div class="profile">
-    <img class="ppicture" src="assets/Plaatjes/profileimg1.jpg" alt="Profile picture">
-    <h3 class="pname">Lisa, 24</h3>
-    <h5 class="pplace">Bestemmingen: Turkije, Thailand</h5>
+    <!--------------------------------------EERSTE RIJ VAN DE MATCH CARDS------------------------------------------->
+    <div class="content" id="content">
+        <div class="row justify-content-around my-row">
+            <div class="col-xl-3  col-lg-6 my-col mt-2 w-2">
+                <div class="card" data-budget="1500" data-age="24">
+                    <img class="card-img-top mx-auto profile-picture" src="assets/Plaatjes/profileimg1.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Lisa, 24</h5>
+                        <p class="card-text">Bestemmingen: Turkije, Thailand</p>
+                        <p class="card-text"><strong>Budget: 1500 euro</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3  col-lg-6 mt-2 my-col ">
+                <div class="card" data-budget="1000" data-age="21">
+                    <img class="card-img-top mx-auto profile-picture" src="assets/Plaatjes/YoungGuyblue.jpeg"
+                         alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Tom, 21</h5>
+                        <p class="card-text">Bestemmingen: Turkije, Gran Canaria</p>
+                        <p class="card-text"><strong>Budget: 1000 euro</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3  col-lg-6 mt-2 my-col ">
+                <div class="card" data-budget="250" data-age="30">
+                    <img class="card-img-top mx-auto profile-picture" src="assets/Plaatjes/Beardedguy.jpeg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Jonathan, 30</h5>
+                        <p class="card-text">Bestemmingen: Frankrijk, Saudi Arabië</p>
+                        <p class="card-text"><strong>Budget: 250 euro</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3  col-lg-6 mt-2 my-col ">
+                <div class="card" data-budget="2000" data-age="24">
+                    <img class="card-img-top mx-auto profile-picture" src="assets/Plaatjes/BlackWoman.jpeg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Anya, 24</h5>
+                        <p class="card-text">Bestemmingen: Japan, Thailand</p>
+                        <p class="card-text"><strong>Budget: 2000 euro</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----------------------------------TWEEDE RIJ VAN DE MATCH CARDS------------------------------------->
+        <div class="row justify-content-around my-row mt-2 mt-lg-5">
 
-    <div class="pmatchbar">
-        <div class="percentagebar">
-            <h5 style="padding-top: 2px; padding-left: 5px; margin: 0;">80%</h5>
+            <div class="col-xl-3  col-lg-6 mt-2 my-col">
+                <div class="card" data-budget="1000" data-age="29">
+                    <img class="card-img-top mx-auto profile-picture" src="assets/Plaatjes/YoungGuy.jpeg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Teun, 29</h5>
+                        <p class="card-text">Bestemmingen: Rusland, Thailand</p>
+                        <p class="card-text"><strong>Budget: 1000 euro</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3  col-lg-6 mt-2 my-col">
+                <div class="card" data-budget="2000" data-age="55">
+                    <img class="card-img-top mx-auto profile-picture" src="assets/Plaatjes/ElderlyWoman_.jpeg"
+                         alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Merel, 55</h5>
+                        <p class="card-text">Bestemmingen: Turkije, Spanje</p>
+                        <p class="card-text"><strong>Budget: 2000 euro</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3  col-lg-6 mt-2 my-col">
+                <div class="card" data-budget="2250" data-age="38">
+                    <img class="card-img-top mx-auto profile-picture" src="assets/Plaatjes/ElderlyWoman.jpeg"
+                         alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Natalie, 38</h5>
+                        <p class="card-text">Bestemmingen: India, Thailand</p>
+                        <p class="card-text"><strong>Budget: 2250 euro</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3  col-lg-6 mt-2 my-col">
+                <div class="card" data-budget="500" data-age="22">
+                    <img class="card-img-top mx-auto profile-picture" src="assets/Plaatjes/BlackMan.jpeg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">David, 22</h5>
+                        <p class="card-text">Bestemmingen: Oosterijk, Duitsland</p>
+                        <p class="card-text"><strong>Budget: 500 euro</strong></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
-<div class="profile2 ">
-    <img class="ppicture" src="assets/Plaatjes/profileimg1.jpg" alt="Profile picture">
-    <h3 class="pname">Lisa, 24</h3>
-    <h5 class="pplace">Bestemmingen: Turkije, Thailand</h5>
-
-    <div class="pmatchbar">
-        <div class="percentagebar">
-            <h5 style="padding-top: 2px; padding-left: 5px; margin: 0;">80%</h5>
-        </div>
-    </div>
-</div>
-
-<div class="profile3">
-    <img class="ppicture" src="assets/Plaatjes/profileimg1.jpg" alt="Profile picture">
-    <h3 class="pname">Lisa, 24</h3>
-    <h5 class="pplace">Bestemmingen: Turkije, Thailand</h5>
-
-    <div class="pmatchbar">
-        <div class="percentagebar">
-            <h5 style="padding-top: 2px; padding-left: 5px; margin: 0;">80%</h5>
-        </div>
-    </div>
-</div>
-
-<div class="profile4">
-    <img class="ppicture" src="assets/Plaatjes/profileimg1.jpg" alt="Profile picture">
-    <h3 class="pname">Lisa, 24</h3>
-    <h5 class="pplace">Bestemmingen: Turkije, Thailand</h5>
-
-    <div class="pmatchbar">
-        <div class="percentagebar">
-            <h5 style="padding-top: 2px; padding-left: 5px; margin: 0;">80%</h5>
-        </div>
-    </div>
-</div>
-
-
+<!--------------------------------------------------JAVASCRIPT------------------------------------------------->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+<script  type="text/javascript" src="assets/js/pages/match.js"></script>
 </body>
 </html>
