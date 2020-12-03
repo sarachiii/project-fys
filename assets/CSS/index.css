@@ -1,6 +1,6 @@
 body{
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Open Sans, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
 }
 .logo{
     height: 75px;
@@ -17,11 +17,11 @@ body{
 
 .navbar-text{
     color: white !important;
-    left: 42%;
+    left: 41%;
     position: absolute;
-    font-family: "Calibri Light", sans-serif;
-    font-size: 37px;
-    font-weight: bold;
+    font-family: Open Sans, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
+    font-size: 28px;
+    font-weight: 600;
     margin: 0;
     text-align: center;
 }
@@ -32,7 +32,7 @@ body{
 
 .nav-link{
     color: white !important;
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .navbar-collapse a:hover{
@@ -148,7 +148,7 @@ body{
     top: 40px;
     left: 120px;
     color: #363d46;
-    font-family: "Calibri Light", sans-serif;
+    font-family: Open Sans, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
 }
 
 .infotext{
