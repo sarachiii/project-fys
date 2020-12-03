@@ -6,15 +6,21 @@
 document.addEventListener('DOMContentLoaded', function (event){
 
     loginButton.onclick = function () {
+        let userid = FYSCloud.Session.get("userid");
         let gebruikersnaam = document.getElementById("inputEmail").value;
         let wachtwoord = document.getElementById("inputPassword").value;
 
         FYSCloud.API.queryDatabase(
             "SELECT * FROM profiel WHERE gebruikersnaam = ? AND wachtwoord = ?", [gebruikersnaam, wachtwoord]
         ).done(function(data) {
-
             if(data.length > 0) {
-                alert("GELUKT! U bent nu ingelogd.")
+                FYSCloud.API.queryDatabase(
+                    "SELECT voornaam FROM profiel WHERE id = ?", [userid]
+                ).done(function(data) {
+                }).fail(function(reason) {
+                    console.log(reason);
+                });
+                alert("Welkom terug " + data[0].voornaam + " !");
                 FYSCloud.Session.set("userid", data[0]["id"]);
                 window.location.href = 'match.html';
             } else {
