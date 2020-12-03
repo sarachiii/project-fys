@@ -2,6 +2,10 @@ body{
     margin: 0;
     font-family: Open Sans, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
 }
+.logo{
+    height: 75px;
+    width: 150px;
+}
 
 /* Navigatie balk */
 .navbar{
