@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-family: Montserrat, Avenir Next, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
+    font-family: Avenir Next, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
     padding-bottom: 200px;
 }
 
@@ -15,8 +15,10 @@ button {
     font-family: Avenir Next, AppleSystemUIFont, Helvetica, Arial, sans-serif
 }
 
-input[type="password"], input[type="file"], input[type="email"], input[type="password"], input[type="date"] {
-    width: 250px;
+.try {
+    background: #ff5768 !important;
+    border-color: #ff5768 !important;
+    font-family: Avenir Next, AppleSystemUIFont, Helvetica, Arial, sans-serif
 }
 
 .h3 {
@@ -47,36 +49,15 @@ input, optgroup, select, textarea {
     position: relative;
 }
 
-.dropdown-primary {
-    background-color: #ff5768 !important;
-    color: #ffffff !important;
-}
-
-.multiple-checkboxes {
-    color: white !important;
+.unselected {
     font-weight: bold !important;
-    width: 250px;
-}
-
-body {
-    font-family: Avenir Next, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
-}
-
-h3 {
-    text-align: center;
-    font-family: Avenir Next, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
-}
-
-button {
-    background: #ff5768 !important;
-    border-color: #ff5768 !important;
-    font-family: Avenir Next, AppleSystemUIFont, Helvetica, Arial, sans-serif
+    color: #ff5768 !important;
 }
 
 /* dropdown button */
 .dropdown-primary {
-    background-color: #ff5768;
-    color: #ffffff;
+    background-color: #ff5768 !important;
+    color: #ffffff !important;
     border-color: #ff5768 !important;
     padding: 5px;
 }
