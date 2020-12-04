@@ -11,31 +11,30 @@
 <body>
 <!-----------------------------------------------NAVBAR TOP------------------------------------------------->
 <nav class="navbar navbar-dark navbar-expand-md">
-    <a class="navbar-brand"><img src="assets/Plaatjes/logo.png" width="100" height="50" alt="Budgetbuddy logo"></a>
+    <a href="index.html" class="navbar-brand">
+        <img src="images/logo.png" width="100" height="50" alt="Budgetbuddy logo">
+    </a>
     <span class="navbar-text">Match. Chat. Travel.</span>
-
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
         <span class="navbar-toggler-icon ml-auto"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarMenu">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a href="profiel.html" class="nav-link">Profiel</a>
+                <a href="index.html" class="nav-link">Mijn profiel</a>
             </li>
             <li class="nav-item">
-                <a href="match.html" class="nav-link">Matching</a>
+                <a href="login.html" class="nav-link active" style="color: #ff5768">Matching</a>
             </li>
             <li class="nav-item">
-                <a href="over.html" class="nav-link">Over</a>
+                <a href="over_simpel.html" class="nav-link">Over</a>
             </li>
             <li class="nav-item">
-                <a href="index.html" id="loguit" class="nav-link">Log uit</a>
+                <a href="index.html" class="nav-link">Log uit</a>
             </li>
         </ul>
     </div>
 </nav>
-
 <!----------------------------------------------------SIDEBAR------------------------------------------------->
 <div class="d-flex h-100">
     <div class="sidebar">
@@ -47,108 +46,94 @@
         <h3 class="filter-text">Filters:</h3>
         <div class="max-budget-slider">
             <h4>Maximum budget</h4>
-            <div class="budgetSlider">
+            <div class="budgetSlider d-flex justify-space-between">
                 <input id="budget-slider" type="range" min="100" max="2500" value="2500">
+                <div class="ml-3" id="budget-slider-value">2500</div>
             </div>
         </div>
         <div class="max-age-slider">
             <h4>Maximum leeftijd</h4>
-            <div class="ageSlider">
+            <div class="ageSlider d-flex justify-space-between">
                 <input id="age-slider" type="range" min="18" max="100" value="100">
+                <div class="ml-3" id="age-slider-value">100</div>
             </div>
         </div>
-        <button type="button" id="apply-changes" class="btn btn-primary mt-5 apply-changes-button">Veranderingen toepassen</button>
+        <button type="button" id="apply-changes" class="btn btn-primary mt-5 apply-changes-button">Veranderingen
+            toepassen
+        </button>
 
     </div>
 
     <!--------------------------------------EERSTE RIJ VAN DE MATCH CARDS------------------------------------------->
     <div class="content" id="content">
-        <div class="row justify-content-around my-row">
-            <div class="col-xl-3  col-lg-6 my-col mt-2 w-2">
-                <div class="card" data-budget="1500" data-age="24">
-                    <img class="card-img-top mx-auto profile-picture" src="assets/Plaatjes/profileimg1.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Lisa, 24</h5>
-                        <p class="card-text">Bestemmingen: Turkije, Thailand</p>
-                        <p class="card-text"><strong>Budget: 1500 euro</strong></p>
-                    </div>
+        <div class="row my-row">
+            <div class="col-xl-3  col-lg-6 my-col mt-2 w-2 card" data-budget="1500" data-age="24">
+                <img class="card-img-top mx-auto profile-picture" src="assets/Plaatjes/profileimg1.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Lisa, 24</h5>
+                    <p class="card-text">Bestemmingen: Turkije, Thailand</p>
+                    <p class="card-text"><strong>Budget: 1500 euro</strong></p>
                 </div>
             </div>
-            <div class="col-xl-3  col-lg-6 mt-2 my-col ">
-                <div class="card" data-budget="1000" data-age="21">
-                    <img class="card-img-top mx-auto profile-picture" src="assets/Plaatjes/YoungGuyblue.jpeg"
-                         alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Tom, 21</h5>
-                        <p class="card-text">Bestemmingen: Turkije, Gran Canaria</p>
-                        <p class="card-text"><strong>Budget: 1000 euro</strong></p>
-                    </div>
+            <div class="col-xl-3  col-lg-6 mt-2 my-col card" data-budget="1000" data-age="21">
+                <img class="card-img-top mx-auto profile-picture" src="assets/Plaatjes/YoungGuyblue.jpeg"
+                     alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Tom, 21</h5>
+                    <p class="card-text">Bestemmingen: Turkije, Gran Canaria</p>
+                    <p class="card-text"><strong>Budget: 1000 euro</strong></p>
                 </div>
             </div>
-            <div class="col-xl-3  col-lg-6 mt-2 my-col ">
-                <div class="card" data-budget="250" data-age="30">
-                    <img class="card-img-top mx-auto profile-picture" src="assets/Plaatjes/Beardedguy.jpeg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Jonathan, 30</h5>
-                        <p class="card-text">Bestemmingen: Frankrijk, Saudi Arabië</p>
-                        <p class="card-text"><strong>Budget: 250 euro</strong></p>
-                    </div>
+            <div class="col-xl-3  col-lg-6 mt-2 my-col card" data-budget="250" data-age="30">
+                <img class="card-img-top mx-auto profile-picture" src="assets/Plaatjes/Beardedguy.jpeg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Jonathan, 30</h5>
+                    <p class="card-text">Bestemmingen: Frankrijk, Saudi Arabië</p>
+                    <p class="card-text"><strong>Budget: 250 euro</strong></p>
                 </div>
             </div>
-            <div class="col-xl-3  col-lg-6 mt-2 my-col ">
-                <div class="card" data-budget="2000" data-age="24">
-                    <img class="card-img-top mx-auto profile-picture" src="assets/Plaatjes/BlackWoman.jpeg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Anya, 24</h5>
-                        <p class="card-text">Bestemmingen: Japan, Thailand</p>
-                        <p class="card-text"><strong>Budget: 2000 euro</strong></p>
-                    </div>
+            <div class="col-xl-3  col-lg-6 mt-2 my-col card" data-budget="2000" data-age="24" >
+                <img class="card-img-top mx-auto profile-picture" src="assets/Plaatjes/BlackWoman.jpeg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Anya, 24</h5>
+                    <p class="card-text">Bestemmingen: Japan, Thailand</p>
+                    <p class="card-text"><strong>Budget: 2000 euro</strong></p>
                 </div>
             </div>
-        </div>
-        <!----------------------------------TWEEDE RIJ VAN DE MATCH CARDS------------------------------------->
-        <div class="row justify-content-around my-row mt-2 mt-lg-5">
+            <!----------------------------------TWEEDE RIJ VAN DE MATCH CARDS------------------------------------->
 
-            <div class="col-xl-3  col-lg-6 mt-2 my-col">
-                <div class="card" data-budget="1000" data-age="29">
-                    <img class="card-img-top mx-auto profile-picture" src="assets/Plaatjes/YoungGuy.jpeg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Teun, 29</h5>
-                        <p class="card-text">Bestemmingen: Rusland, Thailand</p>
-                        <p class="card-text"><strong>Budget: 1000 euro</strong></p>
-                    </div>
+            <div class="col-xl-3 col-lg-6 mt-2 my-col card" data-budget="1000" data-age="29">
+                <img class="card-img-top mx-auto profile-picture" src="assets/Plaatjes/YoungGuy.jpeg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Teun, 29</h5>
+                    <p class="card-text">Bestemmingen: Rusland, Thailand</p>
+                    <p class="card-text"><strong>Budget: 1000 euro</strong></p>
                 </div>
             </div>
-            <div class="col-xl-3  col-lg-6 mt-2 my-col">
-                <div class="card" data-budget="2000" data-age="55">
-                    <img class="card-img-top mx-auto profile-picture" src="assets/Plaatjes/ElderlyWoman_.jpeg"
-                         alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Merel, 55</h5>
-                        <p class="card-text">Bestemmingen: Turkije, Spanje</p>
-                        <p class="card-text"><strong>Budget: 2000 euro</strong></p>
-                    </div>
+            <div class="col-xl-3 col-lg-6 mt-2 my-col card" data-budget="2000" data-age="55">
+                <img class="card-img-top mx-auto profile-picture" src="assets/Plaatjes/ElderlyWoman_.jpeg"
+                     alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Merel, 55</h5>
+                    <p class="card-text">Bestemmingen: Turkije, Spanje</p>
+                    <p class="card-text"><strong>Budget: 2000 euro</strong></p>
                 </div>
             </div>
-            <div class="col-xl-3  col-lg-6 mt-2 my-col">
-                <div class="card" data-budget="2250" data-age="38">
-                    <img class="card-img-top mx-auto profile-picture" src="assets/Plaatjes/ElderlyWoman.jpeg"
-                         alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Natalie, 38</h5>
-                        <p class="card-text">Bestemmingen: India, Thailand</p>
-                        <p class="card-text"><strong>Budget: 2250 euro</strong></p>
-                    </div>
+            <div class="col-xl-3 col-lg-6 mt-2 my-col card" data-budget="2250" data-age="38">
+                <img class="card-img-top mx-auto profile-picture" src="assets/Plaatjes/ElderlyWoman.jpeg"
+                     alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Natalie, 38</h5>
+                    <p class="card-text">Bestemmingen: India, Thailand</p>
+                    <p class="card-text"><strong>Budget: 2250 euro</strong></p>
                 </div>
             </div>
-            <div class="col-xl-3  col-lg-6 mt-2 my-col">
-                <div class="card" data-budget="500" data-age="22">
-                    <img class="card-img-top mx-auto profile-picture" src="assets/Plaatjes/BlackMan.jpeg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">David, 22</h5>
-                        <p class="card-text">Bestemmingen: Oosterijk, Duitsland</p>
-                        <p class="card-text"><strong>Budget: 500 euro</strong></p>
-                    </div>
+            <div class="col-xl-3  col-lg-6 mt-2 my-col card" data-budget="500" data-age="22">
+                <img class="card-img-top mx-auto profile-picture" src="assets/Plaatjes/BlackMan.jpeg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">David, 22</h5>
+                    <p class="card-text">Bestemmingen: Oosterijk, Duitsland</p>
+                    <p class="card-text"><strong>Budget: 500 euro</strong></p>
                 </div>
             </div>
         </div>
@@ -161,6 +146,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
-<script  type="text/javascript" src="assets/js/pages/match.js"></script>
+<script src="assets/js/pages/match.js"></script>
 </body>
 </html>
