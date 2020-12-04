@@ -1,5 +1,4 @@
 $( document ).ready(function() {
-    let profielfoto = 0;
     FYSCloud.API.queryDatabase(
         "SELECT * FROM profiel WHERE id = ?", [FYSCloud.Session.get("userid")]
     ).done(function(data) {
@@ -8,14 +7,17 @@ $( document ).ready(function() {
         document.getElementById("firstName").value = data[0].voornaam;
         document.getElementById("lastName").value = data[0].achternaam;
 
-        /* Controleert welk gegeven er in de database staat en markeert daarna de juiste radio button optie */
-
-        if(data[0].gender === "man"){
-        $(':input:radio:eq(0)').attr('checked', true);
-        }else if(data[0].gender === "vrouw"){
-            $(':input:radio:eq(1)').attr('checked', true);
-        } else {
-            $(':input:radio:eq(2)').attr('checked', true);
+        /* Controleert welk gender er in de database staat en markeert daarna de juiste radio button optie */
+        switch(data[0].gender){
+            case "man" :
+                $('#gender').find('option:eq(0)').attr('selected', true);
+                break;
+            case "vrouw" :
+                $('#gender').find('option:eq(1)').attr('selected', true);
+                break;
+            case "anders":
+                $('#gender').find('option:eq(2)').attr('selected', true);
+                break;
         }
 
         /*
@@ -23,126 +25,122 @@ $( document ).ready(function() {
         document.getElementById("geboortedatum").value = data[0].datum;
         */
 
-        /* Controlleert welke woonplaats in de database staat en geeft daarna de juiste optie weer */
+        /* Controleert welke woonplaats in de database staat en geeft daarna de juiste optie van het dropwdown menu weer in het formulier */
         switch (data[0].woonplaats){
-            case "Drenthe" :
+            case "drenthe" :
                 $('#woonplaats').find('option:eq(1)').attr('selected', true);
                 break;
-            case "Flevoland" :
+            case "flevoland" :
                 $('#woonplaats').find('option:eq(2)').attr('selected', true);
                 break;
-            case "Gelderland" :
+            case "friesland" :
                 $('#woonplaats').find('option:eq(3)').attr('selected', true);
                 break;
-            case "Groningen" :
+            case "gelderland" :
                 $('#woonplaats').find('option:eq(4)').attr('selected', true);
                 break;
-            case "Limburg" :
+            case "groningen" :
                 $('#woonplaats').find('option:eq(5)').attr('selected', true);
                 break;
-            case "Noord-Brabant" :
+            case "limburg" :
                 $('#woonplaats').find('option:eq(6)').attr('selected', true);
                 break;
-            case "Noord-Holland" :
+            case "noordbrabant" :
                 $('#woonplaats').find('option:eq(7)').attr('selected', true);
-                break
-            case "Overijssel" :
-                $('#woonplaats').find('option:eq(8)').attr('selected', true);
                 break;
-            case "Utrecht" :
+            case "noordholland" :
+                $('#woonplaats').find('option:eq(8)').attr('selected', true);
+                break
+            case "overijssel" :
                 $('#woonplaats').find('option:eq(9)').attr('selected', true);
                 break;
-            case "Zeeland" :
+            case "utrecht" :
+                $('#woonplaats').find('option:eq(10)').attr('selected', true);
+                break;
+            case "zeeland" :
                 $('#woonplaats').find('option:eq(11)').attr('selected', true);
                 break;
-            case "Zuid-Holland" :
+            case "zuidholland" :
                 $('#woonplaats').find('option:eq(12)').attr('selected', true);
                 break;
         }
 
         document.getElementById("budget").value = data[0].budget;
 
-        /* Controlleert welke woonplaats in de database staat en geeft daarna de juiste optie weer */
+        /* Controleert welke woonplaats in de database staat en geeft daarna de juiste optie van het dropdown menu weer in het formulier*/
         switch (data[0].reisbestemming){
-            case "Nederland" :
+            case "nederland" :
                 $('#reisbestemming').find('option:eq(1)').attr('selected', true);
                 break
-            case "Bonaire" :
+            case "bonaire" :
                 $('#reisbestemming').find('option:eq(2)').attr('selected', true);
                 break;
-            case "Bulgarije" :
+            case "bulgarije" :
                 $('#reisbestemming').find('option:eq(3)').attr('selected', true);
                 break;
-            case "Curaçao" :
+            case "curacao" :
                 $('#reisbestemming').find('option:eq(4)').attr('selected', true);
                 break;
-            case "Egypte" :
+            case "egypte" :
                 $('#reisbestemming').find('option:eq(5)').attr('selected', true);
                 break;
-            case "Gambia" :
+            case "gambia" :
                 $('#reisbestemming').find('option:eq(6)').attr('selected', true);
                 break;
-            case "Griekenland" :
+            case "griekenland" :
                 $('#reisbestemming').find('option:eq(7)').attr('selected', true);
                 break;
-            case "Indonesië" :
+            case "indonesie" :
                 $('#reisbestemming').find('option:eq(8)').attr('selected', true);
                 break;
-            case "Italië" :
+            case "italie" :
                 $('#reisbestemming').find('option:eq(9)').attr('selected', true);
                 break;
-            case "Kaapverdië" :
+            case "kaapverdie" :
                 $('#reisbestemming').find('option:eq(10)').attr('selected', true);
                 break;
-            case "Macedonie" :
+            case "macedonie" :
                 $('#reisbestemming').find('option:eq(11)').attr('selected', true);
                 break;
-            case "Portugal" :
+            case "portugal" :
                 $('#reisbestemming').find('option:eq(12)').attr('selected', true);
                 break;
-            case "Spanje" :
+            case "spanje" :
                 $('#reisbestemming').find('option:eq(13)').attr('selected', true);
                 break;
-            case "Turkije" :
+            case "turkije" :
                 $('#reisbestemming').find('option:eq(14)').attr('selected', true);
                 break;
         }
-        $("#email").append(data[0]["gebruikersnaam"]);
+
+        document.getElementById("bio").value = data[0].bio;
     }).fail(function(data) {
     console.log(data);
     });
 
 
-    /* Gegevens opslaan */
+    /* Gewijzigde gegevens opslaan en naar database sturen */
     $("#opslaan").on("click", function () {
 
+        let userid = FYSCloud.Session.get("userid");
         let firstName = document.getElementById("firstName").value;
         let lastName = document.getElementById("lastName").value;
+        let gender = document.getElementById("gender").value;
         let woonplaats = document.getElementById("woonplaats").value;
         let bestemming = document.getElementById("reisbestemming").value;
         let budget = document.getElementById("budget").value;
-        let email = document.getElementById("nieuw_email").value;
-        let wachtwoord;
-
-        let nieuwWachtwoord = document.getElementById("nieuw_wachtwoord").value;
-        let bevestigWachtwoord =  document.getElementById("bevestig_wachtwoord").value
-        if(nieuwWachtwoord === bevestigWachtwoord) {
-            wachtwoord = nieuwWachtwoord;
-        } else {
-            alert("Wachtwoord is niet hetzelfde.")
-        }
+        let bio = document.getElementById("bio").value;
 
         FYSCloud.API.queryDatabase(
             "UPDATE profiel SET voornaam = ?, " +
             "achternaam = ?, " +
+            "gender = ?, " +
             "woonplaats = ?, " +
             "reisbestemming = ?, " +
             "budget = ?, " +
-            "gebruikersnaam = ?, " +
-            "wachtwoord = ? " +
-            "WHERE id = ?", [firstName, lastName, woonplaats, bestemming, budget, email, wachtwoord, FYSCloud.Session.get("userid")]
+            "bio = ? " +
+            "WHERE id = ?", [firstName, lastName, gender, woonplaats, bestemming, budget, bio, userid]
         ).done(function (data) {
-            insertId = data["insertId"];
             console.log(data);
             alert("Gegevens zijn opgeslagen!")
         }).fail(function (data) {
@@ -151,7 +149,7 @@ $( document ).ready(function() {
     });
 
 
-    /* Preview van foto */
+    /* Preview van profielfoto */
     $(function () {
         $("#profilePicture").on("change", function () {
             FYSCloud.Utils
@@ -166,13 +164,11 @@ $( document ).ready(function() {
         });
 
         /* Profielfoto uploaden */
-
         $("#fileUploadButton").on("click", function () {
             let userid =  FYSCloud.Session.get("userid");
                 FYSCloud.Utils
                 .getDataUrl($("#profilePicture"))
                 .done(function (data) {
-                    insertId = data["insertId"];
                     console.log(data["extension"]);
                     console.log(userid);
                     FYSCloud.API.uploadFile(
@@ -197,21 +193,27 @@ $( document ).ready(function() {
         });
 
         /* Account verwijderen */
+        $(function() {
+        $('#verwijder').click(function(e) {
+            if(confirm("Are you sure?"))
+            {
+                FYSCloud.API.queryDatabase(
+                    "DELETE FROM profiel WHERE id = ?", [FYSCloud.Session.get("userid")]
+                ).done(function(data) {
+                    console.log(data);
+                    alert("Account is succesvol verwijderd.")
+                    window.location.href = "index.html";
+                }).fail(function(reason) {
+                    console.log(reason);
+                    alert("Account verwijderen mislukt.")
+                });
+            }
+            else
+            {
+                e.preventDefault();
+            }
+                });
+            });
 
-        $("#verwijder").on("click", function () {
-
-        FYSCloud.API.queryDatabase(
-            "DELETE FROM profiel WHERE id = ?", [FYSCloud.Session.get("userid")]
-        ).done(function(data) {
-            console.log(data);
-            alert("account is succesvol verwijderd.")
-            window.location.href = "index.html";
-        }).fail(function(reason) {
-            console.log(reason);
-            alert("Account verwijderen mislukt.")
-        });
         });
     });
-});
-
-

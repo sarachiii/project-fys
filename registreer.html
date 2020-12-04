@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="assets/CSS/registreer.css">
     <link rel="stylesheet" href="assets/CSS/index.css">
 
+    <!-- Font styling -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap" rel="stylesheet">
+
     <!-- FYS Cloud JS -->
     <script src="https://cdn.fys.cloud/fyscloud/0.0.3/fyscloud.bundle.min.js"></script>
 
@@ -19,24 +23,16 @@
             integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
             crossorigin="anonymous"></script>
 
-    <!-- Hobby's multiselect >
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" -->
-
     <!-- Paginaspecifieke JS -->
     <script src="assets/js/config.js"></script>
     <script src="assets/js/pages/registreer.js"></script>
-    <script type="text/javascript" src="assets/js/checklogin.js"></script>
-    <script type="text/javascript" src="assets/js/loguit.js"></script>
     <title>Budget Buddy</title>
 </head>
 
 <body>
 <!-- Navigatiebalk -->
 <nav class="navbar navbar-dark navbar-expand-md">
-    <a href="index.html" class="navbar-brand"><img src="assets/Plaatjes/logo.png" width="100" height="50"
+    <a href="index.html" class="navbar-brand"><img src="assets/Plaatjes/logo.png" class="logo"
                                                    alt="Budgetbuddy logo"></a>
     <span class="navbar-text">Match. Chat. Travel.</span>
 
@@ -96,7 +92,7 @@
         <div class="row my-row justify-content-center">
             <div class="col-3">
                 <label for="profielfoto" class="sr-only">Upload hier uw profielfoto</label>
-                <input type="file" class="form-control" id="profielfoto" name="profielfoto"
+                <input type="file" class="try form-control" id="profielfoto" name="profielfoto"
                        accept="image/png, image/jpeg">
             </div>
         </div>
@@ -120,7 +116,7 @@
         <!--- Geboortedatum -->
         <div class="row my-row justify-content-center">
             <div class="col-3">
-                <label for="geboortedatum">Selecteer uw geboortedatum</label>
+                <label for="geboortedatum"><strong>Selecteer uw geboortedatum</strong></label>
                 <br>
                 <input type="date" class="form-control dropdown-primary" id="geboortedatum" name="geboortedatum" value=""
                        min="1900-01-01" max="2002-12-31" required>
@@ -151,37 +147,39 @@
             </div>
         </div>
         <br>
+
         <!-- Hobby's -->
         <div class="row my-row justify-content-center">
             <div class="col-3">
-                <!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" -->
-                <label for="multiple-checkboxes">Selecteer uw hobby's</label>
-                <select id="multiple-checkboxes" class="form-control" multiple="multiple" placeholder="Selecteer uw hobby's">
-                    <option value="" disabled>Muziek</option>
-                    <option value="concertbezoeken">Concertbezoeken</option>
+                <label for="multiple-checkboxes"><strong>Selecteer uw hobby's</strong><br>Ctrl/cmd + klik</label>
+                <select id="multiple-checkboxes" class="form-control" multiple="multiple">
+                    <option class="unselected" value="" disabled>Muziek</option>
+                    <option value="concertenbezoeken">Concerten bezoeken</option>
                     <option value="dansen">Dansen</option>
                     <option value="harmonieorkest">Harmonieorkest</option>
                     <option value="instrument">Instrument bespelen</option>
                     <option value="zingen">Zingen</option>
-                    <option value="" disabled>Sport</option>
+                    <option class="unselected" value="" disabled>Sport</option>
                     <option value="atletiek">Atletiek</option>
                     <option value="balsport">Balsport</option>
+                    <option value="densport">Denksport</option>
                     <option value="krachtsport">Krachtsport</option>
                     <option value="wintersport">Wintersport</option>
-                    <option value="" disabled>Verzamelen</option>
+                    <option class="unselected" value="" disabled>Verzamelen</option>
                     <option value="antiek">Antiek</option>
                     <option value="boeken">Boeken</option>
                     <option value="kunst">Kunst</option>
                     <option value="munten">Munten</option>
-                    <option value="" disabled>Diversen</option>
+                    <option value="postzegels">Postzegels</option>
+                    <option class="unselected" value="" disabled>Diversen</option>
                     <option value="bierbrouwen">Bierbrouwen</option>
                     <option value="gamen">Gamen</option>
                     <option value="goochelen">Goochelen</option>
+                    <option value="schilderen">Schilderen</option>
                     <option value="vogelen">Vogelen</option>
                     </select>
             </div>
-        </div>
-        <br>
+        </div><br><hr>
 
 <!-- Reis -->
         <div class="row my-row justify-content-center">
@@ -193,9 +191,10 @@
         <!-- Reisbudget -->
         <div class="row my-row justify-content-center">
             <div class="col-3">
-                <label for="budget">Reisbudget</label>
+                <label for="budget"><strong>Reisbudget</strong></label>
                 <br>
-                <input type="number" class="form-control" id="budget" name="budget" step="50" placeholder="€">
+                <input type="number" class="form-control" id="budget" name="budget" step="50" placeholder="€"
+                min="50">
             </div>
         </div>
 
@@ -223,7 +222,7 @@
                 </select>
             </div>
         </div>
-        <br>
+        <br><hr>
 
 <!-- Profiel -->
         <div class="row my-row justify-content-center">
@@ -266,7 +265,7 @@
                 <div class="checkbox mb-3">
                     <label>
                         <input type="checkbox" value="remember-me" required>
-                        Ik ga akkoord met de <a href="privacyverklaring.html">privacyverklaring</a>!
+                        Ik ga akkoord met de <a href="privacyverklaring.html"><strong>privacyverklaring</strong></a>
                     </label>
                 </div>
             </div>

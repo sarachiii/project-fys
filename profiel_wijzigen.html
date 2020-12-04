@@ -24,7 +24,7 @@
 <body>
 <!-- Navigatie balk -->
 <nav class="navbar navbar-dark navbar-expand-md">
-    <a class="navbar-brand"><img src="assets/Plaatjes/logo.png" width="100" height="50" alt="Budgetbuddy logo"></a>
+    <a class="navbar-brand"><img src="assets/Plaatjes/logo.png" class="logo" alt="Budgetbuddy logo"></a>
     <span class="navbar-text">Match. Chat. Travel.</span>
 
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
@@ -52,8 +52,10 @@
 <div class="container" id="profiel">
     <div class="row">
         <div class="col-md-5">
+            <button class="btn btn-light" id="terugknop" onclick="window.location.href='profiel.html'">Terug naar profiel</button>
+            <br>
+            <!------------------------------------ Profielfoto --------------------------------------------------->
             <div class="imagePreview">
-<!------------------------------------ Profielfoto --------------------------------------------------->
                 <div class="form">
                     <div class="form-group">
                         <img src="" id="profielFoto" class="rounded-top rounded-bottom" alt="Voorbeeld profielfoto" style="width: 250px; height: 250px"/>
@@ -63,7 +65,7 @@
                         <input type="file" id="profilePicture"/>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary" id="fileUploadButton">Foto uploaden</button>
+                        <button class="btn btn-success" id="fileUploadButton">Foto uploaden</button>
                     </div>
                 </div>
             </div>
@@ -87,26 +89,18 @@
                         <input type="text" class="form-control" id="lastName" maxlength="25" required>
                     </div>
 
-                    <!-- Gender -->
+                <!-- Woonplaats -->
+                <div class="form-group">
+                    <label for="gender">Gender</label>
                     <br>
-                    <div class="form-group">
-                        <label for="man">Selecteer uw gender:</label>
-                        <br>
-                        <div class="man">
-                            <input type="radio" id="man" class="radioButton" name="gender" value="man">
-                            <label for="man">Man</label>
-                        </div>
-                        <div class="vrouw">
-                            <input type="radio" id="vrouw" class="radioButton" name="gender" value="vrouw">
-                            <label for="vrouw">Vrouw</label>
-                        </div>
-                        <div class="anders">
-                            <input type="radio" id="anders" class="radioButton" name="gender" value="anders">
-                            <label for="anders">Anders</label>
-                        </div>
-                    </div>
+                    <select id="gender" name="gender">
+                        <option value="man">Man</option>
+                        <option value="vrouw">Vrouw</option>
+                        <option value="anders">Anders</option>
+                    </select>
+                </div>
 
-                    <!--- Geboortedatum -->
+                <!--- Geboortedatum -->
                     <div class="form-group">
                         <label for="geboortedatum">Geboortedatum</label>
                         <br>
@@ -134,18 +128,49 @@
                             <option value="zuidholland">Zuid-Holland</option>
                         </select>
                     </div>
+                <!-- Hobby's -->
                     <div class="form-group">
-                        <!-- label for="hobby">Hobby's</label -->
-
-                        <!-- Hier nog iets over hobby's??? -->
+                        <div class="row my-row justify-content-center">
+                           <label for="multiple-checkboxes">Hobby's (selecteer d.m.v. ctrl/cmd + klik)</label>
+                                <select id="multiple-checkboxes" class="form-control" multiple="multiple">
+                                    <option class="unselected" value="" disabled>Muziek</option>
+                                    <option value="concertenbezoeken">Concerten bezoeken</option>
+                                    <option value="dansen">Dansen</option>
+                                    <option value="harmonieorkest">Harmonieorkest</option>
+                                    <option value="instrument">Instrument bespelen</option>
+                                    <option value="zingen">Zingen</option>
+                                    <option class="unselected" value="" disabled>Sport</option>
+                                    <option value="atletiek">Atletiek</option>
+                                    <option value="balsport">Balsport</option>
+                                    <option value="densport">Denksport</option>
+                                    <option value="krachtsport">Krachtsport</option>
+                                    <option value="wintersport">Wintersport</option>
+                                    <option class="unselected" value="" disabled>Verzamelen</option>
+                                    <option value="antiek">Antiek</option>
+                                    <option value="boeken">Boeken</option>
+                                    <option value="kunst">Kunst</option>
+                                    <option value="munten">Munten</option>
+                                    <option value="postzegels">Postzegels</option>
+                                    <option class="unselected" value="" disabled>Diversen</option>
+                                    <option value="bierbrouwen">Bierbrouwen</option>
+                                    <option value="gamen">Gamen</option>
+                                    <option value="goochelen">Goochelen</option>
+                                    <option value="schilderen">Schilderen</option>
+                                    <option value="vogelen">Vogelen</option>
+                                </select>
+                        </div>
+                        <br>
                     </div>
-                    <br>
-                    <h3>Reis</h3>
+
+                <!-- Reisbudget -->
+
                     <div class="form-group">
                         <label for="budget">Reisbudget</label>
                         <br>
                         <p>€ <input type="number" id="budget" name="budget" step="50" ></p>
                     </div>
+
+                <!-- Reisbestemming -->
                     <div class="form-group">
                         <label for="reisbestemming">Reisbestemming</label>
                         <br>
@@ -167,29 +192,32 @@
                             <option value="turkije">Turkije</option>
                         </select>
                     </div>
-                    <br>
-                    <h3>Email/Wachtwoord wijzigen</h3>
-                    <p id="email">Huidig e-mailadres:&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    <label for="nieuw_email">Nieuw e-mailadres:</label>
-                    <input type="email" class="email" id="nieuw_email" name="email" required style="margin-left: 18px">
-                    <br>
-                    <label for="nieuw_wachtwoord">Nieuw wachtwoord:</label>
-                    <input type="password" id="nieuw_wachtwoord" name="user-password" required style="margin-left: 14px" >
-                    <br>
-                    <label for="bevestig_wachtwoord">Bevestig wachtwoord:</label>
-                    <input type="password" id="bevestig_wachtwoord" name="user-password" required >
-                    <br>
-                    <br>
+
+                <!-- Bio -->
+                <div class="row my-row justify-content-left">
+                    <div class="col-3">
+                        <label class="sr-only" for="bio">Biografie (max. 140 tekens)</label>
+                        <input type="text" class="form-control bio" id="bio" name="bio" placeholder="Biografie (max. 140 tekens)"
+                               maxlength="140" required>
+                    </div>
+                </div>
+                <br>
+                <hr>
+                <br>
                     <div class="checkbox mb-3">
                         <div>
                             <button onclick="window.location.href='profiel.html'" type="button" id="annuleren" class="btn btn-secondary position-absolute" >Annuleren</button>
                         </div>
                         <div>
-                            <button class="btn btn-primary" id="opslaan" type="submit" style="margin-left: 100px">Opslaan</button>
-                            <button class="btn btn-danger" id="verwijder" type="submit" style="margin-right: 10px" >Verwijder account</button>
+                            <button class="btn btn-success" id="opslaan" type="submit" style="margin-left: 100px">Opslaan</button>
+                            <button onclick="window.location.href='wachtwoord_wijzigen.html'" type="button" id="wijzigwachtwoord" class="btn btn-primary position-absolute" style="margin-left: 1.5px" >Wachtwoord wijzigen</button>
+
                         </div>
                         <br>
                         <br>
+                        <div>
+                            <button class="btn btn-danger" id="verwijder" type="submit" >Verwijder account</button>
+                        </div>
                     </div>
             </div>
         </div>

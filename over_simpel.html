@@ -20,9 +20,13 @@
 <body>
 
 <!-- Navigatie balk -->
-<nav class="navbar navbar-dark navbar-expand-md">
-    <a href="index.html" class="navbar-brand"><img src="assets/Plaatjes/logo.png" width="100" height="50" alt="Budgetbuddy logo"></a>
-    <span class="navbar-text">Match. Chat. Travel.</span>
+<nav class="navbar navbar-dark navbar-expand-lg">
+    <a href="index.html" class="navbar-brand"><img src="assets/Plaatjes/logo.png" class="logo" alt="Budgetbuddy logo"></a>
+    <span class="navbar-text d-none d-lg-block">Match. Chat. Travel.</span>
+
+    <div class ="signupsmall d-lg-none">
+        <a href="registreer.html" target="_parent"><button id="registersmall" type="button">Registreer hier!</button></a>
+    </div>
 
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
         <span class="navbar-toggler-icon ml-auto"></span>
@@ -34,7 +38,7 @@
                 <a href="index.html" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
-                <a href="over_simpel.html" class="nav-link">Over</a>
+                <a href="over_simpel.html" class="nav-link overstjl">Over</a>
             </li>
             <li class="nav-item">
                 <a href="login.html" class="nav-link">Log in</a>
@@ -42,6 +46,7 @@
         </ul>
     </div>
 </nav>
+
 <!-- Over ons tekstblok -->
 <div class="container-fluid padding">
     <div class="row welcome text-center">
@@ -64,9 +69,16 @@
                 3. Klik op een profiel om gematcht te kunnen worden.<br>
                 4. Is er een klik? Dan heb je een match gevonden! Je kan nu in contact komen met de persoon.<br>
                 5. Boek samen een reis en bespaar geld!</p>
+            <!-- Singn up vak -->
+            <div class="d-none d-lg-block">
+                <a href="registreer.html" target="_parent"><button class="register" type="button">Registreer hier!</button></a>
+            </div>
         </div>
     </div>
 </div>
+
+
+
 
 <!-- Footer -->
 <footer>

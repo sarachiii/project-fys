@@ -11,15 +11,16 @@ body{
     background: #fff;
 }
 
-/* Upload knop profielfoto */
+#terugknop{
+    margin-bottom: 50px;
+}
+.bio {
+    height: 100px !important;
+    width: 250px !important;
+}
+/* Upload knop profielfoto
 .btn-primary {
     background-color: #26a514 !important;
     border-color: #26a514 !important;
     color: #ffffff !important;
-}
-
-/* Wijzig gegevens knop */
-.button_wijzig{
-    margin-top: 5px;
-    margin-bottom: 40px;
 }

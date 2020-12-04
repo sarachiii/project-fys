@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Budget Buddy</title>
     <link href="assets/CSS/index.css" rel="stylesheet">
-    <link href="assets/CSS/over.css" rel="stylesheet">
+    <link href="assets/CSS/wachtwoord_wijzigen.css" rel="stylesheet">
     <!-- Font styling -->
     <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap" rel="stylesheet">
     <!-- Bootstrap -->
@@ -15,11 +15,13 @@
     <!-- FYS Cloud -->
     <script src="https://cdn.fys.cloud/fyscloud/0.0.3/fyscloud.bundle.min.js"></script>
     <script src="assets/js/config.js"></script>
+    <script type="text/javascript" src="assets/js/pages/wachtwoord_wijzigen.js"></script>
     <script type="text/javascript" src="assets/js/checklogin.js"></script>
     <script type="text/javascript" src="assets/js/loguit.js"></script>
-</head>
-<body>
 
+</head>
+
+<body>
 <!-- Navigatie balk -->
 <nav class="navbar navbar-dark navbar-expand-md">
     <a class="navbar-brand"><img src="assets/Plaatjes/logo.png" class="logo" alt="Budgetbuddy logo"></a>
@@ -41,60 +43,38 @@
                 <a href="over.html" class="nav-link">Over</a>
             </li>
             <li class="nav-item">
-                <a href="index.html" id="loguit" class="nav-link">Log uit</a>
+                <a href="index.html" class="nav-link">Log uit</a>
             </li>
         </ul>
     </div>
 </nav>
-
-<!-- Over ons tekstblok -->
-<div class="container-fluid padding">
-    <div class="row welcome text-center">
-        <div class="col-12">
-            <h1 class="overons">Over ons</h1>
-        </div>
-
-        <div class="col-12">
-            <p class="lead">Wij streven ernaar dat iedereen betaalbaar op reis kan. Ook alleenstaande mensen voor wie het normaal niet betaalbaar is om alleen op vakantie te gaan. Wij van BudgetBuddy willen het dus mogelijk maken om een reisgenootje te kunnen vinden op basis van gemeenschappelijke hobby's.</p>
-        </div>
-    </div>
-    <div class="row welcome text-center">
-        <div class="col-12">
-            <h1 class="overons">Hoe werkt het?</h1>
-        </div>
-
-        <div class="col-12">
-            <p class="lead ">1. Registreer op onze website.<br>
-                2. Bekijk de top 10 matches die we voor je hebben uitgekozen.<br>
-                3. Klik op een profiel om gematcht te kunnen worden.<br>
-                4. Is er een klik? Dan heb je een match gevonden! Je kan nu in contact komen met de persoon.<br>
-                5. Boek samen een reis en bespaar geld!</p>
-        </div>
+<!------- Wachtwoord wijzigen vak ------------------->
+<div class="container" id="profiel">
+    <div class="row">
+            <div id="wrapper">
+                <h3>Wijzig uw wachtwoord</h3>
+                <hr>
+                <br>
+                <label for="nieuw_wachtwoord">Nieuw wachtwoord:</label>
+                <input type="password" id="nieuw_wachtwoord" name="user-password" required style="margin-left: 14px" >
+                <br>
+                <label for="bevestig_wachtwoord">Bevestig wachtwoord:</label>
+                <input type="password" id="bevestig_wachtwoord" name="user-password" required >
+                <br>
+                <br>
+                <div class="checkbox mb-3">
+                    <div>
+                        <button onclick="window.location.href='profiel_wijzigen.html'" type="button" id="annuleren" class="btn btn-secondary position-absolute" >Annuleren</button>
+                    </div>
+                    <div>
+                        <button class="btn btn-success" id="wachtwoordknop" type="submit" style="margin-left: 100px">Opslaan</button>
+                    </div>
+                    <br>
+                    <br>
+                </div>
+            </div>
     </div>
 </div>
-<!-- Footer -->
-<footer>
-    <div class="container-fluid padding">
-        <div class="row text-center">
-            <div class="col-md-4">
-                <H4><a href="faq.html">FAQ</a></H4>
-                <hr class="light">
-                <p>Copyright &copy; 2020 ATOS. All Rights Reserved.</p>
-            </div>
-            <div class="col-md-4">
-                <h4>Contact</h4>
-                <hr class="light">
-                <p>020-346856264</p>
-                <p>budgetbuddy@corendon.nl</p>
-            </div>
-            <div class="col-md-4">
-                <h4>Adres</h4>
-                <hr class="light">
-                <p>Amsterdam, Noord-Holland, 1066XX</p>
-                <p>Amsterdamsesteeg 110</p>
-            </div>
-        </div>
-    </div>
-</footer>
+</div>
 </body>
 </html>
