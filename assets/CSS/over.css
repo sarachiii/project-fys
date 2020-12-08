@@ -15,3 +15,7 @@
     color: #f0415f;
     font-family: 'Sansita Swashed', cursive;
 }
+
+body {
+    padding-bottom: 200px;
+}
