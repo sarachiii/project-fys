@@ -25,3 +25,7 @@ body{
     margin-top: 5px;
     margin-bottom: 40px;
 }
+
+#profielplaatje{
+    border-radius: 50%;
+}
