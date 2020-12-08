@@ -20,10 +20,9 @@ $( document ).ready(function() {
                 break;
         }
 
-        /*
-        let datum = new Date(data[0]["geboortedatum"]).toLocaleDateString('en-US');
-        document.getElementById("geboortedatum").value = data[0].datum;
-        */
+        let date = new Date(data[0]["geboortedatum"]).toLocaleDateString('en-CA');
+        document.getElementById("gebdatum").value = date;
+
 
         /* Controleert welke woonplaats in de database staat en geeft daarna de juiste optie van het dropwdown menu weer in het formulier */
         switch (data[0].woonplaats){
@@ -126,20 +125,23 @@ $( document ).ready(function() {
         let firstName = document.getElementById("firstName").value;
         let lastName = document.getElementById("lastName").value;
         let gender = document.getElementById("gender").value;
+        let geboortedatum = document.getElementById("gebdatum").value;
         let woonplaats = document.getElementById("woonplaats").value;
         let bestemming = document.getElementById("reisbestemming").value;
         let budget = document.getElementById("budget").value;
         let bio = document.getElementById("bio").value;
 
         FYSCloud.API.queryDatabase(
-            "UPDATE profiel SET voornaam = ?, " +
+            "UPDATE profiel SET " +
+            "voornaam = ?, " +
             "achternaam = ?, " +
             "gender = ?, " +
+            "geboortedatum = ?, " +
             "woonplaats = ?, " +
             "reisbestemming = ?, " +
             "budget = ?, " +
             "bio = ? " +
-            "WHERE id = ?", [firstName, lastName, gender, woonplaats, bestemming, budget, bio, userid]
+            "WHERE id = ?", [firstName, lastName, gender, geboortedatum, woonplaats, bestemming, budget, bio, userid]
         ).done(function (data) {
             console.log(data);
             alert("Gegevens zijn opgeslagen!")
