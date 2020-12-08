@@ -18,6 +18,10 @@ body{
     height: 100px !important;
     width: 250px !important;
 }
+
+#profielFoto{
+    border-radius: 50%;
+}
 /* Upload knop profielfoto
 .btn-primary {
     background-color: #26a514 !important;
