@@ -41,7 +41,7 @@ $(document).ready(function () {
         // )
 
         FYSCloud.API.queryDatabase(
-            "INSERT INTO profiel(voornaam,achternaam,gender,woonplaats,budget,reisbestemming,gebruikersnaam,wachtwoord,bio,geboortedatum,hobby)" +
+            "INSERT INTO profiel(voornaam,achternaam,gender,woonplaats,budget,reisbestemming,gebruikersnaam,wachtwoord,bio,geboortedatum)" +
             "values(?,?,?,?,?,?,?,?,?,?)",
             [firstName, lastName, gender, woonplaats, budget, reisbestemming, gebruikersnaam,wachtwoord, bio, geboortedatum]
         ).done(function (data) {
