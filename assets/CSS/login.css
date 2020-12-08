@@ -1,17 +1,17 @@
 body {
     margin: 0;
-    font-family: Avenir Next, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
+    font-family: Open Sans, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
 }
 
 h3 {
     text-align: center;
-    font-family: Avenir Next, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
+    font-family: Open Sans, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
 }
 
 button {
     background: #ff5768 !important;
     border-color: #ff5768 !important;
-    font-family: Avenir Next, AppleSystemUIFont, Helvetica, Arial, sans-serif
+    font-family: Open Sans, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
 }
 
 input[type="password"],input[type="file"], input[type="email"] {
