@@ -1,5 +1,4 @@
 $( document ).ready(function() {
-    let profielfoto = 0;
     FYSCloud.API.queryDatabase(
         "SELECT * FROM profiel WHERE id = ?", [FYSCloud.Session.get("userid")]
     ).done(function(data) {
@@ -9,13 +8,16 @@ $( document ).ready(function() {
         document.getElementById("lastName").value = data[0].achternaam;
 
         /* Controleert welk gender er in de database staat en markeert daarna de juiste radio button optie */
-
-        if(data[0].gender === "Man"){
-        $(':input:radio:eq(0)').attr('checked', true);
-        }else if(data[0].gender === "Vrouw"){
-            $(':input:radio:eq(1)').attr('checked', true);
-        } else {
-            $(':input:radio:eq(2)').attr('checked', true);
+        switch(data[0].gender){
+            case "man" :
+                $('#gender').find('option:eq(0)').attr('selected', true);
+                break;
+            case "vrouw" :
+                $('#gender').find('option:eq(1)').attr('selected', true);
+                break;
+            case "anders":
+                $('#gender').find('option:eq(2)').attr('selected', true);
+                break;
         }
 
         /*
@@ -110,7 +112,8 @@ $( document ).ready(function() {
                 $('#reisbestemming').find('option:eq(14)').attr('selected', true);
                 break;
         }
-        $("#email").append(data[0]["gebruikersnaam"]);
+
+        document.getElementById("bio").value = data[0].bio;
     }).fail(function(data) {
     console.log(data);
     });
@@ -119,33 +122,25 @@ $( document ).ready(function() {
     /* Gewijzigde gegevens opslaan en naar database sturen */
     $("#opslaan").on("click", function () {
 
+        let userid = FYSCloud.Session.get("userid");
         let firstName = document.getElementById("firstName").value;
         let lastName = document.getElementById("lastName").value;
+        let gender = document.getElementById("gender").value;
         let woonplaats = document.getElementById("woonplaats").value;
         let bestemming = document.getElementById("reisbestemming").value;
         let budget = document.getElementById("budget").value;
-        let email = document.getElementById("nieuw_email").value;
-        let wachtwoord;
-
-        let nieuwWachtwoord = document.getElementById("nieuw_wachtwoord").value;
-        let bevestigWachtwoord =  document.getElementById("bevestig_wachtwoord").value
-        if(nieuwWachtwoord === bevestigWachtwoord) {
-            wachtwoord = nieuwWachtwoord;
-        } else {
-            alert("Wachtwoord is niet hetzelfde.")
-        }
+        let bio = document.getElementById("bio").value;
 
         FYSCloud.API.queryDatabase(
             "UPDATE profiel SET voornaam = ?, " +
             "achternaam = ?, " +
+            "gender = ?, " +
             "woonplaats = ?, " +
             "reisbestemming = ?, " +
             "budget = ?, " +
-            "gebruikersnaam = ?, " +
-            "wachtwoord = ? " +
-            "WHERE id = ?", [firstName, lastName, woonplaats, bestemming, budget, email, wachtwoord, FYSCloud.Session.get("userid")]
+            "bio = ? " +
+            "WHERE id = ?", [firstName, lastName, gender, woonplaats, bestemming, budget, bio, userid]
         ).done(function (data) {
-            insertId = data["insertId"];
             console.log(data);
             alert("Gegevens zijn opgeslagen!")
         }).fail(function (data) {
@@ -174,7 +169,6 @@ $( document ).ready(function() {
                 FYSCloud.Utils
                 .getDataUrl($("#profilePicture"))
                 .done(function (data) {
-                    insertId = data["insertId"];
                     console.log(data["extension"]);
                     console.log(userid);
                     FYSCloud.API.uploadFile(
