@@ -27,27 +27,23 @@ $(document).ready(function () {
         // Slaat de door de gebruiker ingevoerde waarde voor 'WACHTWOORD' op in de onderstaande variabele
         let wachtwoord = document.getElementById("user-password").value;
 
-
-        // let geboortedatum = $("#geboortedatum").date({ dateFormat: 'dd,MM,yyyy' }).value;
+        // Slaat de door de gebruiker ingevoerde waarde voor 'GEBOORTEDATUM' op in de onderstaande variabele
+        let geboortedatum = document.getElementById("geboortedatum").value;
 
         // Slaat de door de gebruiker ingevoerde waarde voor 'BIOGRAFIE' op in de onderstaande variabele
         let bio = document.getElementById("bio").value;
 
         // Slaat de door de gebruiker ingevoerde waarde voor 'HOBBY'S' op in de onderstaande variabele
-        let selectElementHobby = document.getElementById("multiple-checkboxes")
-        let selectedValuesHobby = Array.from(selectElementHobby.selectedOptions)
-            .map(option => option.value)
-        // Maakt een nieuwe array aan met als inhoud het resultaat van het aanroepen van de meegegeven functie op elk van de elementen uit de originele array
-        // you could also do: selectElement.options
+        // let
+
+        // FYSCloud.API.queryDatabase(
+            // "INSERT INTO xxx()" + "value"
+        // )
 
         FYSCloud.API.queryDatabase(
-            "INSERT INTO xxx()" + "value"
-        )
-
-        FYSCloud.API.queryDatabase(
-            "INSERT INTO profiel(voornaam,achternaam,gender,woonplaats,budget,reisbestemming,gebruikersnaam,wachtwoord,bio)" +
-            "values(?,?,?,?,?,?,?,?,?)",
-            [firstName, lastName, gender, woonplaats, budget, reisbestemming, gebruikersnaam,wachtwoord, bio]
+            "INSERT INTO profiel(voornaam,achternaam,gender,woonplaats,budget,reisbestemming,gebruikersnaam,wachtwoord,bio,geboortedatum,hobby)" +
+            "values(?,?,?,?,?,?,?,?,?,?)",
+            [firstName, lastName, gender, woonplaats, budget, reisbestemming, gebruikersnaam,wachtwoord, bio, geboortedatum]
         ).done(function (data) {
             insertId = data["insertId"];
             FYSCloud.Utils
