@@ -132,4 +132,9 @@ html, body{
     width: 130px;
     border-radius: 50%;
     margin-top: 8px;
+    border: 6px solid lightgrey;
+    box-shadow: 5px 5px 5px grey;
+}
+.faq{
+    color: red;
 }
