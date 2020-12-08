@@ -33,12 +33,12 @@ $(document).ready(function () {
         // Slaat de door de gebruiker ingevoerde waarde voor 'BIOGRAFIE' op in de onderstaande variabele
         let bio = document.getElementById("bio").value;
 
-        // Slaat de door de gebruiker ingevoerde waarde voor 'HOBBY'S' op in de onderstaande variabele
-        // let
+        var date = new Date($('#geboortedatum').val());
+        day = date.getDate();
+        month = date.getMonth() + 1;
+        year = date.getFullYear();
+        alert([day, month, year].join('/'));
 
-        // FYSCloud.API.queryDatabase(
-            // "INSERT INTO xxx()" + "value"
-        // )
 
         FYSCloud.API.queryDatabase(
             "INSERT INTO profiel(voornaam,achternaam,gender,woonplaats,budget,reisbestemming,gebruikersnaam,wachtwoord,bio,geboortedatum)" +
@@ -60,6 +60,7 @@ $(document).ready(function () {
                             "UPDATE profiel SET profielfoto = ? where id = ?", [data, insertId]
                         ).done(function (data) {
                             let insertId = data["insertId"];
+                            alert("Het aanmaken van je profiel is gelukt!")
                         }).fail(function (data) {
                             console.log(data);
                         });
