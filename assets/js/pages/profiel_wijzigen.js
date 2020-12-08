@@ -9,13 +9,13 @@ $( document ).ready(function() {
 
         /* Controleert welk gender er in de database staat en markeert daarna de juiste radio button optie */
         switch(data[0].gender){
-            case "man" :
+            case "Man" :
                 $('#gender').find('option:eq(0)').attr('selected', true);
                 break;
-            case "vrouw" :
+            case "Vrouw" :
                 $('#gender').find('option:eq(1)').attr('selected', true);
                 break;
-            case "anders":
+            case "Anders":
                 $('#gender').find('option:eq(2)').attr('selected', true);
                 break;
         }
@@ -27,40 +27,40 @@ $( document ).ready(function() {
 
         /* Controleert welke woonplaats in de database staat en geeft daarna de juiste optie van het dropwdown menu weer in het formulier */
         switch (data[0].woonplaats){
-            case "drenthe" :
+            case "Drenthe" :
                 $('#woonplaats').find('option:eq(1)').attr('selected', true);
                 break;
-            case "flevoland" :
+            case "Flevoland" :
                 $('#woonplaats').find('option:eq(2)').attr('selected', true);
                 break;
-            case "friesland" :
+            case "Friesland" :
                 $('#woonplaats').find('option:eq(3)').attr('selected', true);
                 break;
-            case "gelderland" :
+            case "Gelderland" :
                 $('#woonplaats').find('option:eq(4)').attr('selected', true);
                 break;
-            case "groningen" :
+            case "Groningen" :
                 $('#woonplaats').find('option:eq(5)').attr('selected', true);
                 break;
-            case "limburg" :
+            case "Limburg" :
                 $('#woonplaats').find('option:eq(6)').attr('selected', true);
                 break;
-            case "noordbrabant" :
+            case "Noordbrabant" :
                 $('#woonplaats').find('option:eq(7)').attr('selected', true);
                 break;
-            case "noordholland" :
+            case "Noordholland" :
                 $('#woonplaats').find('option:eq(8)').attr('selected', true);
                 break
-            case "overijssel" :
+            case "Overijssel" :
                 $('#woonplaats').find('option:eq(9)').attr('selected', true);
                 break;
-            case "utrecht" :
+            case "Utrecht" :
                 $('#woonplaats').find('option:eq(10)').attr('selected', true);
                 break;
-            case "zeeland" :
+            case "Zeeland" :
                 $('#woonplaats').find('option:eq(11)').attr('selected', true);
                 break;
-            case "zuidholland" :
+            case "Zuidholland" :
                 $('#woonplaats').find('option:eq(12)').attr('selected', true);
                 break;
         }
@@ -69,46 +69,46 @@ $( document ).ready(function() {
 
         /* Controleert welke woonplaats in de database staat en geeft daarna de juiste optie van het dropdown menu weer in het formulier*/
         switch (data[0].reisbestemming){
-            case "nederland" :
+            case "Nederland" :
                 $('#reisbestemming').find('option:eq(1)').attr('selected', true);
                 break
-            case "bonaire" :
+            case "Bonaire" :
                 $('#reisbestemming').find('option:eq(2)').attr('selected', true);
                 break;
-            case "bulgarije" :
+            case "Bulgarije" :
                 $('#reisbestemming').find('option:eq(3)').attr('selected', true);
                 break;
             case "curacao" :
                 $('#reisbestemming').find('option:eq(4)').attr('selected', true);
                 break;
-            case "egypte" :
+            case "Egypte" :
                 $('#reisbestemming').find('option:eq(5)').attr('selected', true);
                 break;
-            case "gambia" :
+            case "Gambia" :
                 $('#reisbestemming').find('option:eq(6)').attr('selected', true);
                 break;
-            case "griekenland" :
+            case "Griekenland" :
                 $('#reisbestemming').find('option:eq(7)').attr('selected', true);
                 break;
-            case "indonesie" :
+            case "Indonesie" :
                 $('#reisbestemming').find('option:eq(8)').attr('selected', true);
                 break;
-            case "italie" :
+            case "Italie" :
                 $('#reisbestemming').find('option:eq(9)').attr('selected', true);
                 break;
-            case "kaapverdie" :
+            case "Kaapverdie" :
                 $('#reisbestemming').find('option:eq(10)').attr('selected', true);
                 break;
-            case "macedonie" :
+            case "Macedonie" :
                 $('#reisbestemming').find('option:eq(11)').attr('selected', true);
                 break;
-            case "portugal" :
+            case "Portugal" :
                 $('#reisbestemming').find('option:eq(12)').attr('selected', true);
                 break;
-            case "spanje" :
+            case "Spanje" :
                 $('#reisbestemming').find('option:eq(13)').attr('selected', true);
                 break;
-            case "turkije" :
+            case "Turkije" :
                 $('#reisbestemming').find('option:eq(14)').attr('selected', true);
                 break;
         }
