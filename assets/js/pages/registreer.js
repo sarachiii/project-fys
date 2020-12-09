@@ -1,4 +1,4 @@
-$(document).ready(function () {
+let ready = $(document).ready(function () {
     let on = $("#registreren").on("click", function () {
         // Slaat de door de gebruiker ingevoerde waarde voor 'VOORNAAM' op in de onderstaande variabele
         let firstName = document.getElementById("firstName").value;
@@ -29,21 +29,16 @@ $(document).ready(function () {
 
         // Slaat de door de gebruiker ingevoerde waarde voor 'GEBOORTEDATUM' op in de onderstaande variabele
         let geboortedatum = document.getElementById("geboortedatum").value;
+        console.log(geboortedatum);
 
         // Slaat de door de gebruiker ingevoerde waarde voor 'BIOGRAFIE' op in de onderstaande variabele
         let bio = document.getElementById("bio").value;
-
-        var date = new Date($('#geboortedatum').val());
-        day = date.getDate();
-        month = date.getMonth() + 1;
-        year = date.getFullYear();
-        alert([day, month, year].join('/'));
 
 
         FYSCloud.API.queryDatabase(
             "INSERT INTO profiel(voornaam,achternaam,gender,woonplaats,budget,reisbestemming,gebruikersnaam,wachtwoord,bio,geboortedatum)" +
             "values(?,?,?,?,?,?,?,?,?,?)",
-            [firstName, lastName, gender, woonplaats, budget, reisbestemming, gebruikersnaam,wachtwoord, bio, geboortedatum]
+            [firstName, lastName, gender, woonplaats, budget, reisbestemming, gebruikersnaam, wachtwoord, bio, geboortedatum]
         ).done(function (data) {
             insertId = data["insertId"];
             FYSCloud.Utils
@@ -74,14 +69,15 @@ $(document).ready(function () {
             console.log(data);
         });
 
-        let interesses = document.querySelectorAll('#multiple-checkboxes option:checked');
-        const values = Array.from(interesses).map(el => el.value);
-        console.log(values);
+        // let interesses = document.querySelectorAll('#multiple-checkboxes option:checked');
+        // const values = Array.from(interesses).map(el => el.value);
+        //console.log(values);
 
-        for (let i = 0; i < values.length; i++) {
-            FYSCloud.API.queryDatabase("INSERT INTO profiel_has_interesse(Profiel_id,Interesse_id) values(?,?)", [insertId,values[i]]).done(function (data) {
-                        }).fail(function (reason) {
-                            console.log(reason);
-        });
-};
+        //for (let i = 0; i < values.length; i++) {
+        // FYSCloud.API.queryDatabase("INSERT INTO profiel_has_interesse(Profiel_id,Interesse_id) values(?,?)", [insertId,values[i]]).done(function (data) {
+        //            }).fail(function (reason) {
+        //               console.log(reason);
+        // });
+    })
+});
     
