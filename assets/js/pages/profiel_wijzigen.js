@@ -145,6 +145,7 @@ $( document ).ready(function() {
         ).done(function (data) {
             console.log(data);
             alert("Gegevens zijn opgeslagen!")
+            window.location.href = "profiel.html";
         }).fail(function (data) {
             console.log(data);
         });

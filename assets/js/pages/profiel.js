@@ -35,7 +35,6 @@ $( document ).ready(function() {
 
         for (let i = 0; i < 3; i++) {
             $("#hobby").append(data[i]["hobby"] + "\n");
-
         }
 
     }).fail(function (data) {
