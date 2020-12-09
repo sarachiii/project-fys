@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $("#registreren").on("click", function () {
+    let on = $("#registreren").on("click", function () {
         // Slaat de door de gebruiker ingevoerde waarde voor 'VOORNAAM' op in de onderstaande variabele
         let firstName = document.getElementById("firstName").value;
 
@@ -73,5 +73,15 @@ $(document).ready(function () {
         }).fail(function (data) {
             console.log(data);
         });
-    });
-});
+
+        let interesses = document.querySelectorAll('#multiple-checkboxes option:checked');
+        const values = Array.from(interesses).map(el => el.value);
+        console.log(values);
+
+        for (let i = 0; i < values.length; i++) {
+            FYSCloud.API.queryDatabase("INSERT INTO profiel_has_interesse(Profiel_id,Interesse_id) values(?,?)", [insertId,values[i]]).done(function (data) {
+                        }).fail(function (reason) {
+                            console.log(reason);
+        });
+};
+    
