@@ -79,7 +79,6 @@ body{
     height: 200px;
 }
 
-
 .vacation{
     width: 100%
 }
@@ -166,10 +165,9 @@ body{
 }
 
 footer{
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: rgb(22, 34, 124);
     color: rgba(255, 87, 104, 1);
     padding-top: 1rem;
-    
     bottom: 0;
     width: 100%;
 }
