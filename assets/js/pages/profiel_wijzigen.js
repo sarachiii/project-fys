@@ -1,4 +1,6 @@
 $( document ).ready(function() {
+
+    /* Geregistreerde data in het formulier voor invullen */
     FYSCloud.API.queryDatabase(
         "SELECT * FROM profiel WHERE id = ?", [FYSCloud.Session.get("userid")]
     ).done(function(data) {
@@ -20,11 +22,10 @@ $( document ).ready(function() {
                 break;
         }
 
-        let date = new Date(data[0]["geboortedatum"]).toLocaleDateString('en-CA');
-        document.getElementById("gebdatum").value = date;
+        let date = new Date(data[0]["geboortedatum"]).toLocaleDateString('en-CA', {year: 'numeric', month: 'numeric', day: 'numeric'});
+        document.getElementById("geboortedatum").value = date;
 
-
-        /* Controleert welke woonplaats in de database staat en geeft daarna de juiste optie van het dropwdown menu weer in het formulier */
+       /* Controleert welke woonplaats in de database staat en geeft daarna de juiste optie van het dropwdown menu weer in het formulier */
         switch (data[0].woonplaats){
             case "Drenthe" :
                 $('#woonplaats').find('option:eq(1)').attr('selected', true);
@@ -112,7 +113,9 @@ $( document ).ready(function() {
                 break;
         }
 
+        /* Bio tekstje */
         document.getElementById("bio").value = data[0].bio;
+
     }).fail(function(data) {
     console.log(data);
     });
@@ -125,11 +128,26 @@ $( document ).ready(function() {
         let firstName = document.getElementById("firstName").value;
         let lastName = document.getElementById("lastName").value;
         let gender = document.getElementById("gender").value;
-        let geboortedatum = document.getElementById("gebdatum").value;
+        let geboortedatum = document.getElementById("geboortedatum").value;
         let woonplaats = document.getElementById("woonplaats").value;
         let bestemming = document.getElementById("reisbestemming").value;
         let budget = document.getElementById("budget").value;
         let bio = document.getElementById("bio").value;
+
+        /* Hobby's doorsturen naar database */
+        let interesses = document.querySelectorAll('#multiple-checkboxes option:checked');
+        const values = Array.from(interesses).map(el => el.value);
+        console.log(values);
+
+        for (let i = 0; i < values.length; i++) {
+            let interesses = values[i];
+            FYSCloud.API.queryDatabase("INSERT INTO profiel_has_interesse (Profiel_id, Interesse_id) VALUES (?, ?)", [userid, interesses])
+                .done(function (data) {
+                    console.log(data);
+                }).fail(function (data) {
+                console.log(data);
+            });
+        }
 
         FYSCloud.API.queryDatabase(
             "UPDATE profiel SET " +
