@@ -65,6 +65,7 @@ $( document ).ready(function() {
                 break;
         }
 
+
         document.getElementById("budget").value = data[0].budget;
 
         /* Controleert welke woonplaats in de database staat en geeft daarna de juiste optie van het dropdown menu weer in het formulier*/
@@ -120,11 +121,157 @@ $( document ).ready(function() {
     console.log(data);
     });
 
+    /* Hobbys voor selecteren */
+    /* Werkt nog niet optimaal want als je niet op opslaan klikt maar op annuleren dan
+    staat er geen data meer in de database bij de hobby's, ook is de code nu erg lang.*/
+
+    FYSCloud.API.queryDatabase(
+        "SELECT Interesse_id FROM profiel_has_interesse WHERE Profiel_id = ?", [FYSCloud.Session.get("userid")]
+    ).done(function(data) {
+
+        for (let i = 0; i < data.length; i++) {
+            if(data[i].Interesse_id == 1) {
+                $('#multiple-checkboxes').find('option:eq(1)').attr('selected', true);
+            }
+        }
+
+        for (let i = 0; i < data.length; i++) {
+            if(data[i].Interesse_id == 2){
+                $('#multiple-checkboxes').find('option:eq(2)').attr('selected', true);
+            }
+        }
+
+        for (let i = 0; i < data.length; i++) {
+            if(data[i].Interesse_id == 3){
+                $('#multiple-checkboxes').find('option:eq(3)').attr('selected', true);
+            }
+        }
+
+        for (let i = 0; i < data.length; i++) {
+            if(data[i].Interesse_id == 4){
+                $('#multiple-checkboxes').find('option:eq(4)').attr('selected', true);
+            }
+        }
+
+        for (let i = 0; i < data.length; i++) {
+            if(data[i].Interesse_id == 5){
+                $('#multiple-checkboxes').find('option:eq(5)').attr('selected', true);
+            }
+        }
+
+        for (let i = 0; i < data.length; i++) {
+            if(data[i].Interesse_id == 6){
+                $('#multiple-checkboxes').find('option:eq(7)').attr('selected', true);
+            }
+        }
+
+        for (let i = 0; i < data.length; i++) {
+            if(data[i].Interesse_id == 7){
+                $('#multiple-checkboxes').find('option:eq(8)').attr('selected', true);
+            }
+        }
+        for (let i = 0; i < data.length; i++) {
+            if(data[i].Interesse_id == 8){
+                $('#multiple-checkboxes').find('option:eq(9)').attr('selected', true);
+            }
+        }
+        for (let i = 0; i < data.length; i++) {
+            if(data[i].Interesse_id == 9){
+                $('#multiple-checkboxes').find('option:eq(10)').attr('selected', true);
+            }
+        }
+        for (let i = 0; i < data.length; i++) {
+            if(data[i].Interesse_id == 10){
+                $('#multiple-checkboxes').find('option:eq(11)').attr('selected', true);
+            }
+        }
+        for (let i = 0; i < data.length; i++) {
+            if(data[i].Interesse_id == 11){
+                $('#multiple-checkboxes').find('option:eq(13)').attr('selected', true);
+            }
+        }
+        for (let i = 0; i < data.length; i++) {
+            if(data[i].Interesse_id == 12){
+                $('#multiple-checkboxes').find('option:eq(14)').attr('selected', true);
+            }
+        }
+        for (let i = 0; i < data.length; i++) {
+            if(data[i].Interesse_id == 13){
+                $('#multiple-checkboxes').find('option:eq(15)').attr('selected', true);
+            }
+        }
+        for (let i = 0; i < data.length; i++) {
+            if(data[i].Interesse_id == 14){
+                $('#multiple-checkboxes').find('option:eq(16)').attr('selected', true);
+            }
+        }
+        for (let i = 0; i < data.length; i++) {
+            if(data[i].Interesse_id == 15){
+                $('#multiple-checkboxes').find('option:eq(17)').attr('selected', true);
+            }
+        }
+        for (let i = 0; i < data.length; i++) {
+            if(data[i].Interesse_id == 16){
+                $('#multiple-checkboxes').find('option:eq(19)').attr('selected', true);
+            }
+        }
+        for (let i = 0; i < data.length; i++) {
+            if(data[i].Interesse_id == 17){
+                $('#multiple-checkboxes').find('option:eq(20)').attr('selected', true);
+            }
+        }
+        for (let i = 0; i < data.length; i++) {
+            if(data[i].Interesse_id == 18){
+                $('#multiple-checkboxes').find('option:eq(21)').attr('selected', true);
+            }
+        }
+        for (let i = 0; i < data.length; i++) {
+            if(data[i].Interesse_id == 19){
+                $('#multiple-checkboxes').find('option:eq(22)').attr('selected', true);
+            }
+        }
+        for (let i = 0; i < data.length; i++) {
+            if(data[i].Interesse_id == 20){
+                $('#multiple-checkboxes').find('option:eq(23)').attr('selected', true);
+            }
+        }
+        console.log(data);
+    }).fail(function(data) {
+        console.log(data);
+    });
 
     /* Gewijzigde gegevens opslaan en naar database sturen */
     $("#opslaan").on("click", function () {
 
         let userid = FYSCloud.Session.get("userid");
+
+        //Verwijderd alle hobby's van de gebruiker uit de database zodat hij straks alle nieuwe kan
+        // registreren en de hobby's die hij niet meer wil al verwijderd zijn.
+
+        FYSCloud.API.queryDatabase(
+            "DELETE FROM profiel_has_interesse WHERE Profiel_id = ?", [userid]
+        ).done(function (data) {
+
+            /* Alle geselecteerde hobby's doorsturen naar database */
+            let interesses = document.querySelectorAll('#multiple-checkboxes option:checked');
+            const values = Array.from(interesses).map(el => el.value);
+            console.log(values);
+
+            for (let i = 0; i < values.length; i++) {
+                let interesses = values[i];
+                FYSCloud.API.queryDatabase("INSERT INTO profiel_has_interesse (Profiel_id, Interesse_id) VALUES (?, ?)", [userid, interesses])
+                    .done(function (data) {
+                        console.log(data);
+                    }).fail(function (data) {
+                    console.log(data);
+                });
+            }
+
+        }).fail(function (data) {
+            console.log(data);
+        });
+
+
         let firstName = document.getElementById("firstName").value;
         let lastName = document.getElementById("lastName").value;
         let gender = document.getElementById("gender").value;
@@ -134,20 +281,6 @@ $( document ).ready(function() {
         let budget = document.getElementById("budget").value;
         let bio = document.getElementById("bio").value;
 
-        /* Hobby's doorsturen naar database */
-        let interesses = document.querySelectorAll('#multiple-checkboxes option:checked');
-        const values = Array.from(interesses).map(el => el.value);
-        console.log(values);
-
-        for (let i = 0; i < values.length; i++) {
-            let interesses = values[i];
-            FYSCloud.API.queryDatabase("INSERT INTO profiel_has_interesse (Profiel_id, Interesse_id) VALUES (?, ?)", [userid, interesses])
-                .done(function (data) {
-                    console.log(data);
-                }).fail(function (data) {
-                console.log(data);
-            });
-        }
 
         FYSCloud.API.queryDatabase(
             "UPDATE profiel SET " +
