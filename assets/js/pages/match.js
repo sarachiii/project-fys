@@ -8,11 +8,10 @@ $(document).ready(function () {
         const ageSliderElementValueText = $('#age-slider-value');
         const applyChanges = $('#apply-changes');
         const contentElement = $('#content');
+        const rowElement = $('.my-row');
 
         //Stopt alle 'card' elementen in een array.
-        const cards = $('.card').toArray();
-        console.log(cards);
-
+        let cards;
 
         applyChanges.on('click', function () {
             const budgetSliderValue = budgetSliderElement.val();
@@ -44,22 +43,30 @@ $(document).ready(function () {
         });
 
         //<---------------------------------------The Card-filling system----------------------------------------------->
-        cards.map(function (card) {
-            let id = 1;
-
-            // card.val("voornaam").remove();
-
-            FYSCloud.API.queryDatabase(
-                "SELECT voornaam FROM profiel WHERE id = ?", [id]
-            ).done(function (data) {
-              card.append($("#voornaam").append(data[0]["voornaam"]));
-
-            }).fail(function (data) {
-                console.log(data);
+        FYSCloud.API.queryDatabase("SELECT * FROM profiel LIMIT 12")
+            .done(function (data) {
+                data.map((profiel) => {
+                    let age = new Date().getFullYear() - new Date(profiel.geboortedatum).getFullYear();
+                    age = age < 18 ? 18 : age;
+                    rowElement.append(`
+                            <div data-profile-id="${profiel.id}" class="col-xl-3  col-lg-6 my-col mt-2 w-2 card" data-budget="${profiel.budget}" data-age="${age}">
+                                <img class="card-img-top mx-auto profile-picture" src="${profiel.profielfoto}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title" data-firstName="voornaam" id="voornaam">${profiel.voornaam}, ${age}</h5>
+                                    <p class="card-text" id="bestemming">Bestemming: ${profiel.reisbestemming}</p>
+                                    <p class="card-text"><strong>Budget: ${profiel.budget} euro</strong></p>
+                                </div>
+                            </div>`
+                    );
+                });
+                cards = $('.card').toArray();
+                cards.map((card) => {
+                    $(card).on('click', function () {
+                        FYSCloud.URL.redirect("match-profiel.html", {
+                            id: $(card).data('profile-id')
+                        });
+                    });
+                });
             });
-
-            id++;
-        });
-
     });
 });
