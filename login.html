@@ -44,10 +44,10 @@
     <div class="collapse navbar-collapse" id="navbarMenu">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a href="index.html" class="nav-link">Home</a>
+                <a href="registreer.html" class="nav-link streepjerechts">Registreer</a>
             </li>
             <li class="nav-item">
-                <a href="over_simpel.html" class="nav-link">Over</a>
+                <a href="over_simpel.html" class="nav-link streepjerechts">Over</a>
             </li>
             <li class="nav-item">
                 <a href="login.html" class="nav-link">Log in</a>
@@ -61,32 +61,40 @@
     <div class="container">
         <!-- Header -->
         <div class="row my-row justify-content-center align-items-end">
-            <div class="col-5">
-                <h3 class="h3 mb-3"><b>Welkom terug</b><br>Hier kunt u inloggen</h3>
+            <div class="col-5 text-center">
+                <h1 style="color: #f0415f; font-family: 'Sansita Swashed';">Hier kunt u inloggen<br><br></h1>
             </div>
         </div>
         <!-- E-mail -->
         <div class="row justify-content-center">
             <div class="col-3">
                 <label for="inputEmail" class="sr-only">E-mailadres</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="E-mailadres" required autofocus>
+                <input type="email" id="inputEmail" class="form-control" placeholder="E-mailadres" name="username" autocomplete="on" title="Voer uw e-mail in" required autofocus>
             </div>
         </div>
         <!-- Wachtwoord -->
         <div class="row justify-content-center">
             <div class="col-3">
                 <label for="inputPassword" class="sr-only">Wachtwoord</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Wachtwoord" required>
+                <input type="password" id="inputPassword" class="form-control" name="password" autocomplete="on" placeholder="Wachtwoord" title="Voer uw wachtwoord in" required>
             </div>
         </div>
         <br>
+
         <!-- Log-in -->
         <div class="row justify-content-center">
-            <div class="col-2">
+            <div class="col-2 text-center">
                     <button class="btn btn-lg btn-primary" type="button" id="loginButton">Log in</button>
                 </a>
             </div>
         </div>
+        <br>
+
+        <!-- Registreer tekst -->
+        <div class="row justify-content-center">
+            <p>Heeft u nog geen account? Klik <a href="registreer.html">hier</a> om te registreren.</p>
+        </div>
+
     </div>
 </form>
 </body>

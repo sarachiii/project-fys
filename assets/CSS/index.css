@@ -2,10 +2,35 @@ body{
     margin: 0;
     font-family: Open Sans, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
 }
+
 .logo{
-    height: 50px;
-    width: 100px;
+    height: 60px;
+    width: 110px;
 }
+
+/* Succesverhalen */
+.succesverhaal {
+    width: 100%;
+    overflow: hidden;
+    margin: 20px;
+}
+
+.succesverhaal img {
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    margin: 20px;
+    vertical-align: middle;
+}
+
+.succesverhaal p{
+    margin-left: 15px;
+    display: block;
+    margin: 2px 0 0 0;
+}
+
+
+
 
 /* Navigatie balk */
 .navbar{
@@ -24,6 +49,7 @@ body{
     font-weight: 600;
     margin: 0;
     text-align: center;
+    font-style: italic;
 }
 
 .navbar-toggler {
@@ -33,6 +59,12 @@ body{
 .nav-link{
     color: white !important;
     font-size: 20px;
+}
+
+/* Verticaal streepje tussen menu items */
+
+.streepjerechts{
+    border-right: 1px solid white;
 }
 
 .navbar-collapse a:hover{
@@ -55,7 +87,7 @@ body{
 }
 
 .plaatjes p {
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 }
 
 .destinations{
@@ -88,7 +120,7 @@ body{
 }
 
 .suntext {
-    margin-top: 50px;
+    margin-top: 15px;
     color: #f0415f;
     font-family: 'Sansita Swashed', cursive;
     margin-left: 20px;
@@ -106,7 +138,6 @@ body{
     left: 0;
     right: 0;
     height: 290px;
-    transform: skewY(356deg);
 }
 
 /* Registreer knop */
@@ -164,19 +195,31 @@ body{
     font-size: 25px;
 }
 
+.flex-wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between
+}
+
 footer{
     background-color: rgb(22, 34, 124);
-    color: rgba(255, 87, 104, 1);
-    padding-top: 1rem;
-    bottom: 0;
-    width: 100%;
+    color: white;
+    margin-top: 20px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+footer p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 p {
     font-family: Open Sans, AppleSystemUIFont, Helvetica, Arial, sans-serif;
 }
 
-/* horizontale streep in footer
+/* horizontale streep in footer */
 hr.light {
     border-top: 1px solid;
     width: 75%;
@@ -184,6 +227,7 @@ hr.light {
     margin-bottom: 1rem;
 }
 
+/*
 .footer{
     position: absolute;
     bottom: 0;

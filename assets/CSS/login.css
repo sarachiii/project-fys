@@ -5,11 +5,6 @@ body, html{
     font-family: Open Sans, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
 }
 
-h3 {
-    text-align: center;
-    font-family: Open Sans, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
-}
-
 button {
     background: #ff5768 !important;
     border-color: #ff5768 !important;
@@ -22,18 +17,6 @@ input[type="password"],input[type="file"], input[type="email"] {
 
 .my-row {
     height: 200px;
-}
-
-.h3 {
-    font-size:2.5vw;
-}
-
-.h4 {
-    font-size:1.5vw;
-}
-
-p {
-    font-size: 1.1vw;
 }
 
 .checkbox-text {

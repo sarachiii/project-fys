@@ -41,6 +41,9 @@ let ready = $(document).ready(function () {
             [firstName, lastName, gender, woonplaats, budget, reisbestemming, gebruikersnaam, wachtwoord, bio, geboortedatum]
         ).done(function (data) {
             insertId = data["insertId"];
+            insertInteresse(insertId);
+
+
             FYSCloud.Utils
                 .getDataUrl($("#profielfoto"))
                 .done(function (data) {
@@ -64,20 +67,30 @@ let ready = $(document).ready(function () {
                     });
                 }).fail(function (reason) {
                 console.log(reason);
-            });
+            })
         }).fail(function (data) {
             console.log(data);
         });
 
-        // let interesses = document.querySelectorAll('#multiple-checkboxes option:checked');
-        // const values = Array.from(interesses).map(el => el.value);
-        //console.log(values);
 
-        //for (let i = 0; i < values.length; i++) {
-        // FYSCloud.API.queryDatabase("INSERT INTO profiel_has_interesse(Profiel_id,Interesse_id) values(?,?)", [insertId,values[i]]).done(function (data) {
-        //            }).fail(function (reason) {
-        //               console.log(reason);
-        // });
-    })
+        function insertInteresse(insertId) {
+
+            let interesses = document.querySelectorAll('#multiple-checkboxes option:checked');
+            const values = Array.from(interesses).map(el => el.value);
+            console.log(values);
+
+            for (let i = 0; i < values.length; i++) {
+                let interesses = values[i];
+                FYSCloud.API.queryDatabase("INSERT INTO profiel_has_interesse (Profiel_id, Interesse_id) VALUES (?, ?)", [insertId, interesses])
+                    .done(function (data) {
+
+
+                    }).fail(function (data) {
+                    console.log(data);
+                });
+
+            }
+        }
+    });
 });
-    
+

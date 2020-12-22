@@ -10,8 +10,10 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
+    <!-- CSS -->
     <link href="assets/CSS/index.css" rel="stylesheet">
     <link href="assets/CSS/profiel_wijzigen.css" rel="stylesheet">
+
     <!-- Font styling -->
     <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap" rel="stylesheet">
 
@@ -37,13 +39,13 @@
     <div class="collapse navbar-collapse" id="navbarMenu">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a href="profiel.html" class="nav-link">Profiel</a>
+                <a href="profiel.html" class="nav-link streepjerechts">Profiel</a>
             </li>
             <li class="nav-item">
-                <a href="match.html" class="nav-link">Matching</a>
+                <a href="match.html" class="nav-link streepjerechts">Matching</a>
             </li>
             <li class="nav-item">
-                <a href="over.html" class="nav-link">Over</a>
+                <a href="over.html" class="nav-link streepjerechts">Over</a>
             </li>
             <li class="nav-item">
                 <a href="index.html" class="nav-link">Log uit</a>
@@ -103,11 +105,22 @@
                     </select>
                 </div>
 
-                <!--- Geboortedatum -->
+                <!--- Geboortedatum
                 <div class="form-group">
                         <label for="geboortedatum">Geboortedatum</label>
                         <br>
                         <input type="text" class="form-control" id="gebdatum" name="geboortedatum" placeholder="yyyy-mm-dd" required>
+                </div>
+                <br>
+                -->
+
+                <!--- Geboortedatum -->
+                <div class="row my-row">
+                    <div class="col-3">
+                        <label for="geboortedatum">Geboortedatum</label>
+                        <br>
+                        <input type="date" id="geboortedatum" min="1900-01-01" max="2002-12-31" required>
+                    </div>
                 </div>
                 <br>
 
@@ -137,29 +150,29 @@
                            <label for="multiple-checkboxes">Hobby's (selecteer d.m.v. ctrl/cmd + klik)</label>
                                 <select id="multiple-checkboxes" class="form-control" multiple="multiple">
                                     <option class="unselected" value="" disabled>Muziek</option>
-                                    <option value="Concertenbezoeken">Concerten bezoeken</option>
-                                    <option value="Dansen">Dansen</option>
-                                    <option value="Harmonieorkest">Harmonieorkest</option>
-                                    <option value="Instrument">Instrument bespelen</option>
-                                    <option value="Zingen">Zingen</option>
+                                    <option value="1">Concerten bezoeken</option>
+                                    <option value="2">Dansen</option>
+                                    <option value="3">Harmonieorkest</option>
+                                    <option value="4">Instrument bespelen</option>
+                                    <option value="5">Zingen</option>
                                     <option class="unselected" value="" disabled>Sport</option>
-                                    <option value="Atletiek">Atletiek</option>
-                                    <option value="Balsport">Balsport</option>
-                                    <option value="Densport">Denksport</option>
-                                    <option value="Krachtsport">Krachtsport</option>
-                                    <option value="Wintersport">Wintersport</option>
+                                    <option value="6">Atletiek</option>
+                                    <option value="7">Balsport</option>
+                                    <option value="8">Denksport</option>
+                                    <option value="9">Krachtsport</option>
+                                    <option value="10">Wintersport</option>
                                     <option class="unselected" value="" disabled>Verzamelen</option>
-                                    <option value="Antiek">Antiek</option>
-                                    <option value="Boeken">Boeken</option>
-                                    <option value="Kunst">Kunst</option>
-                                    <option value="Munten">Munten</option>
-                                    <option value="Postzegels">Postzegels</option>
+                                    <option value="11">Antiek</option>
+                                    <option value="12">Boeken</option>
+                                    <option value="13">Kunst</option>
+                                    <option value="14">Munten</option>
+                                    <option value="15">Postzegels</option>
                                     <option class="unselected" value="" disabled>Diversen</option>
-                                    <option value="Bierbrouwen">Bierbrouwen</option>
-                                    <option value="Gamen">Gamen</option>
-                                    <option value="Goochelen">Goochelen</option>
-                                    <option value="Schilderen">Schilderen</option>
-                                    <option value="Vogelen">Vogelen</option>
+                                    <option value="16">Bierbrouwen</option>
+                                    <option value="17">Gamen</option>
+                                    <option value="18">Goochelen</option>
+                                    <option value="19">Schilderen</option>
+                                    <option value="20">Vogelen</option>
                                 </select>
                         </div>
                         <br>
@@ -226,30 +239,5 @@
         </div>
     </div>
 </div>
-
-<footer>
-    <div class="container-fluid padding">
-        <div class="row text-center">
-            <div class="col-md-4">
-                <H4><a href="faq_simpel.html" style="color: rgba(255, 87, 104, 1);" class="faq"><strong><u>FAQ</u></strong></a></H4>
-                <hr class="light">
-                <p>Copyright &copy; 2020 ATOS. All Rights Reserved.</p>
-            </div>
-            <div class="col-md-4">
-                <h4><strong>Contact</strong></h4>
-                <hr class="light">
-                <p>020-346856264</p>
-                <p>budgetbuddy@corendon.nl</p>
-            </div>
-            <div class="col-md-4">
-                <h4><strong>Adres</strong></h4>
-                <hr class="light">
-                <p>Amsterdam, Noord-Holland, 1066XX</p>
-                <p>Amsterdamsesteeg 110</p>
-            </div>
-        </div>
-    </div>
-</footer>
-
 </body>
 </html>
