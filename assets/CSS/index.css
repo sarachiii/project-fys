@@ -8,6 +8,30 @@ body{
     width: 110px;
 }
 
+/* Succesverhalen */
+.succesverhaal {
+    width: 100%;
+    overflow: hidden;
+    margin: 20px;
+}
+
+.succesverhaal img {
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    margin: 20px;
+    vertical-align: middle;
+}
+
+.succesverhaal p{
+    margin-left: 15px;
+    display: block;
+    margin: 2px 0 0 0;
+}
+
+
+
+
 /* Navigatie balk */
 .navbar{
     background-color: #ff5768 !important;
@@ -171,14 +195,19 @@ body{
     font-size: 25px;
 }
 
+.flex-wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between
+}
+
 footer{
     background-color: rgb(22, 34, 124);
     color: white;
     margin-top: 20px;
     padding-top: 2rem;
     padding-bottom: 2rem;
-    bottom: 0;
-    width: 100%;
 }
 
 footer p {

@@ -26,3 +26,17 @@ body{
 #wrapper{
     margin-top: 35px;
 }
+
+.inputError {
+    border: 2px solid red;
+}
+
+.errorveld {
+    color: red;
+    display: block;
+}
+
+.verborgen{
+    display: none;
+}
+

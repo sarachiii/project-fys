@@ -1,5 +1,15 @@
 $( document ).ready(function() {
 
+        /*
+        $("#geboortedatum").datepicker({
+            changeYear: true,
+            minDate: '-3M',
+            maxDate: '+28D',
+        });
+
+         */
+
+
     /* Geregistreerde data in het formulier voor invullen */
     FYSCloud.API.queryDatabase(
         "SELECT * FROM profiel WHERE id = ?", [FYSCloud.Session.get("userid")]
@@ -45,10 +55,10 @@ $( document ).ready(function() {
             case "Limburg" :
                 $('#woonplaats').find('option:eq(6)').attr('selected', true);
                 break;
-            case "Noordbrabant" :
+            case "Noord-Brabant" :
                 $('#woonplaats').find('option:eq(7)').attr('selected', true);
                 break;
-            case "Noordholland" :
+            case "Noord-Holland" :
                 $('#woonplaats').find('option:eq(8)').attr('selected', true);
                 break
             case "Overijssel" :
@@ -60,7 +70,7 @@ $( document ).ready(function() {
             case "Zeeland" :
                 $('#woonplaats').find('option:eq(11)').attr('selected', true);
                 break;
-            case "Zuidholland" :
+            case "Zuid-Holland" :
                 $('#woonplaats').find('option:eq(12)').attr('selected', true);
                 break;
         }

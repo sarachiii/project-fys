@@ -1,4 +1,34 @@
+function check() {
+
+    /* Patroon waar het wachtwoord aan voldoen moet */
+    let regex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})");
+    let ww1 = document.getElementById("nieuw_wachtwoord");
+    let ww1_value = ww1.value;
+    let ww2 = document.getElementById("bevestig_wachtwoord");
+    let ww2_value = ww2.value;
+
+    if(ww1_value != "") {
+        if (regex.test(ww1_value)) {
+            ww1.classList.remove("inputError");
+            document.getElementById("errorveld1").classList.add("verborgen");
+            if (ww2_value !== "") {
+                if (ww1_value == ww2_value) {
+                    ww2.classList.remove("inputError");
+                    return true;
+                }
+                ww2.classList.add("inputError");
+                document.getElementById("errorveld2").classList.remove("verborgen");
+            }
+        } else {
+            document.getElementById("errorveld1").classList.remove("verborgen");
+            ww1.classList.add("inputError");
+        }
+        return false;
+    }
+};
+
 $( document ).ready(function() {
+
     $(function () {
         $("#wachtwoordknop").on("click", function () {
 
@@ -9,15 +39,15 @@ $( document ).ready(function() {
             if(nieuwWachtwoord !== "" && bevestigWachtwoord !== "") {
                 if (nieuwWachtwoord === bevestigWachtwoord) {
                     wachtwoord = nieuwWachtwoord;
-                } else {
-                    alert("Wachtwoord is niet hetzelfde.")
                 }
+
                 FYSCloud.API.queryDatabase(
                     "UPDATE profiel SET wachtwoord = ? WHERE id = ?", [wachtwoord, FYSCloud.Session.get("userid")]
                 ).done(function (data) {
                     insertId = data["insertId"];
                     console.log(data);
                     alert("Gegevens zijn opgeslagen!")
+                    window.location.href = "profiel.html";
                 }).fail(function (data) {
                     console.log(data);
                 });
