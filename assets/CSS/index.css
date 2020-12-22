@@ -23,15 +23,6 @@ body{
     vertical-align: middle;
 }
 
-.succesverhaal p{
-    margin-left: 15px;
-    display: block;
-    margin: 2px 0 0 0;
-}
-
-
-
-
 /* Navigatie balk */
 .navbar{
     background-color: #ff5768 !important;
