@@ -79,7 +79,7 @@ $( document ).ready(function() {
             case "Bulgarije" :
                 $('#reisbestemming').find('option:eq(3)').attr('selected', true);
                 break;
-            case "curacao" :
+            case "Curacao" :
                 $('#reisbestemming').find('option:eq(4)').attr('selected', true);
                 break;
             case "Egypte" :
@@ -91,16 +91,16 @@ $( document ).ready(function() {
             case "Griekenland" :
                 $('#reisbestemming').find('option:eq(7)').attr('selected', true);
                 break;
-            case "Indonesie" :
+            case "Indonesië" :
                 $('#reisbestemming').find('option:eq(8)').attr('selected', true);
                 break;
-            case "Italie" :
+            case "Italië" :
                 $('#reisbestemming').find('option:eq(9)').attr('selected', true);
                 break;
-            case "Kaapverdie" :
+            case "Kaapverdië" :
                 $('#reisbestemming').find('option:eq(10)').attr('selected', true);
                 break;
-            case "Macedonie" :
+            case "Macedonië" :
                 $('#reisbestemming').find('option:eq(11)').attr('selected', true);
                 break;
             case "Portugal" :
