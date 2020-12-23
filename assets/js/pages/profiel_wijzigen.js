@@ -1,15 +1,5 @@
 $( document ).ready(function() {
 
-        /*
-        $("#geboortedatum").datepicker({
-            changeYear: true,
-            minDate: '-3M',
-            maxDate: '+28D',
-        });
-
-         */
-
-
     /* Geregistreerde data in het formulier voor invullen */
     FYSCloud.API.queryDatabase(
         "SELECT * FROM profiel WHERE id = ?", [FYSCloud.Session.get("userid")]
