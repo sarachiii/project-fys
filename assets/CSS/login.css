@@ -23,3 +23,15 @@ input[type="password"],input[type="file"], input[type="email"] {
     margin-left: auto
 }
 
+.inputError {
+    border: 2px solid red;
+}
+
+.errorveld {
+    color: red;
+    display: block;
+}
+
+.verborgen{
+    display: none;
+}
