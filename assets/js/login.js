@@ -3,31 +3,57 @@
 *  bij foutieve invoer krijg je een foutmelding.
 */
 
-document.addEventListener('DOMContentLoaded', function (event){
+document.addEventListener('DOMContentLoaded', function (event) {
 
     loginButton.onclick = function () {
+
         let userid = FYSCloud.Session.get("userid");
-        let gebruikersnaam = document.getElementById("inputEmail").value;
-        let wachtwoord = document.getElementById("inputPassword").value;
+        let gebruikersnaamveld = document.getElementById("inputEmail");
+        let gebruikersnaam = gebruikersnaamveld.value;
+        let wachtwoordveld = document.getElementById("inputPassword");
+        let wachtwoord = wachtwoordveld.value;
+
+        /* div met foutmelding weghalen */
+        document.getElementById("errorveld3").classList.add("verborgen");
+        document.getElementById("errorveld4").classList.add("verborgen");
+        document.getElementById("errorveld5").classList.add("verborgen");
+        wachtwoordveld.classList.remove("inputError");
+        gebruikersnaamveld.classList.remove("inputError");
 
         FYSCloud.API.queryDatabase(
-            "SELECT * FROM profiel WHERE email = ? AND wachtwoord = ?", [gebruikersnaam, wachtwoord]
-        ).done(function(data) {
-            if(data.length > 0) {
-                FYSCloud.API.queryDatabase(
-                    "SELECT voornaam FROM profiel WHERE id = ?", [userid]
-                ).done(function(data) {
-                }).fail(function(reason) {
-                    console.log(reason);
-                });
-                alert("Welkom terug " + data[0].voornaam + " !");
+            "SELECT * FROM profiel WHERE BINARY email = ? AND wachtwoord = ? ", [gebruikersnaam, wachtwoord]
+        ).done(function (data) {
+            if (data.length > 0) {
                 FYSCloud.Session.set("userid", data[0]["id"]);
                 window.location.href = 'match.html';
             } else {
-                alert("Email of wachtwoord is fout!")
+                if (gebruikersnaam == "" && wachtwoord == "") {
+                    gebruikersnaamveld.classList.add("inputError");
+                    wachtwoordveld.classList.add("inputError");
+                    document.getElementById("errorveld5").classList.remove("verborgen");
+                } else if (wachtwoord == "") {
+                    wachtwoordveld.classList.add("inputError");
+                    document.getElementById("errorveld5").classList.remove("verborgen");
+                } else if (gebruikersnaam == ""){
+                    gebruikersnaamveld.classList.add("inputError");
+                    document.getElementById("errorveld5").classList.remove("verborgen");
+                } else {
+                    FYSCloud.API.queryDatabase(
+                        "SELECT * FROM profiel WHERE BINARY gebruikersnaam = ?", [gebruikersnaam]
+                    ).done(function (data) {
+                        if (data.length > 0) {
+                            wachtwoordveld.classList.add("inputError");
+                            document.getElementById("errorveld4").classList.remove("verborgen");
+                        } else {
+                            gebruikersnaamveld.classList.add("inputError");
+                            document.getElementById("errorveld3").classList.remove("verborgen");
+                        }
+                    }).fail(function (reason) {
+                        console.log(reason);
+                    });
+                }
             }
-            console.log(data);
-        }).fail(function(reason) {
+        }).fail(function (reason) {
             console.log(reason);
         });
     }

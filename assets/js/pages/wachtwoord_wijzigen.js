@@ -7,6 +7,9 @@ function check() {
     let ww2 = document.getElementById("bevestig_wachtwoord");
     let ww2_value = ww2.value;
 
+    /* Bij niet overeenkomend wachtwoord wordt er een div met de foutmelding op het scherm getoond,
+    en het invoer vakje krijgt een rode kleur */
+
     if(ww1_value != "") {
         if (regex.test(ww1_value)) {
             ww1.classList.remove("inputError");
@@ -27,6 +30,7 @@ function check() {
     }
 };
 
+/* Check of het wachtwoord overeen en stuurt het dan naar de databse op */
 $( document ).ready(function() {
 
     $(function () {
