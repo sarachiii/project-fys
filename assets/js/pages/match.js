@@ -13,6 +13,8 @@ $(document).ready(function () {
         //Stopt alle 'card' elementen in een array.
         let cards;
 
+        const userId = FYSCloud.Session.get('userid');
+
         applyChanges.on('click', function () {
             const budgetSliderValue = budgetSliderElement.val();
             console.log({budgetSliderValue});
@@ -29,6 +31,11 @@ $(document).ready(function () {
                 if (budget <= budgetSliderValue && age <= ageSliderValue) {
                     newContentChild.append(card);
                 }
+                $(card).on('click', function () {
+                    FYSCloud.URL.redirect("match-profiel.html", {
+                        id: $(card).data('profile-id')
+                    });
+                });
             });
 
             contentElement.append(newContentChild);
@@ -43,7 +50,7 @@ $(document).ready(function () {
         });
 
         //<---------------------------------------The Card-filling system----------------------------------------------->
-        FYSCloud.API.queryDatabase("SELECT * FROM profiel LIMIT 12")
+        FYSCloud.API.queryDatabase("SELECT * FROM profiel WHERE id != ? LIMIT 12", [userId])
             .done(function (data) {
                 data.map((profiel) => {
                     let age = new Date().getFullYear() - new Date(profiel.geboortedatum).getFullYear();
@@ -54,7 +61,9 @@ $(document).ready(function () {
                                 <div class="card-body">
                                     <h5 class="card-title" data-firstName="voornaam" id="voornaam">${profiel.voornaam}, ${age}</h5>
                                     <p class="card-text" id="bestemming">Bestemming: ${profiel.reisbestemming}</p>
+                                    <div class="flex">
                                     <p class="card-text"><strong>Budget: ${profiel.budget} euro</strong></p>
+                                    </div>
                                 </div>
                             </div>`
                     );

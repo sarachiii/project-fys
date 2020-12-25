@@ -138,3 +138,11 @@ html, body{
 .faq{
     color: red;
 }
+.flex{
+    display: flex;
+}
+.percentage {
+    color: green;
+    margin-left: 80%;
+    font-size: 30px;
+}

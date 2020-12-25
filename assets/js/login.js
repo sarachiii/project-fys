@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function (event){
         let wachtwoord = document.getElementById("inputPassword").value;
 
         FYSCloud.API.queryDatabase(
-            "SELECT * FROM profiel WHERE gebruikersnaam = ? AND wachtwoord = ?", [gebruikersnaam, wachtwoord]
+            "SELECT * FROM profiel WHERE email = ? AND wachtwoord = ?", [gebruikersnaam, wachtwoord]
         ).done(function(data) {
             if(data.length > 0) {
                 FYSCloud.API.queryDatabase(

@@ -36,7 +36,7 @@ let ready = $(document).ready(function () {
 
 
         FYSCloud.API.queryDatabase(
-            "INSERT INTO profiel(voornaam,achternaam,gender,woonplaats,budget,reisbestemming,gebruikersnaam,wachtwoord,bio,geboortedatum)" +
+            "INSERT INTO profiel(voornaam,achternaam,gender,woonplaats,budget,reisbestemming,email,wachtwoord,bio,geboortedatum)" +
             "values(?,?,?,?,?,?,?,?,?,?)",
             [firstName, lastName, gender, woonplaats, budget, reisbestemming, gebruikersnaam, wachtwoord, bio, geboortedatum]
         ).done(function (data) {
