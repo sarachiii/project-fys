@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
         gebruikersnaamveld.classList.remove("inputError");
 
         FYSCloud.API.queryDatabase(
-            "SELECT * FROM profiel WHERE BINARY email = ? AND wachtwoord = ? ", [gebruikersnaam, wachtwoord]
+            "SELECT * FROM profiel WHERE email = BINARY ? AND wachtwoord = BINARY ? ", [gebruikersnaam, wachtwoord]
         ).done(function (data) {
             if (data.length > 0) {
                 FYSCloud.Session.set("userid", data[0]["id"]);
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
                     document.getElementById("errorveld5").classList.remove("verborgen");
                 } else {
                     FYSCloud.API.queryDatabase(
-                        "SELECT * FROM profiel WHERE BINARY gebruikersnaam = ?", [gebruikersnaam]
+                        "SELECT * FROM profiel WHERE email = BINARY ?", [gebruikersnaam]
                     ).done(function (data) {
                         if (data.length > 0) {
                             wachtwoordveld.classList.add("inputError");
