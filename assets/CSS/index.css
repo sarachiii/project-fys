@@ -23,6 +23,10 @@ body{
     vertical-align: middle;
 }
 
+.container-fluid .advertentie {
+    margin-top: 35px;
+}
+
 /* Navigatie balk */
 .navbar{
     background-color: #ff5768 !important;

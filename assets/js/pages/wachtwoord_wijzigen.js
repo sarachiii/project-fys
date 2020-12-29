@@ -50,7 +50,7 @@ $( document ).ready(function() {
                 ).done(function (data) {
                     insertId = data["insertId"];
                     console.log(data);
-                    alert("Gegevens zijn opgeslagen!")
+                    alert("Nieuw wachtwoord is ingesteld!")
                     window.location.href = "profiel.html";
                 }).fail(function (data) {
                     console.log(data);
