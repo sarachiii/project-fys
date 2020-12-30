@@ -141,8 +141,11 @@ html, body{
 .flex{
     display: flex;
 }
-.percentage {
-    color: green;
-    margin-left: 80%;
-    font-size: 30px;
+.card-ranking{
+    position: absolute;
+    right: 10%;
+    width: 35px;
+    height: 30px;
+    background: green;
+    /*border: solid black 5px;*/
 }

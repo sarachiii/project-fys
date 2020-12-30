@@ -63,6 +63,7 @@ $(document).ready(function () {
                                     <p class="card-text" id="bestemming">Bestemming: ${profiel.reisbestemming}</p>
                                     <div class="flex">
                                     <p class="card-text"><strong>Budget: ${profiel.budget} euro</strong></p>
+                                    <div class="card-ranking"></div>
                                     </div>
                                 </div>
                             </div>`

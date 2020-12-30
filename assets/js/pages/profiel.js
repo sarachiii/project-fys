@@ -27,7 +27,7 @@ $( document ).ready(function() {
 
         $("#geslacht").append(data[0]["gender"]);
         $("#woonplaats").append(data[0]["woonplaats"]);
-        $("#email").append(data[0]["gebruikersnaam"]);
+        $("#email").append(data[0]["email"]);
         $("#reisbestemming").append(data[0]["reisbestemming"]);
         $("#budget").append(data[0]["budget"]);
         $("#bio").append(data[0]["bio"]);

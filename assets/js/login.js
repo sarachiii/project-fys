@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
                     document.getElementById("errorveld5").classList.remove("verborgen");
                 } else {
                     FYSCloud.API.queryDatabase(
-                        "SELECT * FROM profiel WHERE BINARY gebruikersnaam = ?", [gebruikersnaam]
+                        "SELECT * FROM profiel WHERE BINARY email = ?", [email]
                     ).done(function (data) {
                         if (data.length > 0) {
                             wachtwoordveld.classList.add("inputError");
