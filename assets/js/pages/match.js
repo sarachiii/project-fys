@@ -49,6 +49,63 @@ $(document).ready(function () {
             ageSliderElementValueText.text(event.target.value);
         });
 
+        //<-------------------12 beste match kaartjes aanmaken------------------------->
+        //Sla de reisbestemming van de gebruiker op
+        FYSCloud.API.queryDatabase("SELECT reisbestemming FROM profiel WHERE id = 4")
+            .done(function (data) {
+
+                let userbestemming = data[0].reisbestemming;
+                console.log(userbestemming);
+
+                FYSCloud.API.queryDatabase("SELECT Interesse_id FROM profiel_has_interesse WHERE Profiel_id = 4")
+                    .done(function (data) {
+
+                        let hobbygebruiker = data.map(data => data['Interesse_id']);
+                        console.log(hobbygebruiker);
+
+                        FYSCloud.API.queryDatabase(
+                            "SELECT id, reisbestemming, Interesse_id " +
+                            "FROM profiel " +
+                            "INNER JOIN profiel_has_interesse " +
+                            "ON profiel.id = profiel_has_interesse.Profiel_id " +
+                            "WHERE id != ? " +
+                            "ORDER BY FIELD(reisbestemming, ?) DESC, " +
+                            "Interesse_id IN (?) DESC",
+                            [userId, userbestemming, hobbygebruiker])
+                            /*
+                            "SELECT COUNT(Interesse_id IN (?))" +
+                           "FROM" +
+                           "(SELECT id, reisbestemming, Interesse_id " +
+                           "FROM profiel " +
+                           "INNER JOIN profiel_has_interesse " +
+                           "ON profiel.id = profiel_has_interesse.Profiel_id " +
+                           "WHERE id != ? " +
+                           "ORDER BY FIELD(reisbestemming, ?) DESC, " +
+                           "Interesse_id IN (?) DESC)" +
+                           "AS x " +
+                           "GROUP BY Profiel_id",
+                            */
+                            .done(function (data) {
+
+                                //pakt van elk element in de array(data) de waarde van kolom id
+                                let bestemmingMatches = data.map(data => data['id']);
+                                console.log(data);
+
+                                //hou alleen de unieke id's over
+                                data = [...new Set(bestemmingMatches)];
+                                console.log(data);
+
+                            }).fail(function (data) {
+                            console.log(data);
+                        });
+                    }).fail(function (data) {
+                    console.log(data);
+                });
+            }).fail(function (data) {
+            console.log(data);
+        });
+
+
         //<---------------------------------------The Card-filling system----------------------------------------------->
         FYSCloud.API.queryDatabase("SELECT * FROM profiel WHERE id != ? LIMIT 12", [userId])
             .done(function (data) {

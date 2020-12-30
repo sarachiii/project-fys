@@ -8,23 +8,12 @@ $( document ).ready(function() {
         document.getElementById("profielplaatje").src = data[0].profielfoto;
         $("#voornaam").append(data[0]["voornaam"]);
         $("#achternaam").append(data[0]["achternaam"]);
+        // Zet de geboortedatum om in de juiste format: DD/MM/YYYY
         let date = new Date(data[0]["geboortedatum"]).toLocaleDateString('en-GB');
         $("#geboortedatum").append(date);
-
-        /*
-        let huidigeDatum = new Date();
-        let leeftijd = huidigeDatum - date;
-        $("#leeftijd").append(leeftijd);
-        */
-
-        /* Berekent leeftijd */
-        let geboortedatum = new Date(data[0]["geboortedatum"]);
-        let huidigeDatum = new Date();
-        let verschil = huidigeDatum - geboortedatum; // Verschil in milliseconden
-        let leeftijd = Math.floor(verschil / (1000 * 60 * 60 * 24 * 365.25));
-        $("#leeftijd").append(leeftijd);
-
-
+        // Berekent huidige leeftijd
+        let age = new Date().getFullYear() - new Date(data[0]["geboortedatum"]).getFullYear();
+        $("#leeftijd").append(age);
         $("#geslacht").append(data[0]["gender"]);
         $("#woonplaats").append(data[0]["woonplaats"]);
         $("#email").append(data[0]["email"]);
