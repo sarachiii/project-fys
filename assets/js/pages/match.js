@@ -51,20 +51,20 @@ $(document).ready(function () {
 
         //<-------------------12 beste match kaartjes aanmaken------------------------->
         //Sla de reisbestemming van de gebruiker op
-        FYSCloud.API.queryDatabase("SELECT reisbestemming FROM profiel WHERE id = 4")
+        FYSCloud.API.queryDatabase("SELECT reisbestemming FROM profiel WHERE id = ?", [userId])
             .done(function (data) {
 
                 let userbestemming = data[0].reisbestemming;
                 console.log(userbestemming);
 
-                FYSCloud.API.queryDatabase("SELECT Interesse_id FROM profiel_has_interesse WHERE Profiel_id = 4")
+                FYSCloud.API.queryDatabase("SELECT Interesse_id FROM profiel_has_interesse WHERE Profiel_id = ?", [userId])
                     .done(function (data) {
 
                         let hobbygebruiker = data.map(data => data['Interesse_id']);
                         console.log(hobbygebruiker);
 
                         FYSCloud.API.queryDatabase(
-                            "SELECT id, reisbestemming, Interesse_id " +
+                            "SELECT * " +
                             "FROM profiel " +
                             "INNER JOIN profiel_has_interesse " +
                             "ON profiel.id = profiel_has_interesse.Profiel_id " +
@@ -92,27 +92,53 @@ $(document).ready(function () {
                                 console.log(data);
 
                                 //hou alleen de unieke id's over
-                                data = [...new Set(bestemmingMatches)];
-                                console.log(data);
+                                uniekeid = [...new Set(bestemmingMatches)];
+                                console.log(uniekeid);
 
+                                        uniekeid.map((profiel) => {
+                                            let age = new Date().getFullYear() - new Date(profiel.geboortedatum).getFullYear();
+                                            age = age < 18 ? 18 : age;
+                                            rowElement.append(`
+                            <div data-profile-id="${uniekeid}" class="col-xl-3  col-lg-6 my-col mt-2 w-2 card" data-budget="${profiel.budget}" data-age="${age}">
+                                <img class="card-img-top mx-auto profile-picture" src="${profiel.profielfoto}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title" data-firstName="voornaam" id="voornaam">${profiel.voornaam}, ${age}</h5>
+                                    <p class="card-text" id="bestemming">Bestemming: ${profiel.reisbestemming}</p>
+                                    <div class="flex">
+                                    <p class="card-text"><strong>Budget: ${profiel.budget} euro</strong></p>
+                                    </div>
+                                </div>
+                            </div>`
+                                            );
+                                            cards = $('.card').toArray();
+                                            cards.map((card) => {
+                                                $(card).on('click', function () {
+                                                    FYSCloud.URL.redirect("match-profiel.html", {
+                                                        id: $(card).data('profile-id')
+                                                    });
+                                                });
+                                            });
+                                        });
+
+
+                                    }).fail(function (data) {
+                                    console.log(data);
+                                });
                             }).fail(function (data) {
                             console.log(data);
                         });
                     }).fail(function (data) {
                     console.log(data);
                 });
-            }).fail(function (data) {
-            console.log(data);
-        });
 
 
-        //<---------------------------------------The Card-filling system----------------------------------------------->
-        FYSCloud.API.queryDatabase("SELECT * FROM profiel WHERE id != ? LIMIT 12", [userId])
-            .done(function (data) {
-                data.map((profiel) => {
-                    let age = new Date().getFullYear() - new Date(profiel.geboortedatum).getFullYear();
-                    age = age < 18 ? 18 : age;
-                    rowElement.append(`
+                //<---------------------------------------The Card-filling system----------------------------------------------->
+                /*FYSCloud.API.queryDatabase("SELECT * FROM profiel WHERE id != ? LIMIT 12", [userId])
+                    .done(function (data) {
+                        data.map((profiel) => {
+                            let age = new Date().getFullYear() - new Date(profiel.geboortedatum).getFullYear();
+                            age = age < 18 ? 18 : age;
+                            rowElement.append(`
                             <div data-profile-id="${profiel.id}" class="col-xl-3  col-lg-6 my-col mt-2 w-2 card" data-budget="${profiel.budget}" data-age="${age}">
                                 <img class="card-img-top mx-auto profile-picture" src="${profiel.profielfoto}" alt="Card image cap">
                                 <div class="card-body">
@@ -123,16 +149,15 @@ $(document).ready(function () {
                                     </div>
                                 </div>
                             </div>`
-                    );
-                });
-                cards = $('.card').toArray();
+                            );
+                        });*/
+                /*cards = $('.card').toArray();
                 cards.map((card) => {
                     $(card).on('click', function () {
                         FYSCloud.URL.redirect("match-profiel.html", {
                             id: $(card).data('profile-id')
                         });
                     });
-                });
+                });*/
             });
-    });
 });
