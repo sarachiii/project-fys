@@ -91,6 +91,16 @@ let ready = $(document).ready(function () {
 
             }
         }
+
+        // Stuurt de gebruiker na het aanmaken van het profiel naar de inlogpagina
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                window.location.href = 'login.html';
+            }
+        };
+        xhttp.open("POST", "login.html", true);
+        xhttp.send();
     });
 });
 
