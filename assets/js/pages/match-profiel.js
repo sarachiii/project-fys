@@ -5,7 +5,7 @@ $(document).ready(function () {
     console.log(id);
 
     //<---------------------------------------The Card-filling system----------------------------------------------->
-    FYSCloud.API.queryDatabase("SELECT voornaam, achternaam, gender, woonplaats, reisbestemming, budget, bio, profielfoto FROM profiel WHERE id = ?", [id])
+    FYSCloud.API.queryDatabase("SELECT voornaam, achternaam, gender, geboortedatum, woonplaats, reisbestemming, budget, bio, profielfoto FROM profiel WHERE id = ?", [id])
         .done(function (data) {
             const [first] = data;
             console.log(first)
