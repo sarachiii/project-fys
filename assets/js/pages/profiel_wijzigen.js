@@ -79,7 +79,7 @@ $( document ).ready(function() {
             case "Bulgarije" :
                 $('#reisbestemming').find('option:eq(3)').attr('selected', true);
                 break;
-            case "Curacao" :
+            case "Curaçao" :
                 $('#reisbestemming').find('option:eq(4)').attr('selected', true);
                 break;
             case "Egypte" :
@@ -295,7 +295,6 @@ $( document ).ready(function() {
             "WHERE id = ?", [firstName, lastName, gender, geboortedatum, woonplaats, bestemming, budget, bio, userid]
         ).done(function (data) {
             console.log(data);
-            alert("Gegevens zijn opgeslagen!")
             window.location.href = "profiel.html";
         }).fail(function (data) {
             console.log(data);
@@ -334,7 +333,7 @@ $( document ).ready(function() {
                         FYSCloud.API.queryDatabase(
                             "UPDATE profiel SET profielfoto = ? WHERE id = ?", [data, userid]
                         ).done(function (data) {
-                            alert("Je nieuwe profielfoto is ingesteld!");
+                            window.location.href = "profiel.html";
                         }).fail(function (data) {
                             console.log(data);
                         });
@@ -349,7 +348,7 @@ $( document ).ready(function() {
         /* Account verwijderen */
         $(function() {
         $('#verwijder').click(function(e) {
-            if(confirm("Are you sure?"))
+            if(confirm("Weet je zeker dat je dit account permanent wilt verwijderen?"))
             {
                 FYSCloud.API.queryDatabase(
                     "DELETE FROM profiel WHERE id = ?", [FYSCloud.Session.get("userid")]
