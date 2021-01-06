@@ -72,28 +72,17 @@ $(document).ready(function () {
                             "ORDER BY FIELD(reisbestemming, ?) DESC, " +
                             "Interesse_id IN (?) DESC",
                             [userId, userbestemming, hobbygebruiker])
-                            /*
-                            "SELECT COUNT(Interesse_id IN (?))" +
-                           "FROM" +
-                           "(SELECT id, reisbestemming, Interesse_id " +
-                           "FROM profiel " +
-                           "INNER JOIN profiel_has_interesse " +
-                           "ON profiel.id = profiel_has_interesse.Profiel_id " +
-                           "WHERE id != ? " +
-                           "ORDER BY FIELD(reisbestemming, ?) DESC, " +
-                           "Interesse_id IN (?) DESC)" +
-                           "AS x " +
-                           "GROUP BY Profiel_id",
-                            */
+
                             .done(function (data) {
 
                                 let uniqueProfile = uniqByKeepLast(data, it => it.id);
 
-                                uniqueProfile.map((profiel) => {
+                                uniqueProfile.map((profiel, i) => {
                                     let age = new Date().getFullYear() - new Date(profiel.geboortedatum).getFullYear();
                                     age = age < 18 ? 18 : age;
                                     rowElement.append(`
                             <div data-profile-id="${profiel.id}" class="col-xl-3  col-lg-6 my-col mt-2 w-2 card" data-budget="${profiel.budget}" data-age="${age}">
+                                key={i};
                                 <img class="card-img-top mx-auto profile-picture" src="${profiel.profielfoto}" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title" data-firstName="voornaam" id="voornaam">${profiel.voornaam}, ${age}</h5>
