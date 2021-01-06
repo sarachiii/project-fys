@@ -51,7 +51,7 @@ $( document ).ready(function() {
                     insertId = data["insertId"];
                     console.log(data);
                     alert("Nieuw wachtwoord is ingesteld!")
-                    window.location.href = "profiel.html";
+                    FYSCloud.URL.redirect("profiel.html");
                 }).fail(function (data) {
                     console.log(data);
                 });
