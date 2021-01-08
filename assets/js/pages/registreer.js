@@ -66,7 +66,7 @@ let ready = $(document).ready(function () {
                             "UPDATE profiel SET profielfoto = ? where id = ?", [data, insertId]
                         ).done(function (data) {
                             let insertId = data["insertId"];
-                            alert("Het aanmaken van je profiel is gelukt!")
+                            FYSCloud.URL.redirect('login.html');
                         }).fail(function (data) {
                             console.log(data);
                         });
@@ -91,24 +91,12 @@ let ready = $(document).ready(function () {
                 let interesses = values[i];
                 FYSCloud.API.queryDatabase("INSERT INTO profiel_has_interesse (Profiel_id, Interesse_id) VALUES (?, ?)", [insertId, interesses])
                     .done(function (data) {
-
-
                     }).fail(function (data) {
                     console.log(data);
                 });
 
             }
         }
-
-        // Stuurt de gebruiker na het aanmaken van het profiel naar de inlogpagina
-        let xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                window.location.href = 'login.html';
-            }
-        };
-        xhttp.open("POST", "login.html", true);
-        xhttp.send();
     });
 });
 

@@ -72,6 +72,7 @@
         <!-- Voornaam -->
         <div class="row my-row justify-content-center">
             <div class="col-3">
+                <label for="firstName"><strong>Volledige naam</strong><span class="mandatory-field"> *</span></label>
                 <label for="firstName" class="sr-only">Voornaam</label>
                 <input type="text" class="form-control" id="firstName" maxlength="25"
                        placeholder="Voornaam" required autofocus>
@@ -91,7 +92,7 @@
         <!-- Profielfoto -->
         <div class="row my-row justify-content-center">
             <div class="col-3">
-                <label for="profielfoto" class="sr-only">Upload hier uw profielfoto</label>
+                <label for="profielfoto"><strong>Upload hier uw profielfoto</strong><span class="mandatory-field"> *</span></label>
                 <input type="file" class="try form-control" id="profielfoto" name="profielfoto"
                        accept="image/png, image/jpeg">
             </div>
@@ -101,7 +102,7 @@
         <!-- Gender -->
         <div class="row my-row justify-content-center">
             <div class="col-3 dropdown">
-                <label for="gender" class="sr-only">Selecteer uw gender</label>
+                <label for="gender"><strong>Gender</strong><span class="mandatory-field"> *</span></label>
                 <br>
                 <select class="form-control colorful-select dropdown-primary" id="gender" name="gender">
                     <option value="" disabled selected>Selecteer uw gender</option>
@@ -116,7 +117,7 @@
         <!--- Geboortedatum -->
         <div class="row my-row justify-content-center">
             <div class="col-3">
-                <label for="geboortedatum"><strong>Voer uw geboortedatum in</strong></label>
+                <label for="geboortedatum"><strong>Voer uw geboortedatum in</strong><span class="mandatory-field"> *</span></label>
                 <br>
                 <input type="date" id="geboortedatum"  min="1900-01-01" max="2002-12-31" required>
             </div>
@@ -126,7 +127,7 @@
         <!-- Woonplaats -->
         <div class="row my-row justify-content-center">
             <div class="col-3 select-outline">
-                <label class="mdb-main-label sr-only" for="woonplaats">Selecteer uw woonplaats</label>
+                <label class="mdb-main-label" for="woonplaats"><strong>Woonplaats</strong><span class="mandatory-field"> *</span></label>
                 <br>
                 <select class="colorful-select dropdown-primary form-control" id="woonplaats" name="woonplaats">
                     <option value="" disabled selected>Selecteer uw woonplaats</option>
@@ -150,7 +151,7 @@
         <!-- Hobby's -->
         <div class="row my-row justify-content-center">
             <div class="col-3">
-                <label for="multiple-checkboxes"><strong>Selecteer uw hobby's</strong><br>Ctrl/cmd + klik</label>
+                <label for="multiple-checkboxes"><strong>Selecteer uw hobby's</strong><span class="mandatory-field"> *</span><br>Ctrl/cmd + klik</label>
                 <select id="multiple-checkboxes" class="form-control" multiple="multiple">
                     <option class="unselected" value="" disabled>Muziek</option>
                     <option value="1">Concerten bezoeken</option>
@@ -190,7 +191,7 @@
         <!-- Reisbudget -->
         <div class="row my-row justify-content-center">
             <div class="col-3">
-                <label for="budget"><strong>Reisbudget</strong></label>
+                <label for="budget"><strong>Reisbudget</strong><span class="mandatory-field"> *</span></label>
                 <br>
                 <input type="number" class="form-control" id="budget" name="budget" step="50" placeholder="€"
                 min="50" max="3000">
@@ -199,8 +200,8 @@
 
         <!-- Reisbestemming -->
         <div class="row my-row justify-content-center">
-            <div class="col-3">
-                <label class="mdb-main-label sr-only" for="reisbestemming">Reisbestemming</label>
+            <div class="col-3"><br>
+                <label class="mdb-main-label" for="reisbestemming"><strong>Reisbestemming</strong><span class="mandatory-field"> *</span></label>
                 <br>
                 <select class="mdb-select md-form colorful-select dropdown-primary form-control" id="reisbestemming" name="reisbestemming">
                 <option value="" disabled selected>Kies uw reisbestemming</option>
@@ -233,11 +234,10 @@
         <!-- E-mailadres -->
         <div class="row my-row justify-content-center">
             <div class="col-3">
-                <label class="sr-only" for="email">E-mailadres</label>
+                <label class="" for="email"><strong>Inloggegevens</strong><span class="mandatory-field"> *</span></label>
                 <input type="email" class="form-control" id="email" name="email" pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" placeholder="E-mailadres" required>
             </div>
         </div>
-        <br>
 
         <!-- Wachtwoord -->
         <div class="row my-row justify-content-center">
@@ -251,7 +251,7 @@
         <!-- Bio -->
          <div class="row my-row justify-content-center">
              <div class="col-3">
-                 <label class="sr-only" for="bio">Biografie (max. 140 tekens)</label>
+                 <label for="bio"><strong>Biografie</strong><span class="mandatory-field"> *</span></label>
                  <input type="text" class="form-control bio" id="bio" name="bio" placeholder="Biografie (max. 140 tekens)"
                  maxlength="140" required>
              </div>
