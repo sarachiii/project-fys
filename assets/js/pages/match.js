@@ -87,12 +87,58 @@ $(document).ready(function () {
                             */
                             .done(function (data) {
 
-                                let uniqueProfile = uniqByKeepLast(data, it => it.id);
+                                //pakt van elk element in de array(data) de waarde van kolom id
+                                let bestemmingMatches = data.map(data => data['id']);
+                                console.log(data);
 
-                                uniqueProfile.map((profiel) => {
-                                    let age = new Date().getFullYear() - new Date(profiel.geboortedatum).getFullYear();
-                                    age = age < 18 ? 18 : age;
-                                    rowElement.append(`
+                                //hou alleen de unieke id's over
+                                uniekeid = [...new Set(bestemmingMatches)];
+                                console.log(uniekeid);
+
+                                        uniekeid.map((profiel) => {
+                                            let age = new Date().getFullYear() - new Date(profiel.geboortedatum).getFullYear();
+                                            age = age < 18 ? 18 : age;
+                                            rowElement.append(`
+                            <div data-profile-id="${uniekeid}" class="col-xl-3  col-lg-6 my-col mt-2 w-2 card" data-budget="${profiel.budget}" data-age="${age}">
+                                <img class="card-img-top mx-auto profile-picture" src="${profiel.profielfoto}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title" data-firstName="voornaam" id="voornaam">${profiel.voornaam}, ${age}</h5>
+                                    <p class="card-text" id="bestemming">Bestemming: ${profiel.reisbestemming}</p>
+                                    <div class="flex">
+                                    <p class="card-text"><strong>Budget: ${profiel.budget} euro</strong></p>
+                                    </div>
+                                </div>
+                            </div>`
+                                            );
+                                            cards = $('.card').toArray();
+                                            cards.map((card) => {
+                                                $(card).on('click', function () {
+                                                    FYSCloud.URL.redirect("match-profiel.html", {
+                                                        id: $(card).data('profile-id')
+                                                    });
+                                                });
+                                            });
+                                        });
+
+
+                                    }).fail(function (data) {
+                                    console.log(data);
+                                });
+                            }).fail(function (data) {
+                            console.log(data);
+                        });
+                    }).fail(function (data) {
+                    console.log(data);
+                });
+
+
+                //<---------------------------------------The Card-filling system----------------------------------------------->
+                /*FYSCloud.API.queryDatabase("SELECT * FROM profiel WHERE id != ? LIMIT 12", [userId])
+                    .done(function (data) {
+                        data.map((profiel) => {
+                            let age = new Date().getFullYear() - new Date(profiel.geboortedatum).getFullYear();
+                            age = age < 18 ? 18 : age;
+                            rowElement.append(`
                             <div data-profile-id="${profiel.id}" class="col-xl-3  col-lg-6 my-col mt-2 w-2 card" data-budget="${profiel.budget}" data-age="${age}">
                                 <img class="card-img-top mx-auto profile-picture" src="${profiel.profielfoto}" alt="Card image cap">
                                 <div class="card-body">
@@ -103,63 +149,15 @@ $(document).ready(function () {
                                     </div>
                                 </div>
                             </div>`
-                                    );
-
-                                    cards = $('.card').toArray();
-                                    cards.map((card) => {
-                                        $(card).on('click', function () {
-                                            FYSCloud.URL.redirect("match-profiel.html", {
-                                                id: $(card).data('profile-id')
-                                            });
-                                        });
-                                    });
-                                });
-                            }).fail(function (data) {
-                            console.log(data);
+                            );
+                        });*/
+                /*cards = $('.card').toArray();
+                cards.map((card) => {
+                    $(card).on('click', function () {
+                        FYSCloud.URL.redirect("match-profiel.html", {
+                            id: $(card).data('profile-id')
                         });
-                    }).fail(function (data) {
-                    console.log(data);
-                });
-            }).fail(function (data) {
-            console.log(data);
-        });
-
-        // alleen de laatste waarde bewaren van de array a=array, key=waar hij op moet filteren (zie regel 90)
-        function uniqByKeepLast(a, key) {
-            return [
-                ...new Map(
-                    a.map(x => [key(x), x])
-                ).values()
-            ]
-        }
-
-
-        //<---------------------------------------The Card-filling system----------------------------------------------->
-        /*FYSCloud.API.queryDatabase("SELECT * FROM profiel WHERE id != ? LIMIT 12", [userId])
-            .done(function (data) {
-                data.map((profiel) => {
-                    let age = new Date().getFullYear() - new Date(profiel.geboortedatum).getFullYear();
-                    age = age < 18 ? 18 : age;
-                    rowElement.append(`
-                    <div data-profile-id="${profiel.id}" class="col-xl-3  col-lg-6 my-col mt-2 w-2 card" data-budget="${profiel.budget}" data-age="${age}">
-                        <img class="card-img-top mx-auto profile-picture" src="${profiel.profielfoto}" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title" data-firstName="voornaam" id="voornaam">${profiel.voornaam}, ${age}</h5>
-                            <p class="card-text" id="bestemming">Bestemming: ${profiel.reisbestemming}</p>
-                            <div class="flex">
-                            <p class="card-text"><strong>Budget: ${profiel.budget} euro</strong></p>
-                            </div>
-                        </div>
-                    </div>`
-                    );
+                    });
                 });*/
-        /*cards = $('.card').toArray();
-        cards.map((card) => {
-            $(card).on('click', function () {
-                FYSCloud.URL.redirect("match-profiel.html", {
-                    id: $(card).data('profile-id')
-                });
             });
-        });*/
-    });
 });
