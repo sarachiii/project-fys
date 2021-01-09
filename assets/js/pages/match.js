@@ -5,7 +5,7 @@ let userId;
 let cards;
 let gefilterdeProfielen = [];
 let i = 0; //teller die bijhoudt op welke pagina je bent
-//let j = 0; //teller die de nummers op de kaartjes zet
+let j = 1; //teller die de nummers op de kaartjes zet
 
 $(document).ready(function () {
     //<---------------------------------------The filtering system----------------------------------------------->
@@ -16,7 +16,7 @@ $(document).ready(function () {
         const ageSliderElement = $('#age-slider');
         const ageSliderElementValueText = $('#age-slider-value');
         const applyChanges = $('#apply-changes');
-        const contentElement = $('#content');
+        //const contentElement = $('#content');
 
         rowElement = $('.my-row');
 
@@ -69,9 +69,11 @@ function getUsers() {
 
                     FYSCloud.API.queryDatabase(
                         "SELECT * " +
-                        "FROM profiel " +
+                        "FROM ((profiel " +
                         "INNER JOIN profiel_has_interesse " +
-                        "ON profiel.id = profiel_has_interesse.Profiel_id " +
+                        "ON profiel.id = profiel_has_interesse.Profiel_id) " +
+                        "INNER JOIN interesse " +
+                        "ON profiel_has_interesse.Interesse_id = interesse.id_hobby )" +
                         "WHERE id != ? " +
                         "ORDER BY FIELD(reisbestemming, ?) DESC, " +
                         "Interesse_id IN (?) DESC",
@@ -82,7 +84,6 @@ function getUsers() {
                             //Bewaar alleen de unieke id's van de gesorteerde lijst
                             uniqueProfile = uniqByKeepLast(data, it => it.id);
                             gefilterdeProfielen = uniqueProfile;
-                            console.log(gefilterdeProfielen);
                             showUsers();
                         });
                 });
@@ -92,33 +93,40 @@ function getUsers() {
 //<-------------------12 beste match kaartjes vullen------------------------->
 function showUsers() {
     rowElement.children().remove();
-    console.log(gefilterdeProfielen);
+
+    if(i == 0){
+      j = 1;
+    } else if (i == 1){
+        j = 13;
+    } else {
+        j = 25;
+    }
+
     // pakt steeds intervallen van 12 (0-12), (12-24), (24-36) uit de array
     gefilterdeProfielen.slice(12 * i, (12 * i) + 12).map((profiel) => {
         let age = new Date().getFullYear() - new Date(profiel.geboortedatum).getFullYear();
         rowElement.append(`
                             <div data-profile-id="${profiel.id}" class="col-xl-3  col-lg-6 my-col mt-2 w-2 card" data-budget="${profiel.budget}" data-age="${age}">
-                                <!--<span class="teller"></span> -->
+                                <span class="teller">${j}</span>
                                 <img class="card-img-top mx-auto profile-picture" src="${profiel.profielfoto}" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title" data-firstName="voornaam" id="voornaam">${profiel.voornaam}, ${age}</h5>
                                     <p class="card-text" id="bestemming">Bestemming: ${profiel.reisbestemming}</p>
+                                     <p>Hobby's: ${profiel.hobby}</p>
                                     <div class="flex">
                                     <p class="card-text"><strong>Budget: ${profiel.budget} euro</strong></p>
                                     </div>
                                 </div>
                             </div>`
         );
+        j++;
+    });
+    cards = $('.card').toArray();
 
-        // rowElement.find('.teller').text(j);
-        // j++;
-
-        cards = $('.card').toArray();
-        cards.map((card) => {
-            $(card).on('click', function () {
-                FYSCloud.URL.redirect("match-profiel.html", {
-                    id: $(card).data('profile-id')
-                });
+    cards.map((card) => {
+        $(card).on('click', function () {
+            FYSCloud.URL.redirect("match-profiel.html", {
+                id: $(card).data('profile-id')
             });
         });
     });
@@ -127,31 +135,24 @@ function showUsers() {
 //Functie voor volgende knop
 $("#volgendematch").on("click", function () {
     //Kan alleen 3 pagina's verder geklikt worden
-    console.log("Volgende");
-    console.log(i);
+    console.log(j);
     if (i < 2) {
         i++;
-        rowElement.children().remove();
         showUsers();
-    } else {
-        //let knop = document.getElementById("volgendematch");
-        //knop.style.display = "none";
+        // if(gefilterdeProfielen.length % 12 == 0) {
+        //     showUsers();
+        // }
     }
-    console.log("Volgende2");
 });
 
 //Functie voor vorige knop
 $("#vorigematch").on("click", function () {
     //Kan niet uitgevoerd worden als de gebruiker zich op de eerste pagina bevindt, dus alleen als i groter is dan 0
-    console.log("vorige");
-    console.log(i);
     if (i > 0) {
         i--;
-        rowElement.children().remove();
+        if(gefilterdeProfielen.length > 0)
         showUsers();
     }
-    console.log("vorige2");
-    console.log(i);
 });
 
 // alleen de laatste waarde bewaren van de array
