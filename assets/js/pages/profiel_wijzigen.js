@@ -295,7 +295,7 @@ $( document ).ready(function() {
             "WHERE id = ?", [firstName, lastName, gender, geboortedatum, woonplaats, bestemming, budget, bio, userid]
         ).done(function (data) {
             console.log(data);
-            window.location.href = "profiel.html";
+            FYSCloud.URL.redirect("profiel.html");
         }).fail(function (data) {
             console.log(data);
         });
@@ -333,7 +333,7 @@ $( document ).ready(function() {
                         FYSCloud.API.queryDatabase(
                             "UPDATE profiel SET profielfoto = ? WHERE id = ?", [data, userid]
                         ).done(function (data) {
-                            window.location.href = "profiel.html";
+                            FYSCloud.URL.redirect("profiel.html");
                         }).fail(function (data) {
                             console.log(data);
                         });
@@ -351,11 +351,11 @@ $( document ).ready(function() {
             if(confirm("Weet je zeker dat je dit account permanent wilt verwijderen?"))
             {
                 FYSCloud.API.queryDatabase(
-                    "DELETE FROM profiel WHERE id = ?", [FYSCloud.Session.get("userid")]
+                    "DELETE FROM profiel WHERE profiel.id = ?", [FYSCloud.Session.get("userid")]
                 ).done(function(data) {
                     console.log(data);
                     alert("Account is succesvol verwijderd.")
-                    window.location.href = "index.html";
+                    FYSCloud.URL.redirect("index.html");
                 }).fail(function(reason) {
                     console.log(reason);
                     alert("Account verwijderen mislukt.")

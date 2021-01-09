@@ -34,18 +34,20 @@ button {
     margin-left: auto;
 }
 
+/* width voor input-velden */
 input[type="password"], input[type="file"], input[type="email"], input[type="text"], input[type="date"]{
     width: 250px;
-    font-family: Open Sans, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
 }
 
+/* kleur, font, margin en positie voor invoerelementen van het formulier */
 input, optgroup, select, textarea {
     color: inherit;
-    font-family: Open Sans, Avenir Next, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
+    font-family: Open Sans, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
     margin: 10px;
     position: relative;
 }
 
+/* styling hobbycategorieën */
 .unselected {
     font-weight: bold !important;
     color: #ff5768 !important;
@@ -59,6 +61,12 @@ input, optgroup, select, textarea {
     padding: 5px;
 }
 
+/* hoogte van het biografievakje */
 .bio {
     height: 100px !important;
+}
+
+/* sterretje dat aangeeft dat de invoervelden verplicht zijn */
+.mandatory-field {
+    color: #ff5768;
 }
