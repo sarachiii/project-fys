@@ -24,7 +24,11 @@ input[type="password"],input[type="file"], input[type="email"] {
 }
 
 .inputError {
-    border: 2px solid red;
+    border: 2.5px solid red;
+}
+
+.inputGood {
+    border: 2.5px solid green;
 }
 
 .errorveld {

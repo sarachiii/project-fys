@@ -13,7 +13,7 @@ $(document).ready(function () {
 
     //<---------------------------------------The Card-filling system (hobby's) ----------------------------------------------->
     FYSCloud.API.queryDatabase(
-        "SELECT hobby FROM interesse INNER JOIN profiel_has_interesse ON profiel_has_interesse.Interesse_id = interesse.id WHERE Profiel_id = ?", [FYSCloud.Session.get("userid")]
+        "SELECT hobby FROM interesse INNER JOIN profiel_has_interesse ON profiel_has_interesse.Interesse_id = interesse.id WHERE Profiel_id = ?", [id]
     ).done(function (data) {
         for (let i = 0; i < data.length; i++) {
             $("#hobby").append(data[i]["hobby"] + "\n");
