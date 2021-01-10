@@ -1,8 +1,124 @@
-let ready = $(document).ready(function () {
+function firstNameCheck() {
+    let firstNameExp = new RegExp(/^([^0-9]*)$/);
+    let uncheckedFirstName = document.getElementById("firstName");
+    let uncheckedFirstNameValue = uncheckedFirstName.value;
+
+    if (uncheckedFirstNameValue !== "") {
+        if (firstNameExp.test(uncheckedFirstNameValue)) {
+            uncheckedFirstName.classList.remove("inputError");
+            document.getElementById("error-firstname").classList.add("onzichtbaar");
+        } else {
+            document.getElementById("error-firstname").classList.remove("onzichtbaar");
+            uncheckedFirstName.classList.add("inputError");
+        }
+        return false;
+    }
+}
+
+function lastNameCheck() {
+    let lastNameExp = new RegExp( /^[a-z]$/i);
+    let uncheckedLastName = document.getElementById("firstName");
+    let uncheckedLastNameValue = uncheckedLastName.value;
+
+    if (uncheckedLastNameValue !== "") {
+        if (lastNameExp.test(uncheckedLastNameValue)) {
+            uncheckedLastName.classList.remove("inputError");
+            document.getElementById("error-lastname").classList.add("onzichtbaar");
+        } else {
+            document.getElementById("error-lastname").classList.remove("onzichtbaar");
+            uncheckedLastName.classList.add("inputError");
+        }
+        return false;
+    }
+}
+
+function budgetCheck() {
+    let budgetExp = new RegExp(/^\d{2,4}$/);
+    let uncheckedBudget = document.getElementById("budget");
+    let uncheckedBudgetValue = uncheckedBudget.value;
+
+    if (uncheckedBudgetValue !== "") {
+        if (budgetExp.test(uncheckedBudgetValue)) {
+            uncheckedBudget.classList.remove("inputError");
+            document.getElementById("error-reisbudget").classList.add("onzichtbaar");
+        } else {
+            document.getElementById("error-reisbudget").classList.remove("onzichtbaar");
+            uncheckedBudget.classList.add("inputError");
+        }
+        return false;
+    }
+}
+
+function passwordCheck() {
+    let passwordExp = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,20})$/);
+    let uncheckedPassword = document.getElementById("user-password");
+    let uncheckedPasswordValue = uncheckedPassword.value;
+
+    if (uncheckedPasswordValue !== "") {
+        if (passwordExp.test(uncheckedPasswordValue)) {
+            uncheckedPassword.classList.remove("inputError");
+            document.getElementById("error-password").classList.add("onzichtbaar");
+        } else {
+            document.getElementById("error-password").classList.remove("onzichtbaar");
+            uncheckedPassword.classList.add("inputError");
+        }
+        return false;
+    }
+}
+
+function emailCheck() {
+    let emailExp = new RegExp(/^([a-z\d_-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/);
+    let uncheckedEmail = document.getElementById("email");
+    let uncheckedEmailValue = uncheckedEmail.value;
+
+    if (uncheckedEmailValue !== "") {
+        if (emailExp.test(uncheckedEmailValue)) {
+            uncheckedEmail.classList.remove("inputError");
+            document.getElementById("error-email").classList.add("onzichtbaar");
+            return checkEmailAvailable();
+        } else {
+            document.getElementById("error-email").classList.remove("onzichtbaar");
+            uncheckedEmail.classList.add("inputError");
+        }
+        return false;
+    }
+}
+
+function checkEmailAvailable() {
+    $("#loaderIcon").show();
+    jQuery.ajax({
+        url: "check_availability.php",
+        data: 'email='+$("#email").val(),
+        type: "POST",
+        success:function(data) {
+            $("#email-availability").html(data);
+            $("#loaderIcon").hide();
+        },
+        error:function (){
+        }
+    });
+}
+
+function bioCheck() {
+    let bioExp = new RegExp(/^([a-z\w.]{2,140})?$/);
+    let uncheckedBio = document.getElementById("bio");
+    let uncheckedBioValue = uncheckedBio.value;
+
+    if (uncheckedBioValue !== "") {
+        if (bioExp.test(uncheckedBioValue)) {
+            uncheckedBio.classList.remove("inputError");
+            document.getElementById("error-bio").classList.add("onzichtbaar");
+        } else {
+            document.getElementById("error-bio").classList.remove("onzichtbaar");
+            uncheckedBio.classList.add("inputError");
+        }
+    }
+}
+
+$(document).ready(function () {
     let on = $("#registreren").on("click", function () {
         // Slaat de door de gebruiker ingevoerde waarde voor 'VOORNAAM' op in de onderstaande variabele
         let firstName = document.getElementById("firstName").value;
-
 
         let insertId = 0
 
@@ -29,21 +145,29 @@ let ready = $(document).ready(function () {
 
         // Slaat de door de gebruiker ingevoerde waarde voor 'GEBOORTEDATUM' op in de onderstaande variabele
         let geboortedatum = document.getElementById("geboortedatum").value;
-        console.log(geboortedatum);
 
         // Slaat de door de gebruiker ingevoerde waarde voor 'BIOGRAFIE' op in de onderstaande variabele
         let bio = document.getElementById("bio").value;
 
+        /* Voornaam, achternaam, gender, woonplaats, budget, reisbestemming, e-mail, wachtwoord, biografie
+        en geboortedatum uploaden naar de database binnen een specifiek profiel mits de velden niet leeg zijn*/
+        if (firstName !== "" && lastName !== "" && woonplaats !== "" && budget !== "" && reisbestemming !== "" &&
+            gebruikersnaam !== "" && wachtwoord !== "" && bio !== "" && geboortedatum !== "") {
+            FYSCloud.API.queryDatabase(
+                "INSERT INTO profiel(voornaam,achternaam,gender,woonplaats,budget,reisbestemming,email,wachtwoord,bio,geboortedatum)" +
+                "values(?,?,?,?,?,?,?,?,?,?)",
+                [firstName, lastName, gender, woonplaats, budget, reisbestemming, gebruikersnaam, wachtwoord, bio, geboortedatum]
+            ).done(function (data) {
+                insertId = data["insertId"];
+                insertInteresse(insertId);
+            });
+        } else {
+            alert("Velden mogen niet leeg zijn!")
+        }
 
-        FYSCloud.API.queryDatabase(
-            "INSERT INTO profiel(voornaam,achternaam,gender,woonplaats,budget,reisbestemming,email,wachtwoord,bio,geboortedatum)" +
-            "values(?,?,?,?,?,?,?,?,?,?)",
-            [firstName, lastName, gender, woonplaats, budget, reisbestemming, gebruikersnaam, wachtwoord, bio, geboortedatum]
-        ).done(function (data) {
-            insertId = data["insertId"];
-            insertInteresse(insertId);
-
-
+        /* Profielfoto uploaden naar de database binnen een specifiek profiel en de gebruiker na het invullen
+        van het registratieformulier redirecten naar de inlogpagina mits het veld niet leeg is */
+        if (profielfoto !== "") {
             FYSCloud.Utils
                 .getDataUrl($("#profielfoto"))
                 .done(function (data) {
@@ -63,32 +187,32 @@ let ready = $(document).ready(function () {
                             console.log(data);
                         });
                     }).fail(function (reason) {
-                        console.log("Het uploaden van je foto is mislukt!");
+                        alert("Het uploaden van je foto is mislukt!");
+                        console.log(reason);
                     });
                 }).fail(function (reason) {
-                console.log(reason);
-            })
-        }).fail(function (data) {
-            console.log(data);
-        });
-
-
-        function insertInteresse(insertId) {
-
-            let interesses = document.querySelectorAll('#multiple-checkboxes option:checked');
-            const values = Array.from(interesses).map(el => el.value);
-            console.log(values);
-
-            for (let i = 0; i < values.length; i++) {
-                let interesses = values[i];
-                FYSCloud.API.queryDatabase("INSERT INTO profiel_has_interesse (Profiel_id, Interesse_id) VALUES (?, ?)", [insertId, interesses])
-                    .done(function (data) {
-                    }).fail(function (data) {
-                    console.log(data);
-                });
-
-            }
-        }
+                console.log(reason)
+            });
+        } else
+            alert("Er is geen foto geüpload!")
     });
 });
+
+/* Interesses/hobby's uploaden naar de database */
+function insertInteresse(insertId) {
+
+    let interesses = document.querySelectorAll('#multiple-checkboxes option:checked');
+    const values = Array.from(interesses).map(el => el.value);
+    console.log(values);
+
+    for (let i = 0; i < values.length; i++) {
+        let interesses = values[i];
+        FYSCloud.API.queryDatabase("INSERT INTO profiel_has_interesse (Profiel_id, Interesse_id) VALUES (?, ?)", [insertId, interesses])
+            .done(function (data) {
+            }).fail(function (data) {
+            console.log(data);
+        });
+    }
+}
+
 
