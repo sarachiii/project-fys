@@ -89,9 +89,8 @@ input, optgroup, select, textarea {
     display: none;
 }
 
-onzichtbaar-2 {
+.onzichtbaar-2 {
     display: none;
-
 }
 
 .inputError {

@@ -103,7 +103,7 @@
         <div class="col-3">
             <label for="profielfoto"><strong>Upload hier uw profielfoto</strong><span class="mandatory-field"> *</span></label>
             <input type="file" class="profile-picture form-control" id="profielfoto" name="profielfoto"
-                   accept="image/png, image/jpeg">
+                   accept="image/png, image/jpeg" >
             <div class="error onzichtbaar" id="error-profielfoto">
                 U heeft geen profielfoto geüpload
             </div>
@@ -278,7 +278,7 @@
             <div class="error onzichtbaar" id="error-email">
                 Vul een geldig e-mailadres in, bijvoorbeeld me@mydomain.com
             </div>
-            <div class="error onzichtbaar-1" id="email-availability">
+            <div id="email-availability" class="error onzichtbaar-1">
                 Er bestaat al een account met dit e-mailadres
             </div>
         </div>
@@ -291,7 +291,7 @@
             <input type="password" class="form-control" id="user-password"
                    name="user-password" placeholder="Password"
                    required onblur="return passwordCheck();">
-            <div class="error onzichtbaar" id="error-password">
+            <div class="error onzichtbaar-2" id="error-password">
                 Vul een geldig wachtwoord in: 8-20 tekens met minimaal een cijfer, een hoofdletter en een kleine letter
             </div>
         </div>
@@ -316,9 +316,11 @@
         <div class="col-4">
             <div class="checkbox mb-3">
                 <label>
-                    <input type="checkbox" name="terms" value="remember-me" id="privacy" required='required'>
+                    <input type="checkbox" name="terms" value="remember-me" id="privacy" required='required' onclick="privacyCheck();">
                     Ik ga akkoord met de <a href="privacyverklaring.html"><strong>privacyverklaring</strong></a>
-                    <div class="alertbox3"></div>
+                    <div class="error onzichtbaar" id="error-privacy">
+                        U moet de privacyverklaring accepteren!
+                    </div>
                 </label>
             </div>
         </div>
