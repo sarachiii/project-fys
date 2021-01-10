@@ -1,5 +1,5 @@
 function firstNameCheck() {
-    let firstNameExp = new RegExp(/^([^0-9]*)$/);
+    let firstNameExp = new RegExp(/^([^0-9!@#$%^&§€*]*)$/);
     let uncheckedFirstName = document.getElementById("firstName");
     let uncheckedFirstNameValue = uncheckedFirstName.value;
 
@@ -16,8 +16,8 @@ function firstNameCheck() {
 }
 
 function lastNameCheck() {
-    let lastNameExp = new RegExp( /^[a-z]$/i);
-    let uncheckedLastName = document.getElementById("firstName");
+    let lastNameExp = new RegExp( /^([^0-9!@#$%^&§€*]*)$/);
+    let uncheckedLastName = document.getElementById("lastName");
     let uncheckedLastNameValue = uncheckedLastName.value;
 
     if (uncheckedLastNameValue !== "") {
@@ -50,7 +50,7 @@ function budgetCheck() {
 }
 
 function passwordCheck() {
-    let passwordExp = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,20})$/);
+    let passwordExp = new RegExp(/^^(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#$%^&*])(?=.{8,})$/);
     let uncheckedPassword = document.getElementById("user-password");
     let uncheckedPasswordValue = uncheckedPassword.value;
 
@@ -66,10 +66,13 @@ function passwordCheck() {
     }
 }
 
+let uncheckedEmailValue;
+let uncheckedEmail;
+
 function emailCheck() {
     let emailExp = new RegExp(/^([a-z\d_-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/);
-    let uncheckedEmail = document.getElementById("email");
-    let uncheckedEmailValue = uncheckedEmail.value;
+    uncheckedEmail = document.getElementById("email");
+    uncheckedEmailValue = uncheckedEmail.value;
 
     if (uncheckedEmailValue !== "") {
         if (emailExp.test(uncheckedEmailValue)) {
@@ -85,33 +88,34 @@ function emailCheck() {
 }
 
 function checkEmailAvailable() {
-    $("#loaderIcon").show();
-    jQuery.ajax({
-        url: "check_availability.php",
-        data: 'email='+$("#email").val(),
-        type: "POST",
-        success:function(data) {
-            $("#email-availability").html(data);
-            $("#loaderIcon").hide();
-        },
-        error:function (){
-        }
-    });
+    if (uncheckedEmailValue !== "") {
+        FYSCloud.API.queryDatabase(
+            "SELECT email FROM profiel WHERE email = ?", [uncheckedEmailValue]
+        ).done(function (data) {
+            if (data.length > 0) {
+                uncheckedEmail.classList.add("inputError");
+                document.getElementById("email-availability").classList.remove("onzichtbaar-1");
+
+            } else {
+                uncheckedEmail.classList.add("inputValid");
+                document.getElementById("email-availability").classList.add("onzichtbaar-1");
+            }
+        }).fail(function (data) {
+            console.log(data);
+        });
+    }
 }
 
 function bioCheck() {
-    let bioExp = new RegExp(/^([a-z\w.]{2,140})?$/);
     let uncheckedBio = document.getElementById("bio");
     let uncheckedBioValue = uncheckedBio.value;
 
     if (uncheckedBioValue !== "") {
-        if (bioExp.test(uncheckedBioValue)) {
-            uncheckedBio.classList.remove("inputError");
-            document.getElementById("error-bio").classList.add("onzichtbaar");
-        } else {
-            document.getElementById("error-bio").classList.remove("onzichtbaar");
-            uncheckedBio.classList.add("inputError");
-        }
+        uncheckedBio.classList.remove("inputError");
+        document.getElementById("error-bio").classList.add("onzichtbaar");
+    } else {
+        document.getElementById("error-bio").classList.remove("onzichtbaar");
+        uncheckedBio.classList.add("inputError");
     }
 }
 
