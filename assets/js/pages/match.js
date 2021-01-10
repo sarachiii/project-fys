@@ -93,7 +93,11 @@ function getUsers() {
 //<-------------------12 beste match kaartjes vullen------------------------->
 function showUsers() {
     rowElement.children().remove();
-
+    if(gefilterdeProfielen.length == 0){
+        rowElement.append(`
+        <div class="geenResultaat"><p>Geen resultaat...</p></div>`
+        );
+    }
     if(i == 0){
       j = 1;
     } else if (i == 1){
@@ -107,7 +111,7 @@ function showUsers() {
         let age = new Date().getFullYear() - new Date(profiel.geboortedatum).getFullYear();
         rowElement.append(`
                             <div data-profile-id="${profiel.id}" class="col-xl-3  col-lg-6 my-col mt-2 w-2 card" data-budget="${profiel.budget}" data-age="${age}">
-                                <span class="teller">${j}</span>
+                                <span class="teller" style="font-size:180%; color: crimson;">${j} &starf;</span>
                                 <img class="card-img-top mx-auto profile-picture" src="${profiel.profielfoto}" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title" data-firstName="voornaam" id="voornaam">${profiel.voornaam}, ${age}</h5>

@@ -1,0 +1,26 @@
+body{
+    background: -webkit-linear-gradient(left, #ffccd1, #ffeeef);
+}
+
+/* Profiel vak */
+#profiel{
+    padding: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+
+#sendEmail{
+    background-color: #ff5768;
+    border: none;
+
+}
+.content-right{
+    justify-content: right;
+}
+
+
+#profielplaatje{
+    border-radius: 50%;
+}
