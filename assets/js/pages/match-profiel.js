@@ -47,6 +47,7 @@ $(document).ready(function () {
     console.log(id);
 //<---------------------------------------The Email sending system ----------------------------------------------->
     $("#sendEmail").on("click", function () {
+
         FYSCloud.API.queryDatabase(
             "SELECT voornaam, email FROM profiel WHERE id = ? OR id = ?",[id ,userId]
         ).done(function (profiel) {
@@ -75,7 +76,7 @@ $(document).ready(function () {
             }).done(function (data) {
                 alertbox.append(
                     `<div class="alert alert-success" role="alert">
-                    Email verzonden!
+                    Er is een e-mail gestuurd naar de persoon, wacht het antwoord af :)
                     </div>`
                 );
                 console.log(data);
@@ -89,5 +90,8 @@ $(document).ready(function () {
         }).fail(function (reason) {
             console.log(reason);
         });
+
+        document.getElementById('sendEmail').style.display = 'block';
+        this.style.display = 'none'
     });
 });

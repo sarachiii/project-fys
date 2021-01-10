@@ -1,7 +1,9 @@
 function check() {
 
     /* Patroon waar het wachtwoord aan voldoen moet */
-    let regex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})");
+    // let regex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})");
+    // let passwordExp = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,20})$/);
+    var regex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
     let ww1 = document.getElementById("nieuw_wachtwoord");
     let ww1_value = ww1.value;
     let ww2 = document.getElementById("bevestig_wachtwoord");
@@ -13,10 +15,13 @@ function check() {
     if(ww1_value != "") {
         if (regex.test(ww1_value)) {
             ww1.classList.remove("inputError");
+            ww1.classList.add("inputGood");
             document.getElementById("errorveld1").classList.add("verborgen");
             if (ww2_value !== "") {
                 if (ww1_value == ww2_value) {
+                    ww2.classList.add("inputGood");
                     ww2.classList.remove("inputError");
+                    document.getElementById("errorveld2").classList.add("verborgen");
                     return true;
                 }
                 ww2.classList.add("inputError");
@@ -50,7 +55,6 @@ $( document ).ready(function() {
                 ).done(function (data) {
                     insertId = data["insertId"];
                     console.log(data);
-                    alert("Nieuw wachtwoord is ingesteld!")
                     FYSCloud.URL.redirect("profiel.html");
                 }).fail(function (data) {
                     console.log(data);
