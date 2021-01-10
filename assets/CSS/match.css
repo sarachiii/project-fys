@@ -100,6 +100,19 @@ html, body{
     top: 80%;
     left: 1%;
 }
+
+#vorigematch{
+    position: absolute;
+    top: 100%;
+    left: 1%;
+}
+
+#volgendematch{
+    position: absolute;
+    top: 100%;
+    left: 7%;
+}
+
 /*Content*/
 .content{
     width: 80%;
