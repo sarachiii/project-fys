@@ -28,7 +28,7 @@ function check() {
         }
         return false;
     }
-};
+}
 
 /* Check of het wachtwoord overeen en stuurt het dan naar de databse op */
 $( document ).ready(function() {
