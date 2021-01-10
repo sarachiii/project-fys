@@ -1,45 +1,48 @@
+/* Styling (font) body elements */
 body {
     margin: 0;
     font-family: Open Sans, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
 }
 
+/* Styling h3 elements */
 h3 {
     text-align: center;
     font-family: Open Sans, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
     font-weight: normal;
 }
 
+/* Styling h4 elements */
+.h4 {
+    font-family: "Sansita Swashed", Open Sans, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
+    color: #ff5768 !important;
+}
+
+/* Styling buttons */
 button {
     background: #ff5768 !important;
     border-color: #ff5768 !important;
     font-family: Open Sans, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
 }
 
-.try {
+/* Styling profielfoto uploaden */
+.profile-picture {
     background: #ff5768 !important;
     border-color: #ff5768 !important;
     color: white !important;
     font-family: Open Sans, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
 }
 
-.h3 {
-    font-size: 2.5vw;
-}
-
-.h4 {
-    font-size: 1.5vw;
-}
-
+/* Positionering tekst naast checkbox*/
 .checkbox-text {
     margin-left: auto;
 }
 
-/* width voor input-velden */
+/* Breedte voor input-velden */
 input[type="password"], input[type="file"], input[type="email"], input[type="text"], input[type="date"]{
     width: 250px;
 }
 
-/* kleur, font, margin en positie voor invoerelementen van het formulier */
+/* Kleur, font, margin en positie voor invoerelementen van het formulier */
 input, optgroup, select, textarea {
     color: inherit;
     font-family: Open Sans, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
@@ -47,13 +50,13 @@ input, optgroup, select, textarea {
     position: relative;
 }
 
-/* styling hobbycategorieën */
+/* Styling hobbycategorieën */
 .unselected {
     font-weight: bold !important;
     color: #ff5768 !important;
 }
 
-/* dropdown button */
+/* Styling dropdownmenu */
 .dropdown-primary {
     background-color: #ff5768 !important;
     color: #ffffff !important;
@@ -61,12 +64,27 @@ input, optgroup, select, textarea {
     padding: 5px;
 }
 
-/* hoogte van het biografievakje */
+/* Hoogte van het biografievakje */
 .bio {
     height: 100px !important;
 }
 
-/* sterretje dat aangeeft dat de invoervelden verplicht zijn */
+/* Sterretje dat aangeeft dat de invoervelden verplicht zijn */
 .mandatory-field {
     color: #ff5768;
+}
+
+/* Input validation */
+.error {
+    color: red;
+    display: block;
+    font-size: small;
+}
+
+.onzichtbaar {
+    display: none;
+}
+
+.inputError {
+    border: 2px solid red;
 }
