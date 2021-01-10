@@ -219,8 +219,8 @@ $(document).ready(function () {
                             alertbox2.children().remove();
                             alertbox2.append(
                                 `<div class="alert alert-danger" role="alert">
-                       Upload een profielfoto      
-                       </div>`);
+                        Upload een profielfoto      
+                        </div>`);
                             window.scroll({
                                 top: 0,
                                 left: 0,
@@ -231,8 +231,8 @@ $(document).ready(function () {
                     alertbox2.children().remove();
                     alertbox2.append(
                         `<div class="alert alert-danger" role="alert">
-                       Upload een profielfoto      
-                       </div>`);
+                        Upload een profielfoto      
+                        </div>`);
                     window.scroll({
                         top: 0,
                         left: 0,
