@@ -52,31 +52,33 @@
         <div class="max-budget-slider">
             <h4>Maximum budget</h4>
             <div class="budgetSlider d-flex justify-space-between">
-                <input id="budget-slider" type="range" min="100" max="3000" value="3000">
+                <input id="budget-slider" type="range" step="100" min="100" max="3000" value="3000">
                 <div class="ml-3" id="budget-slider-value">3000</div>
             </div>
         </div>
         <div class="max-age-slider">
-            <h4>Maximum leeftijd</h4>
+            <h4 >Maximum leeftijd</h4>
             <div class="ageSlider d-flex justify-space-between">
-                <input id="age-slider" type="range" min="18" max="100" value="100">
+                <input id="age-slider" type="range" step="5" min="20" max="100" value="100">
                 <div class="ml-3" id="age-slider-value">100</div>
             </div>
         </div>
         <button type="button" id="apply-changes" class="btn btn-primary mt-5 apply-changes-button">Veranderingen
             toepassen
         </button>
-        <button type="button" id="vorigematch" class="btn btn-secondary">Vorige 12</button>
-        <button type="button" id="volgendematch" class="btn btn-secondary">Volgende 12</button>
     </div>
+
+
 
     <!--------------------------------------DE MATCH CARDS------------------------------------------->
     <div class="content" id="content">
+        <div class="d-flex justify-content-center">
+            <button type="button" id="vorigematch" class="btn btn-secondary">&larr;</button>
+            <button type="button" id="volgendematch" class="btn btn-secondary">&rarr;</button>
+        </div>
         <div class="row my-row">
         </div>
     </div>
-</div>
-
 
 
 <!--------------------------------------------------JAVASCRIPT------------------------------------------------->
@@ -91,5 +93,6 @@
 <script type="text/javascript" src="assets/js/checklogin.js"></script>
 <script type="text/javascript" src="assets/js/loguit.js"></script>
 <script type="text/javascript" src="assets/js/config.js"></script>
+
 </body>
 </html>
