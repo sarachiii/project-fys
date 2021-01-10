@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    if(check(true)) {
         $("#reset").on("click", function () {
             let email = document.getElementById("inputEmail");
             let emailValue = email.value;
@@ -27,6 +26,9 @@ $(document).ready(function () {
                         subject: "Wachtwoord BudgetBuddy",
                         html: `<h1>Hallo ${voornaam}!</h1><p>Uw wachtwoord is: ${wachtwoord} </p>`
                     }).done(function (data) {
+                        window.setTimeout(function() {
+                            FYSCloud.URL.redirect('login.html');
+                        }, 2000);
                         alertbox.append(
                             `<div class="alert alert-success" role="alert">
                     Er is een e-mail verstuurd met instructies.
@@ -47,7 +49,6 @@ $(document).ready(function () {
                 document.getElementById("errorveld3").classList.remove("verborgen");
             }
         });
-    }
 });
 
 function check() {
