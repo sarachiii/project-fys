@@ -56,19 +56,20 @@
                 <h3>Wijzig uw wachtwoord</h3>
                 <hr>
                 <br>
-                <label for="nieuw_wachtwoord">Nieuw wachtwoord (min: 8 karakters, 1 hoofdletter, 1 kleineletter):</label>
+                <label for="nieuw_wachtwoord">Nieuw wachtwoord:</label>
                 <br>
                 <input type="password" id="nieuw_wachtwoord" name="user-password" onblur="return check();"
-                       title="Wachtwoord moet een nummer, hoofletter en kleine letter bevatten, en moet uit minstens 8 karakters bestaan"
-                       minlength="8" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                       title="Vul een geldig wachtwoord in: 8-20 tekens met minimaal een cijfer, een hoofdletter, kleine letter en een speciaal teken"
+                       required>
                     <div class="errorveld verborgen" id="errorveld1">
-                       Wachtwoord voldoet niet aan standaard.
+                        Vul een geldig wachtwoord in: 8-20<br>tekens met minimaal een cijfer, een hoofdletter,<br>kleine letter en een speciaal teken
                     </div>
                     <br>
                 <br>
                 <label for="bevestig_wachtwoord">Bevestig wachtwoord:</label>
                 <br>
-                <input type="password" id="bevestig_wachtwoord" onblur="return check();" name="user-password" title="Wachtwoord moet een nummer, hoofletter en kleine letter bevatten, en moet uit minstens 8 karakters bestaan"
+                <input type="password" id="bevestig_wachtwoord" onblur="return check();" name="user-password"
+                       title="Vul een geldig wachtwoord in: 8-20 tekens met minimaal een cijfer, een hoofdletter, kleine letter en een speciaal teken"
                         required >
                     <div class="errorveld verborgen" id="errorveld2">
                         Wachtwoord komt niet overeen.

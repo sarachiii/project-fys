@@ -24,3 +24,20 @@ body{
 #profielplaatje{
     border-radius: 50%;
 }
+
+.button {font-size: 0px;min-width: 100px;min-height: 22px;}
+
+.button::after {font-size: 14px;}
+
+.button::after {
+    content: "Ik wil BudgetBuddy worden!";
+}
+.button:hover::after {
+    content: "Verstuur e-mail!";
+}
+
+.button:hover {
+    background-color: green;
+    border: 0px solid #1292e1;
+    color: white !important;
+}

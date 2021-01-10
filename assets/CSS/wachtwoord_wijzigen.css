@@ -31,12 +31,17 @@ body{
     border: 2px solid red;
 }
 
+.inputGood {
+    border: 2.5px solid green;
+}
+
 .errorveld {
     color: red;
     display: block;
+    font-size: small;
 }
 
-.verborgen{
+.verborgen {
     display: none;
 }
 
