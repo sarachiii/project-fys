@@ -138,14 +138,11 @@ function showUsers() {
 
 //Functie voor volgende knop
 $("#volgendematch").on("click", function () {
-    //Kan alleen 3 pagina's verder geklikt worden
+    //Er kunnen alleen 3 pagina's getoond worden
     console.log(j);
     if (i < 2) {
         i++;
         showUsers();
-        // if(gefilterdeProfielen.length % 12 == 0) {
-        //     showUsers();
-        // }
     }
 });
 
@@ -159,7 +156,7 @@ $("#vorigematch").on("click", function () {
     }
 });
 
-// alleen de laatste waarde bewaren van de array
+// alleen de unieke waardes bewaren van de array
 function uniqByKeepLast(a, key) {
     return [
         ...new Map(
