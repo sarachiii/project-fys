@@ -90,7 +90,7 @@ input, optgroup, select, textarea {
 }
 
 onzichtbaar-2 {
-    display: none !important;
+    display: none;
 
 }
 

@@ -5,10 +5,17 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 
-
-
     <!-- FYS Cloud JS -->
     <script src="https://cdn.fys.cloud/fyscloud/0.0.3/fyscloud.bundle.min.js"></script>
+
+    <!-- Paginaspecifieke CSS -->
+    <link rel="stylesheet" href="assets/CSS/index.css">
+    <link rel="stylesheet" href="assets/CSS/privacyverklaring.css">
+
+    <!-- Font styling -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap" rel="stylesheet">
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -17,17 +24,6 @@
             integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
             crossorigin="anonymous"></script>
 
-    <!-- Paginaspecifieke CSS -->
-    <link rel="stylesheet" href="assets/CSS/index.css">
-
-    <!-- Hobby's multiselect -->
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
-
-    <!-- Paginaspecifieke JS -->
-    <script src="assets/js/config.js"></script>
     <title>Budget Buddy</title>
 </head>
 
@@ -45,13 +41,13 @@
     <div class="collapse navbar-collapse" id="navbarMenu">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html" class="nav-link streepjerechts">Home</a>
             </li>
             <li class="nav-item">
-                <a href="over_simpel.html" class="nav-link">Over</a>
+                <a href="over_simpel.html" class="nav-link streepjerechts">Over</a>
             </li>
             <li class="nav-item">
-                <a href="login.html" class="nav-link">Log in</a>
+                <a href="login.html" class="nav-link streepjerechts">Log in</a>
             </li>
         </ul>
     </div>
@@ -61,21 +57,19 @@
 <div class="container-fluid padding">
     <div class="row my-row welcome text-center">
         <div class="col-12">
-            <h1 class="overons">Wie zijn wij?</h1>
+            <h1 class="overons h1">Wie zijn wij?</h1>
         </div>
 
         <div class="col-12">
-            <p class="lead">ATOS, gevestigd te Amsterdam, Nederland, en te contacteren via (email) of (adres). Wij staan ingeschreven in het handelsregister van de Kamer van Koophandel onder nummer (nummer).</p>
+            <p class="lead">ATOS, gevestigd te Amsterdam, Nederland, en te contacteren via (email) of (adres). Wij staan
+                ingeschreven in het handelsregister van de Kamer van Koophandel onder nummer 123456789.</p>
         </div>
     </div>
 </div>
 <div class="image-wrapper">
     <div class="text-wrapper">
-        <h3>Wie zijn wij?</h3>
 
-        ATOS, gevestigd te Amsterdam, Nederland, en te contacteren via (email) of (adres). Wij staan ingeschreven in het handelsregister van de Kamer van Koophandel onder nummer (nummer).
-
-       <h3>Welke gegevens verzamelen wij?</h3>
+        <h3 class="h3">Welke gegevens verzamelen wij?</h3>
 
         <ul>
             <li>Voor- en achternaam</li>
@@ -84,47 +78,72 @@
             <li>Woonplaats</li>
             <li>Reisbudget</li>
             <li>Reisbestemming</li>
-            <li>Gebruikersnaam</li>
+            <li>E-mailadres</li>
             <li>Wachtwoord</li>
         </ul>
 
-        <h3>Waarom verzamelen wij deze gegevens?</h3>
+        <h3 class="h3">Waarom verzamelen wij deze gegevens?</h3>
 
-        Wij verzamelen deze gegevens om de regels van onze lidmaatschap procedures te volgen. Deze gegevens zijn noodzakelijk voor het innen van lidmaatschapsgeld, het uitgeven van ledenpassen en het beschermen van de belangen van onze leden.
+        Wij verzamelen deze gegevens om de regels van onze lidmaatschap procedures te volgen. Deze gegevens zijn
+        noodzakelijk voor het innen van lidmaatschapsgeld, het uitgeven van ledenpassen en het beschermen van de
+        belangen van onze leden.
 
-        <h3>Met wie delen wij deze gegevens?</h3>
+        <h3 class="h3">Met wie delen wij deze gegevens?</h3>
 
         Deze gegevens worden niet met andere partijen gedeeld.
 
-        <h3>Zullen deze gegevens worden overgedragen naar buiten de EU?</h3>
+        <h3 class="h3">Zullen deze gegevens worden overgedragen naar buiten de EU?</h3>
 
         Nee.
 
-        <h3>Hoe lang bewaren wij deze gegevens?</h3>
+        <h3 class="h3">Hoe lang bewaren wij deze gegevens?</h3>
 
-        We bewaren deze gegevens zo lang als nodig is om aan onze wettelijke verplichtingen voor het bijhouden van gegevens te voldoen. Dit betekent dat de gegevens maximaal zeven (7) jaar worden bewaard voor financiële rapporteringsbehoeften.
+        We bewaren deze gegevens zo lang als nodig is om aan onze wettelijke verplichtingen voor het bijhouden van
+        gegevens te voldoen. Dit betekent dat de gegevens maximaal zeven (7) jaar worden bewaard voor financiële
+        rapporteringsbehoeften.
 
-        <h3>Hoe beveiligen wij persoonsgegevens?</h3>
+        <h3 class="h3">Hoe beveiligen wij persoonsgegevens?</h3>
 
-        ATOS zet zich met hart en ziel in voor de bescherming van jouw gegevens en neemt passende maatregelen om misbruik, verlies, onbevoegde toegang, ongewenste openbaarmaking en ongeoorloofde wijziging tegen te gaan.
+        ATOS zet zich met hart en ziel in voor de bescherming van jouw gegevens en neemt passende maatregelen om
+        misbruik, verlies, onbevoegde toegang, ongewenste openbaarmaking en ongeoorloofde wijziging tegen te gaan.
 
-        Als jij het idee hebt dat jouw gegevens toch niet voldoende beveiligd zijn, dat er aanwijzingen zijn van misbruik of je hebt een beveilingslek gevonden, neem dan contact op met de secretaris via (email).
+        Als jij het idee hebt dat jouw gegevens toch niet voldoende beveiligd zijn, dat er aanwijzingen zijn van
+        misbruik of je hebt een beveilingslek gevonden, neem dan contact op met de secretaris via (email).
     </div>
 </div>
 
 <!-- Foto -->
-<div class="toscew">
-    <h1 class="suntext">Follow the sun</h1>
-    <img class="tounscew" src="https://www.planetware.com/wpimages/2019/12/mexico-best-beaches-akumal-beach.jpg"
-         alt="Vacation photo">
+<div class="container-fluid">
+    <div class="row vakantie">
+        <div class="col-md-12">
+            <div class="strandplaatje row padding">
+                <h2 class="suntext">Follow the sun</h2>
+                <img class="img-fluid" src="assets/Plaatjes/beach3.jpg" width="100%" alt="Vacation photo">
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row advertentie">
+        <div class="col-xs-12 col-md-6">
+            <a href="https://corendon.nl">
+                <img class="img-fluid" src="assets/Plaatjes/corendonreclame.png" width="100%" alt="Corendonreclame">
+            </a>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <a href="https://corendon.nl">
+                <img class="img-fluid" src="assets/Plaatjes/corendonreclame(1).png" width="100%" alt="Corendonreclame">
+            </a>
+        </div>
+    </div>
 </div>
+
 <footer>
     <div class="container-fluid padding">
         <div class="row text-center">
             <div class="col-md-4">
-                <H4><a href="faq_simpel.html" style="color: rgba(255, 87, 104, 1);" class="faq"><strong><u>FAQ</u></strong></a></H4>
+                <H4><a href="faq_simpel.html" style="color: white;" class="faq"><strong><u>FAQ</u></strong></a></H4>
                 <hr class="light">
-                <p>Copyright &copy; 2020 ATOS. All Rights Reserved.</p>
+                <p>Copyright &copy; 2020 ATOS. Alle rechten voorbehouden.</p>
             </div>
             <div class="col-md-4">
                 <h4><strong>Contact</strong></h4>
@@ -135,8 +154,8 @@
             <div class="col-md-4">
                 <h4><strong>Adres</strong></h4>
                 <hr class="light">
-                <p>Amsterdam, Noord-Holland, 1066XX</p>
                 <p>Amsterdamsesteeg 110</p>
+                <p>Amsterdam, Noord-Holland, 1066XX</p>
             </div>
         </div>
     </div>

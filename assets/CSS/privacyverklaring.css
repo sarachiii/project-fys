@@ -1,0 +1,17 @@
+body, html{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: Open Sans, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
+}
+
+.h1 {
+    font-family: "Sansita Swashed", Open Sans, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
+    color: #ff5768 !important;
+    font-weight: bold;
+}
+
+.h3 {
+    font-family: "Sansita Swashed", Open Sans, AppleSystemUIFont, Helvetica, Arial, sans-serif !important;
+    color: #ff5768 !important;
+}
