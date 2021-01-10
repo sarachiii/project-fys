@@ -23,7 +23,7 @@ function check() {
         }).fail(function (data) {
             console.log(data);
         });
-    };
+    }
 
     /* checkt of zowel de gebruikersnaam als het wachtwoord overeenkomen, maar alleen als beide velden zijn ingevuld */
     if (gebruikersnaamValue !== "" && wachtwoordValue !== "") {
@@ -40,8 +40,8 @@ function check() {
         }).fail(function (data) {
             console.log(data);
         });
-    };
-};
+    }
+}
 
 /* Deze functie wordt aangeroepen als je op de log in knop klikt en controleert of gebruikersnaam en wachtwoord goed zijn,
 *  bij correcte invoer kom je op de ingelogde omgeving, bij foutieve invoer krijg je een foutmelding.
