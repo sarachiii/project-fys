@@ -85,18 +85,6 @@ function emailCheck() {
 }
 
 function checkEmailAvailable() {
-    $("#loaderIcon").show();
-    jQuery.ajax({
-        url: "check_availability.php",
-        data: 'email='+$("#email").val(),
-        type: "POST",
-        success:function(data) {
-            $("#email-availability").html(data);
-            $("#loaderIcon").hide();
-        },
-        error:function (){
-        }
-    });
 }
 
 function bioCheck() {
