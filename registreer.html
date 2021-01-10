@@ -47,7 +47,7 @@
                 <a href="index.html" class="nav-link streepjerechts">Home</a>
             </li>
             <li class="nav-item">
-                <a href="over_simpel.html" class="nav-link streepjerechts">Over</a>
+                <a href="over_simpel.html" class="streepjerechts nav-link">Over</a>
             </li>
             <li class="nav-item">
                 <a href="login.html" class="nav-link">Log in</a>
@@ -55,7 +55,9 @@
         </ul>
     </div>
 </nav>
-
+<div class="alertbox"></div>
+<div class="alertbox1"></div>
+<div class="alertbox2"></div>
 <!-- Main content: registratieformulier -->
 <div class="container">
     <div class="row my-row justify-content-center align-items-end">
@@ -276,9 +278,9 @@
             <div class="error onzichtbaar" id="error-email">
                 Vul een geldig e-mailadres in, bijvoorbeeld me@mydomain.com
             </div>
-            <div class="onzichtbaar-1" id="email-availability">
+            <!-- div id="email-availability">
                 Er bestaat al een account met dit e-mailadres
-            </div>
+            </--div -->
         </div>
     </div>
 
@@ -290,7 +292,7 @@
                    name="user-password" placeholder="Password"
                    required onblur="return passwordCheck();">
             <div class="error onzichtbaar" id="error-password">
-                Vul een geldig wachtwoord in: 8-20 tekens met minimaal een cijfer, een hoofdletter, een speciaal teken en een kleine letter
+                Vul een geldig wachtwoord in: 8-20 tekens met minimaal een cijfer, een hoofdletter en een kleine letter
             </div>
         </div>
     </div>
@@ -314,8 +316,9 @@
         <div class="col-4">
             <div class="checkbox mb-3">
                 <label>
-                    <input type="checkbox" name="terms" value="remember-me" required>
+                    <input type="checkbox" name="terms" value="remember-me" id="privacy" required='required'>
                     Ik ga akkoord met de <a href="privacyverklaring.html"><strong>privacyverklaring</strong></a>
+                    <div class="alertbox3"></div>
                 </label>
             </div>
         </div>
@@ -336,18 +339,18 @@
     <div class="container-fluid padding">
         <div class="row text-center">
             <div class="col-md-4">
-                <h4><a href="faq_simpel.html" style="color: white" class="faq"><strong><u>FAQ</u></strong></a></H4>
+                <h4 class="font-weight-bold"><a href="faq_simpel.html" style="color: white" class="faq"><strong><u>FAQ</u></strong></a></H4>
                 <hr class="light">
                 <p>Copyright &copy; 2020 ATOS. All Rights Reserved.</p>
             </div>
             <div class="col-md-4">
-                <h4>Contact</h4>
+                <h4 class="font-weight-bold">Contact</h4>
                 <hr class="light">
                 <p>020-346856264</p>
                 <p>budgetbuddy@corendon.nl</p>
             </div>
             <div class="col-md-4">
-                <h4>Adres</h4>
+                <h4 class="font-weight-bold">Adres</h4>
                 <hr class="light">
                 <p>Amsterdam, Noord-Holland, 1066XX</p>
                 <p>Amsterdamsesteeg 110</p>
